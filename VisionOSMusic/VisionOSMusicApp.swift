@@ -1,18 +1,17 @@
-//
-//  VisionOSMusicApp.swift
-//  VisionOSMusic
-//
-//  Created by Javier Laguna on 13/7/23.
-//
 
 import SwiftUI
 
 @main
 struct VisionOSMusicApp: App {
+    
+    @State private var mainVM = MainViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environment(mainVM)
         }
+        .windowStyle(.plain)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()
