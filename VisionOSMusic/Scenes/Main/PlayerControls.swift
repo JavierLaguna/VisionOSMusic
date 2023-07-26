@@ -7,29 +7,29 @@ struct PlayerControls: View {
     
     var body: some View {
         HStack(spacing: 32) {
-            Button {
-                viewModel.previousSong()
-            } label: {
+            Button(action: viewModel.previousSong, label: {
                 Image(systemName: "backward")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40)
-            }
+                
+            })
             
-            Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 48)
+            Button(action: viewModel.onPressPlayPauseButton, label: {
+                Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 48, height: 88)
+                    .padding(.leading, viewModel.isPlaying ? 0 : 8)
+            })
             
-            Button {
-                viewModel.nextSong()
-            } label: {
+            Button(action: viewModel.nextSong, label: {
                 Image(systemName: "forward")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40)
                 
-            }
+            })
         }
         .padding(.vertical, 16)
         .padding(.horizontal, 32)
