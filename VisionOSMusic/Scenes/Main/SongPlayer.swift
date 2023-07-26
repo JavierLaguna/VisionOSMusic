@@ -3,9 +3,10 @@ import SwiftUI
 
 struct SongPlayer: View {
 
+    @Environment(MainViewModel.self) private var viewModel
+
+    // TODO: Remove use viewModel song
     private let song: Song
-    
-    @State private var slider = 0.0
     
     init(song: Song) {
         self.song = song
@@ -38,9 +39,10 @@ struct SongPlayer: View {
                     .font(.caption2)
                     .fontWeight(.light)
             
-                Slider(value: $slider, in: 0...1)
+                Slider(value: .constant(viewModel.playingSliderValue), in: 0...1)
                     .disabled(true)
                     .frame(width: 180)
+                    .animation(.linear, value: viewModel.playingSliderValue)
                 
                 Text(song.duration)
                     .font(.caption2)

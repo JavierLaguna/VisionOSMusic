@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490BF6062A71596D008CB8F3 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6052A71596D008CB8F3 /* PlayerStatus.swift */; };
+		490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6072A71628F008CB8F3 /* TimerUtils.swift */; };
 		4969FA782A666BDD001CFC54 /* SongPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969FA772A666BDD001CFC54 /* SongPlayer.swift */; };
 		4989D39F2A6045F50040A41F /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 4989D39E2A6045F50040A41F /* RealityKitContent */; };
 		4989D3A12A6045F50040A41F /* VisionOSMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989D3A02A6045F50040A41F /* VisionOSMusicApp.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490BF6052A71596D008CB8F3 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
+		490BF6072A71628F008CB8F3 /* TimerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtils.swift; sourceTree = "<group>"; };
 		4969FA772A666BDD001CFC54 /* SongPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlayer.swift; sourceTree = "<group>"; };
 		4989D3992A6045F50040A41F /* VisionOSMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionOSMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4989D39D2A6045F50040A41F /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				49B43BF72A702738007E9986 /* Extensions */,
+				490BF6072A71628F008CB8F3 /* TimerUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 		49BC06782A60566200105373 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				490BF6052A71596D008CB8F3 /* PlayerStatus.swift */,
 				49BC06792A60567600105373 /* Playlist.swift */,
 				49BC06882A61332F00105373 /* Song.swift */,
 			);
@@ -277,7 +283,9 @@
 				4989D3A52A6045F50040A41F /* ImmersiveView.swift in Sources */,
 				49BC06832A60649800105373 /* PlaylistCellView.swift in Sources */,
 				49BC067A2A60567600105373 /* Playlist.swift in Sources */,
+				490BF6062A71596D008CB8F3 /* PlayerStatus.swift in Sources */,
 				4969FA782A666BDD001CFC54 /* SongPlayer.swift in Sources */,
+				490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
