@@ -7,7 +7,7 @@ struct Song: Identifiable, Equatable, Hashable {
     let author: String
     let duration: String
     
-    var durationSegs: Int {
-        60 // TODO: Unmock
+    var durationOnSegs: Int? {
+        duration.timeToInt()
     }
 }

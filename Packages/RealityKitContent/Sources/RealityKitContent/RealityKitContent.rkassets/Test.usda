@@ -1,0 +1,19 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "arcade" (
+        active = true
+        prepend references = @arcade.usd@</Madcatz_Fight_Stick>
+    )
+    {
+        float3 xformOp:translate = (0.00020701501, 0, 0.017163843)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

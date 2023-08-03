@@ -42,6 +42,15 @@ struct PlaylistContentView: View {
         }
     }
     
+    @ViewBuilder
+    func link(song: Song) -> some View { // TODO: JLI
+        NavigationLink {
+            SongDetailView(song: song)
+        } label: {
+            songTableCell(song: song)
+        }
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -52,12 +61,22 @@ struct PlaylistContentView: View {
                     .hoverEffect(.highlight)
                 
                 VStack(alignment: .leading) {
+                    Text("Playlist")
+                        .font(.caption)
+                    
                     Text(playlist.name)
                         .font(.extraLargeTitle)
                         .fontWeight(.bold)
                     
                     Text(playlist.author)
                         .fontWeight(.light)
+                    
+                    HStack {
+                        Image(systemName: "timer")
+                        
+                        Text(playlist.totalDuration)
+                            .fontWeight(.light)
+                    }
                 }
                 
                 Spacer()
@@ -70,9 +89,18 @@ struct PlaylistContentView: View {
                         viewModel.play(playlist)
                     }
             }
+            .padding(.vertical, 16)
+            .padding(.horizontal, 32)
             .background {
-                LinearGradient(colors: [.green, .clear], startPoint: .top, endPoint: .bottom)
+                GeometryReader {
+                    LinearGradient(
+                        colors: [.accent, .clear],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .frame(height: $0.size.height + 48)
                     .ignoresSafeArea(.all, edges: .all)
+                }
             }
             
             Table(playlist.songs) {
@@ -82,7 +110,7 @@ struct PlaylistContentView: View {
                 .width(32)
                 
                 TableColumn("Song") {
-                    songTableCell(song: $0)
+                    link(song: $0)
                 }
                 
                 TableColumn("Album", value: \.album)
@@ -91,7 +119,11 @@ struct PlaylistContentView: View {
             }
             
         }
-        .padding()
+        .clipShape(.rect(cornerRadius: 16))
+        .padding(.vertical, 20)
+        .padding(.horizontal, 16)
+//        .navigationTitle("PLAYU")
+//        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

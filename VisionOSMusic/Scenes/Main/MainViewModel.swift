@@ -31,12 +31,14 @@ final class MainViewModel {
         return currentPlaylist?.songs.firstIndex(of: currentSong)
     }
     
-    var playingSliderValue: Double { // Between 0 and 1
-        guard let currentSong, let currentSongSecond else {
+    var playingSliderValue: Double { // Between 0.0 and 1.0
+        guard let currentSongSecond,
+              let currentSongDuration = currentSong?.durationOnSegs
+        else {
             return 0.0
         }
         
-        return (1.0 * Double(currentSongSecond)) / Double(currentSong.durationSegs)
+        return (1.0 * Double(currentSongSecond)) / Double(currentSongDuration)
     }
     
     func play(_ playlist: Playlist) {
@@ -64,7 +66,7 @@ final class MainViewModel {
         else {
             return
         }
-    
+        
         currentSong = nextSong
     }
     
@@ -92,21 +94,24 @@ private extension MainViewModel {
     }
     
     func updatePlayingTime() async {
-        guard isPlaying, let currentSongSecond, let currentSong else {
+        guard isPlaying,
+              let currentSongSecond,
+              let currentSongDuration = currentSong?.durationOnSegs
+        else {
             return
         }
         
         let nextSec = currentSongSecond + 1
         print("Updated time:", nextSec, playingSliderValue)
-        if nextSec <= currentSong.durationSegs {
+        
+        if nextSec <= currentSongDuration {
             self.currentSongSecond = nextSec
-            
-            await TimerUtils.waitTime(time: .seconds(1))
-            
-            await updatePlayingTime()
-            
         } else {
             nextSong()
         }
+        
+        await TimerUtils.waitTime(time: .seconds(1))
+        
+        await updatePlayingTime()
     }
 }

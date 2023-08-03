@@ -35,18 +35,20 @@ struct SongPlayer: View {
             }
             
             HStack {
-                Text("0:00")
+                Text(viewModel.currentSongSecond?.secondsFormattedToString() ?? "0:00")
                     .font(.caption2)
                     .fontWeight(.light)
+                    .monospacedDigit()
             
                 Slider(value: .constant(viewModel.playingSliderValue), in: 0...1)
-                    .disabled(true)
+                    .tint(.accentColor)
                     .frame(width: 180)
                     .animation(.linear, value: viewModel.playingSliderValue)
                 
                 Text(song.duration)
                     .font(.caption2)
                     .fontWeight(.light)
+                    .monospacedDigit()
             }
         }
         .padding(.vertical, 16)
@@ -57,4 +59,5 @@ struct SongPlayer: View {
 
 #Preview {
     SongPlayer(song: Song.mockSong)
+        .environment(MainViewModel())
 }

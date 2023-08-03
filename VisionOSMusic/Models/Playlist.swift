@@ -7,4 +7,13 @@ struct Playlist: Identifiable, Equatable {
     let likes: Int
     let description: String?
     let songs: [Song]
+    
+    var authors: String {
+        songs.map { $0.author }.joined(separator: ", ")
+    }
+    
+    var totalDuration: String {
+        songs.reduce(0) { $0 + ($1.duration.timeToInt() ?? 0) }
+            .secondsFormattedToString()
+    }
 }

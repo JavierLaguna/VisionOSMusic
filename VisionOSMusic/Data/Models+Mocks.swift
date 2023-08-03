@@ -6,7 +6,7 @@ extension Playlist {
     static let mockPlaylist = mockPlaylists.first!
     
     static let mockPlaylists = [
-        Playlist(id: UUID().uuidString, name: "Rock", image: "playlist_rock", author: "Javier Laguna", likes: 666, description: nil,
+        Playlist(id: UUID().uuidString, name: "Rock", image: "playlist_rock", author: "Javier Laguna", likes: 666, description: "hola description",
                  songs: [
                     Song.mockSong,
                     Song(id: UUID().uuidString, name: "Bohemian Rhapsody", album: "A Night at the Opera", albumCover: "https://i.scdn.co/image/ab67616d0000b2732629480a9a5c9dcb61e518d6", author: "Queen", duration: "5:55"),

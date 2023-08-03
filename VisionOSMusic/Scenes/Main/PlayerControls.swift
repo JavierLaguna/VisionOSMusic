@@ -20,7 +20,8 @@ struct PlayerControls: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 48, height: 88)
-                    .padding(.leading, viewModel.isPlaying ? 0 : 8)
+                    .contentTransition(.symbolEffect(.replace))
+                    .symbolEffect(.bounce, value: viewModel.isPlaying)
             })
             
             Button(action: viewModel.nextSong, label: {

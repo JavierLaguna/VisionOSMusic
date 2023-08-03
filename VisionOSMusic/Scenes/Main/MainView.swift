@@ -7,7 +7,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            Image(.playlistRock)
+            HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
