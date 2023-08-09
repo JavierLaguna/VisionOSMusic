@@ -1,17 +1,33 @@
 {
   "pathsToIds" : {
+    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/DrumSet.usda" : "68909BD5-79FB-443C-B900-8584A5C6F6C3",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "CB766F92-EE55-4A63-9401-E7B8C009764D",
+    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GuitarScene.usda" : "B2710F7C-DD4C-4B4E-B46A-CEA2BD350D29",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Immersive.usda" : "65F6F990-A780-4474-B78B-572E0E4E273D",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
+    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Untitled Scene.usda" : "4ADDC52A-67C5-46EE-AEFD-96AF62B8BD5D",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Test.usda" : "DA988ECE-CB76-4352-B897-88DB543B7836",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Untitled Scene.usda" : "D560BB77-AAF3-4BDE-B7C4-989332A4688B",
+    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/ViolinScene.usda" : "D5F689D2-4C08-4A52-8C12-586868496C53",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/_GridMaterial.usda" : "CC9FD5C7-161F-48CA-B2B9-61DD597CBD66",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/_PlainMaterial.usda" : "1510F6C7-214D-4800-9C6C-F3964D5FC3E3",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/DrumSet.usda" : "1A8DFB8A-7CD2-461F-AAAF-09D957AE274B",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/DrumSetScene.usda" : "02E8C8E4-9274-4E8B-A53B-F20B0F343B21",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/gramophone.usdz" : "025E0899-BF92-405F-BA26-7AB073AFE489",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "66168B71-AB05-424E-8B6C-D33D6E61B08F",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GuitarScene.usda" : "C009713D-A480-4DA1-99B7-804B4909A70B",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Immersive.usda" : "AF09ED6F-1707-48FD-8720-65B998362C09",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/MetallicGoldPULeather.usdz" : "66760D98-6D72-4F08-B25A-5645540B500C",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Satellite.usda" : "EB2627C7-EF96-4D37-842B-99C89C885A2E",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Satellite\/Satellite.exported_compressed.usdc" : "A21404D0-C0FF-47E1-A891-DB5BDE9EFBEA",
-    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "D66134B1-3681-4A8E-AFE5-29F257229F3B"
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/DrumSet.usda" : "A8DC38D1-9EFF-4FF9-868B-711544477B61",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Intro 1.usda" : "A85BE0E6-8CD6-4E8D-A389-5C3B192BFBB3",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Intro.usda" : "78B4D747-46EB-4655-A89E-CE6C203582F6",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Intro22.usda" : "7A25476F-46D5-458D-B691-90B64C64AFCA",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Scene 1.usda" : "105529DB-885A-48C5-A771-17ED05D54D9A",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Scene.usda" : "EDCFBE4C-874E-4733-9400-44A0EC220B7A",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Test.usda" : "4A27FAD1-D329-4C61-8974-B9607E5CA578",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/wheel.usdz" : "05310BF2-AC4F-4A0C-A3FB-7A93CBD45350"
   }
 }

@@ -7,15 +7,24 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house.fill")
-                }
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house.fill")
+            }
             
             PlaylistsView()
                 .tabItem {
                     Label("Playlists", systemImage: "music.note.list")
                 }
+            
+            NavigationStack {
+                MainInstrumentsView()
+            }
+            .tabItem {
+                Label("Instruments", systemImage: "guitars.fill")
+            }
         }
         .ornament(attachmentAnchor: .scene(alignment: .bottom)) {
             PlayerControls()
@@ -26,7 +35,7 @@ struct MainView: View {
         ) {
             if let currentSong = viewModel.currentSong {
                 SongPlayer(song: currentSong)
-//                    .offset(y: -60) // TODO: CHECK ON SIMULARTOR
+                //                    .offset(y: -60) // TODO: CHECK ON SIMULATOR
             }
         }
     }

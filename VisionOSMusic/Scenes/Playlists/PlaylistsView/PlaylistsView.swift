@@ -15,16 +15,18 @@ struct PlaylistsView: View {
             .navigationTitle("Playlists")
             
         } detail: {
-            if let selectedListId,
-               let selectedPlaylist = viewModel.playlists.first(where: { selectedListId == $0.id }) {
-                
-                PlaylistContentView(playlist: selectedPlaylist)
-                    .navigationTitle(selectedPlaylist.description ?? "")
-                    .navigationBarTitleDisplayMode(.large)
-                
-            } else {
-                PlaylistsMainContentView()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            NavigationStack {
+                if let selectedListId,
+                   let selectedPlaylist = viewModel.playlists.first(where: { selectedListId == $0.id }) {
+                    
+                    PlaylistContentView(playlist: selectedPlaylist)
+                        .navigationTitle(selectedPlaylist.description ?? "")
+                        .navigationBarTitleDisplayMode(.large)
+                    
+                } else {
+                    PlaylistsMainContentView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             }
         }
     }
