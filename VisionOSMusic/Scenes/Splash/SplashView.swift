@@ -5,11 +5,30 @@ import RealityKitContent
 
 struct SplashView: View {
     
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
+    
+    private func start() {
+        Task {
+            await TimerUtils.waitTime(time: .seconds(6))
+                        
+            await MainActor.run {
+                openWindow(id: WindowName.main)
+            }
+            
+            await TimerUtils.waitTime(time: .seconds(1))
+            
+            await MainActor.run {
+                dismissWindow(id: WindowName.splash)
+            }
+        }
+    }
+    
     var body: some View {
         VStack {
             Color.clear
                 .overlay {
-                    Model3D(named: "IntroScene", bundle: realityKitContentBundle) { model in
+                    Model3D(named: Scene3D.intro, bundle: realityKitContentBundle) { model in
                         model
                             .resizable()
                             .scaledToFit()
@@ -22,6 +41,9 @@ struct SplashView: View {
                 .padding(.vertical, 40)
         }
         .padding(48)
+        .task {
+            start()
+        }
     }
 }
 

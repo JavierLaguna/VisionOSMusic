@@ -50,7 +50,8 @@ struct MainInstrumentsView: View {
                 }
                 .dragRotation(yawLimit: .degrees(20), pitchLimit: .degrees(20))
                 .offset(z: modelDepth)
-                .frame(width: 300, height: 300)
+                .padding(100)
+                .padding(.top, 32)
             
             HStack(spacing: 40) {
                 Color.clear
@@ -74,6 +75,7 @@ struct MainInstrumentsView: View {
                 .isVisible(when: selection.canRotate)
                 .animation(.easeInOut, value: selection.canRotate)
             }
+            .padding(.bottom, 80)
         }
     }
 }

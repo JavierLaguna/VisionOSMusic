@@ -19,9 +19,9 @@ extension Instrument {
     
     var scene: String {
         switch self {
-        case .drums: "DrumSetScene"
-        case .guitar: "GuitarScene"
-        case .violin: "ViolinScene"
+        case .drums: Scene3D.drums
+        case .guitar: Scene3D.guitar
+        case .violin: Scene3D.violin
         }
     }
     
