@@ -44,7 +44,7 @@ struct MainInstrumentsView: View {
                             .offset(z: -modelDepth / 2)
                         
                     } placeholder: {
-                        ProgressView()
+                        LoadingView()
                             .offset(z: -modelDepth * 0.75)
                     }
                 }

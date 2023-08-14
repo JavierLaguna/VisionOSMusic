@@ -3,7 +3,21 @@ import SwiftUI
 
 struct PlayerControls: View {
     
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
     @Environment(MainViewModel.self) private var viewModel
+    
+    private func openSmallPlayer() {
+        openWindow(id: WindowName.smallPlayer)
+        
+        Task {
+            await TimerUtils.waitTime(time: .seconds(0.25))
+            
+            await MainActor.run {
+                dismissWindow(id: WindowName.main)
+            }
+        }
+    }
     
     var body: some View {
         HStack(spacing: 32) {
@@ -12,7 +26,6 @@ struct PlayerControls: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40)
-                
             })
             
             Button(action: viewModel.onPressPlayPauseButton, label: {
@@ -29,8 +42,15 @@ struct PlayerControls: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40)
-                
             })
+            
+            Button(action: openSmallPlayer, label: {
+                Image(systemName: "window.shade.open")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 16)
+            })
+            .disabled(viewModel.currentSong == nil)
         }
         .padding(.vertical, 16)
         .padding(.horizontal, 32)

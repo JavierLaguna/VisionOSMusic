@@ -3,6 +3,7 @@ struct WindowName {
     
     static let splash = "SplashWindow"
     static let main = "MainWindow"
+    static let smallPlayer = "SmallPlayerWindow"
 }
 
 struct Scene3D {

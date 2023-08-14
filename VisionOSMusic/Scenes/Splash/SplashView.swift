@@ -35,7 +35,7 @@ struct SplashView: View {
                             .frame(depth: 200)
                         
                     } placeholder: {
-                        ProgressView()
+                        LoadingView()
                     }
                 }
                 .padding(.vertical, 40)

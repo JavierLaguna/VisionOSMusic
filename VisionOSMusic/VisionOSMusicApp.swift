@@ -14,7 +14,6 @@ struct VisionOSMusicApp: App {
         .windowStyle(.plain)
         
         
-        
         WindowGroup(id: WindowName.main) {
             MainView()
                 .environment(mainVM)
@@ -22,9 +21,10 @@ struct VisionOSMusicApp: App {
         .windowStyle(.plain)
         
         
-        
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
+        WindowGroup(id: WindowName.smallPlayer) {
+            SmallPlayerView()
+                .environment(mainVM)
         }
+        .windowStyle(.plain)
     }
 }
