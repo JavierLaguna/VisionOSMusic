@@ -35,7 +35,6 @@ struct MainView: View {
         ) {
             if let currentSong = viewModel.currentSong {
                 SongPlayer(song: currentSong)
-                //                    .offset(y: -60) // TODO: CHECK ON SIMULATOR
             }
         }
     }

@@ -4,6 +4,7 @@ import SwiftUI
 @main
 struct VisionOSMusicApp: App {
     
+    @State private var drumDemoImmersionStyle: ImmersionStyle = .mixed
     @State private var mainVM = MainViewModel()
     
     var body: some Scene {
@@ -26,5 +27,18 @@ struct VisionOSMusicApp: App {
                 .environment(mainVM)
         }
         .windowStyle(.plain)
+        
+        
+        ImmersiveSpace(id: WindowName.drumDemo) {
+            DrumDemo()
+        }
+        .immersionStyle(selection: $drumDemoImmersionStyle, in: .mixed)
+        
+        
+//        WindowGroup(id: WindowName.drumDemo) {
+//            SplashView()
+//        }
+//        .windowStyle(.volumetric)
+//        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
     }
 }

@@ -1,0 +1,119 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "DrumStick" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        prepend references = @3D Assets/DrumStick.usdz@
+    )
+    {
+        rel material:binding = None (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "geom"
+        {
+            over "realistic"
+            {
+                over "materials"
+                {
+                    over "usdpreviewsurface2sg"
+                    {
+                        string inputs:file4:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (412.5, 794)
+                                    float2 sizeInSubgraph = (153.5, 53)
+                                }
+                            }
+                        )
+                        string inputs:file5:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (625.5, 794)
+                                    float2 sizeInSubgraph = (153, 53)
+                                }
+                            }
+                        )
+                        string inputs:file6:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (838.5, 794)
+                                    float2 sizeInSubgraph = (153, 53)
+                                }
+                            }
+                        )
+                        string inputs:file13:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (1058, 794)
+                                    float2 sizeInSubgraph = (159.5, 53)
+                                }
+                            }
+                        )
+                        token outputs:realitykit:vertex
+                        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1382.75, 279)
+                        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+                        over "musical_drum_stick_realistic_mat_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (1107, 279)
+                            float2 ui:nodegraph:node:size = (250, 199)
+                        }
+
+                        over "file13_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (304.5, 438.5)
+                            float2 ui:nodegraph:node:size = (148.5, 199)
+                        }
+
+                        over "Lookup_st"
+                        {
+                            float2 ui:nodegraph:node:pos = (72.5, 299)
+                            float2 ui:nodegraph:node:size = (145, 127)
+                        }
+
+                        over "file13_mtlx_scale"
+                        {
+                            float2 ui:nodegraph:node:pos = (563.5, 430.5)
+                            float2 ui:nodegraph:node:size = (60, 36)
+                        }
+
+                        over "file13_mtlx_offset"
+                        {
+                            float2 ui:nodegraph:node:pos = (822.5, 430.5)
+                            float2 ui:nodegraph:node:size = (61.5, 36.5)
+                        }
+
+                        over "file4_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (563.5, 608)
+                            float2 ui:nodegraph:node:size = (148.5, 199)
+                        }
+
+                        over "file5_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (822.5, 252.75)
+                            float2 ui:nodegraph:node:size = (148.5, 199)
+                        }
+
+                        over "file6_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (304.5, 99.5)
+                            float2 ui:nodegraph:node:size = (148.5, 199)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

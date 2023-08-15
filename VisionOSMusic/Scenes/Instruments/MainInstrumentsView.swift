@@ -7,6 +7,8 @@ struct MainInstrumentsView: View {
     
     private let modelDepth: Double = 200
     
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
     @State private var selection: Instrument = .drums
     @State private var isRotated = false
     
@@ -18,6 +20,10 @@ struct MainInstrumentsView: View {
     
     private func onChangeSelection() {
         isRotated = false
+    }
+    
+    private func openDemo() {
+        openWindow(id: WindowName.drumDemo)
     }
     
     var body: some View {
@@ -54,8 +60,9 @@ struct MainInstrumentsView: View {
                 .padding(.top, 32)
             
             HStack(spacing: 40) {
-                Color.clear
-                    .frame(width: 40, height: 0)
+                Button("DEMO", action: openDemo)
+                .isVisible(when: selection.hasDemo)
+                .animation(.easeInOut, value: selection.hasDemo)
                 
                 Picker("Instruments", selection: $selection) {
                     ForEach(Instrument.allCases) { item in

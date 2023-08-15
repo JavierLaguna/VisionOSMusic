@@ -36,4 +36,8 @@ extension Instrument {
     var canRotate: Bool {
         self == .drums
     }
+    
+    var hasDemo: Bool {
+        self == .drums
+    }
 }
