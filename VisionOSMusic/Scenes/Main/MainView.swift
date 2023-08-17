@@ -26,7 +26,10 @@ struct MainView: View {
                 Label("Instruments", systemImage: "guitars.fill")
             }
         }
-        .ornament(attachmentAnchor: .scene(alignment: .bottom)) {
+        .ornament(
+            attachmentAnchor: .scene(alignment: .bottom),
+            contentAlignment: .top
+        ) {
             PlayerControls()
         }
         .ornament(

@@ -38,6 +38,7 @@
 		49BC06872A61329E00105373 /* PlaylistContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06862A61329E00105373 /* PlaylistContentView.swift */; };
 		49BC06892A61332F00105373 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06882A61332F00105373 /* Song.swift */; };
 		49E1FE532A655AB4000077FE /* DragRotationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FE522A655AB4000077FE /* DragRotationModifier.swift */; };
+		49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		49BC06862A61329E00105373 /* PlaylistContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistContentView.swift; sourceTree = "<group>"; };
 		49BC06882A61332F00105373 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		49E1FE522A655AB4000077FE /* DragRotationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRotationModifier.swift; sourceTree = "<group>"; };
+		49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				4945AC5B2A8A2A4900A0FB0D /* LoadingView.swift */,
+				49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				49BC067D2A6056C300105373 /* Models+Mocks.swift in Sources */,
 				494318BA2A727E1400F2C363 /* HomeView.swift in Sources */,
 				496C78C22A80C9D100161EF6 /* MainInstrumentsView.swift in Sources */,
+				49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */,
 				496C78BD2A7D210C00161EF6 /* SplashView.swift in Sources */,
 				49BC06832A60649800105373 /* PlaylistCellView.swift in Sources */,
 				49BC067A2A60567600105373 /* Playlist.swift in Sources */,

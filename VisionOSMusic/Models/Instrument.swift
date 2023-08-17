@@ -3,6 +3,7 @@ enum Instrument: String, CaseIterable, Identifiable {
     case drums
     case guitar
     case violin
+    case sticks
     
     var id: Self { self }
 }
@@ -14,6 +15,7 @@ extension Instrument {
         case .drums: "Drums"
         case .guitar: "Guitar"
         case .violin: "Violin"
+        case .sticks: "Sticks"
         }
     }
     
@@ -22,6 +24,7 @@ extension Instrument {
         case .drums: Scene3D.drums
         case .guitar: Scene3D.guitar
         case .violin: Scene3D.violin
+        case .sticks: Scene3D.sticks
         }
     }
     
@@ -30,6 +33,7 @@ extension Instrument {
         case .drums: [0, 0, 0]
         case .guitar: [0.25, 0, 0.75]
         case .violin: [0.5, 0.5, 0]
+        case .sticks: [0, 0, 0]
         }
     }
     

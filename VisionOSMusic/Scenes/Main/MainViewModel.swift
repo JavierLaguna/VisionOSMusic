@@ -41,6 +41,10 @@ final class MainViewModel {
         return (1.0 * Double(currentSongSecond)) / Double(currentSongDuration)
     }
     
+    private var hasNextSong: Bool {
+        getNextSong() != nil
+    }
+    
     func play(_ playlist: Playlist) {
         currentPlaylist = playlist
         currentSong = playlist.songs.first
@@ -48,7 +52,14 @@ final class MainViewModel {
         status = .playing
     }
     
-    func previousSong() {
+    func play(_ song: Song) {
+        currentPlaylist = nil
+        currentSong = song
+        
+        status = .playing
+    }
+    
+    func playPreviousSong() {
         guard let currentSongIndex,
               let previousSongIndex = currentPlaylist?.songs.index(before: currentSongIndex),
               let previousSong = currentPlaylist?.songs[safeIndex: previousSongIndex]
@@ -59,11 +70,8 @@ final class MainViewModel {
         currentSong = previousSong
     }
     
-    func nextSong() {
-        guard let currentSongIndex,
-              let nextSongIndex = currentPlaylist?.songs.index(after: currentSongIndex),
-              let nextSong = currentPlaylist?.songs[safeIndex: nextSongIndex]
-        else {
+    func playNextSong() {
+        guard let nextSong = getNextSong() else {
             return
         }
         
@@ -90,6 +98,8 @@ private extension MainViewModel {
             Task {
                 await updatePlayingTime()
             }
+        } else if status == .stopped {
+            currentSongSecond = 0
         }
     }
     
@@ -106,12 +116,28 @@ private extension MainViewModel {
         
         if nextSec <= currentSongDuration {
             self.currentSongSecond = nextSec
+        } else if hasNextSong {
+            playNextSong()
         } else {
-            nextSong()
+            onFinishPlaylist()
         }
         
         await TimerUtils.waitTime(time: .seconds(1))
         
         await updatePlayingTime()
+    }
+    
+    func getNextSong() -> Song? {
+        guard let currentPlaylist,
+              let currentSongIndex
+        else {
+            return nil
+        }
+        
+        return currentPlaylist.songs[safeIndex: currentPlaylist.songs.index(after: currentSongIndex)]
+    }
+    
+    func onFinishPlaylist() {
+        status = .stopped
     }
 }

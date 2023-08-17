@@ -21,7 +21,7 @@ struct PlayerControls: View {
     
     var body: some View {
         HStack(spacing: 32) {
-            Button(action: viewModel.previousSong, label: {
+            Button(action: viewModel.playPreviousSong, label: {
                 Image(systemName: "backward")
                     .resizable()
                     .scaledToFit()
@@ -37,7 +37,7 @@ struct PlayerControls: View {
                     .symbolEffect(.bounce, value: viewModel.isPlaying)
             })
             
-            Button(action: viewModel.nextSong, label: {
+            Button(action: viewModel.playNextSong, label: {
                 Image(systemName: "forward")
                     .resizable()
                     .scaledToFit()

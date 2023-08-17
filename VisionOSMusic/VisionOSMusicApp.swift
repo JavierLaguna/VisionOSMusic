@@ -1,11 +1,16 @@
 
 import SwiftUI
+import RealityKitContent
 
 @main
 struct VisionOSMusicApp: App {
     
     @State private var drumDemoImmersionStyle: ImmersionStyle = .mixed
     @State private var mainVM = MainViewModel()
+    
+    init() {
+        DrumKitPieceComponent.registerComponent()
+    }
     
     var body: some Scene {
 

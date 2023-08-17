@@ -13,31 +13,13 @@ struct DrumDemo: View {
 private struct Drum: View {
     
     var body: some View {
-        RealityView { content in
+        RealityView { content, _ in
             // Create an earth entity with tilt, rotation, a moon, and so on.
             do {
-                let entity = try await Entity(named: Scene3D.drums, in: realityKitContentBundle)
+                let entity = try await Entity(named: "DrumDemoScene", in: realityKitContentBundle)
                 
                 
-                
-                let transformAnimation = FromToByAnimation(
-                    name: "transform",
-                    from: transform,
-                    to: end,
-                    duration: 0.25,
-                    timing: .easeInOut,
-                    isAdditive: false,
-                    bindTarget: .transform)
-                let resource = try AnimationResource.generate(with: transformAnimation)
-                
-                
-//                content.add(entity)
-                
-                let entityS = try await Entity(named: "StickScene", in: realityKitContentBundle)
-                
-                entityS.playAnimation(resource)
-                
-                content.add(entityS)
+                content.add(entity)
             } catch {
                 fatalError("Failed to load a model asset.")
             }
@@ -45,13 +27,25 @@ private struct Drum: View {
             // Store for later updates.
 //            self.earthEntity = earthEntity
 
-        } update: { content in
+        } update: { content, attachments in
             // Reconfigure everything when any configuration changes.
 //            earthEntity?.update(
 //                configuration: earthConfiguration,
 //                satelliteConfiguration: satelliteConfiguration,
 //                moonConfiguration: moonConfiguration,
 //                animateUpdates: animateUpdates)
+            guard let attachmentEntity = attachments.entity(for: "Tag") else {
+                print("RETURN")
+                return }
+            
+            content.add(attachmentEntity)
+            print("ADDED")
+//            attachmentEntity.setPosition([0, 0.2, 0], relativeTo: content)
+//            attachmentEntity.components.set()
+            
+        } attachments: {
+            Image(systemName: "pencil.circle.fill")
+                .tag("Tag")
         }
     }
 }

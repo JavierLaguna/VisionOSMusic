@@ -1,0 +1,350 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Sticks", "RedPULeather"]
+    def "RedPULeather" (
+        active = true
+        references = @Materials/RedPULeather.usdz@
+    )
+    {
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+        over "Basecolor"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+
+        over "Roughness"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+
+        over "Metallic"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+
+        over "MaterialXPreviewSurface"
+        {
+            float2 ui:nodegraph:node:size = (207.5, 199)
+        }
+
+        over "add"
+        {
+            float2 ui:nodegraph:node:size = (61.5, 36.5)
+        }
+
+        over "multiply"
+        {
+            float2 ui:nodegraph:node:size = (60, 36)
+        }
+
+        over "Normal"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+    }
+
+    def Xform "Sticks" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = None (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+
+        def "Stick_R" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (-1.7453291, 0, 0.785398)
+            }
+            references = @3D Assets/DrumStick.usdz@
+        )
+        {
+            rel material:binding = None (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            quatf xformOp:orient = (0.59385836, -0.7077328, -0.29315245, 0.24598415)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.019003093, 0.15, -0.034721076)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "geom" (
+                variants = {
+                    string styles = "realistic"
+                }
+            )
+            {
+                reorder nameChildren = ["realistic", "DrumStick_1"]
+                over "realistic"
+                {
+                    over "materials"
+                    {
+                        over "usdpreviewsurface2sg"
+                        {
+                            string inputs:file4:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (412.5, 794)
+                                        float2 sizeInSubgraph = (153.5, 53)
+                                    }
+                                }
+                            )
+                            string inputs:file5:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (625.5, 794)
+                                        float2 sizeInSubgraph = (153, 53)
+                                    }
+                                }
+                            )
+                            string inputs:file6:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (838.5, 794)
+                                        float2 sizeInSubgraph = (153, 53)
+                                    }
+                                }
+                            )
+                            string inputs:file13:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (1058, 794)
+                                        float2 sizeInSubgraph = (159.5, 53)
+                                    }
+                                }
+                            )
+                            token outputs:realitykit:vertex
+                            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1382.75, 279)
+                            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+                            over "musical_drum_stick_realistic_mat_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (1107, 279)
+                                float2 ui:nodegraph:node:size = (250, 199)
+                            }
+
+                            over "file13_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (304.5, 438.5)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+
+                            over "Lookup_st"
+                            {
+                                float2 ui:nodegraph:node:pos = (72.5, 299)
+                                float2 ui:nodegraph:node:size = (145, 127)
+                            }
+
+                            over "file13_mtlx_scale"
+                            {
+                                float2 ui:nodegraph:node:pos = (563.5, 430.5)
+                                float2 ui:nodegraph:node:size = (60, 36)
+                            }
+
+                            over "file13_mtlx_offset"
+                            {
+                                float2 ui:nodegraph:node:pos = (822.5, 430.5)
+                                float2 ui:nodegraph:node:size = (61.5, 36.5)
+                            }
+
+                            over "file4_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (563.5, 608)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+
+                            over "file5_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (822.5, 252.75)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+
+                            over "file6_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (304.5, 99.5)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        def "Stick_L" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (-1.7302377, -0.07129715, -0.43752113)
+            }
+            references = @3D Assets/DrumStick.usdz@
+        )
+        {
+            rel material:binding = None (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            quatf xformOp:orient = (0.6268031, -0.7475759, 0.14252053, -0.16714117)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.010910023, 0.18, -0.016536571)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "geom"
+            {
+                over "realistic"
+                {
+                    over "materials"
+                    {
+                        over "usdpreviewsurface2sg"
+                        {
+                            string inputs:file4:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (412.5, 794)
+                                        float2 sizeInSubgraph = (153.5, 53)
+                                    }
+                                }
+                            )
+                            string inputs:file5:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (625.5, 794)
+                                        float2 sizeInSubgraph = (153, 53)
+                                    }
+                                }
+                            )
+                            string inputs:file6:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (838.5, 794)
+                                        float2 sizeInSubgraph = (153, 53)
+                                    }
+                                }
+                            )
+                            string inputs:file13:varname (
+                                customData = {
+                                    dictionary realitykit = {
+                                        float2 positionInSubgraph = (1058, 794)
+                                        float2 sizeInSubgraph = (159.5, 53)
+                                    }
+                                }
+                            )
+                            token outputs:realitykit:vertex
+                            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1382.75, 279)
+                            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+                            over "musical_drum_stick_realistic_mat_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (1107, 279)
+                                float2 ui:nodegraph:node:size = (250, 199)
+                            }
+
+                            over "file13_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (304.5, 438.5)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+
+                            over "Lookup_st"
+                            {
+                                float2 ui:nodegraph:node:pos = (72.5, 299)
+                                float2 ui:nodegraph:node:size = (145, 127)
+                            }
+
+                            over "file13_mtlx_scale"
+                            {
+                                float2 ui:nodegraph:node:pos = (563.5, 430.5)
+                                float2 ui:nodegraph:node:size = (60, 36)
+                            }
+
+                            over "file13_mtlx_offset"
+                            {
+                                float2 ui:nodegraph:node:pos = (822.5, 430.5)
+                                float2 ui:nodegraph:node:size = (61.5, 36.5)
+                            }
+
+                            over "file4_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (563.5, 608)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+
+                            over "file5_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (822.5, 252.75)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+
+                            over "file6_mtlx"
+                            {
+                                float2 ui:nodegraph:node:pos = (304.5, 99.5)
+                                float2 ui:nodegraph:node:size = (148.5, 199)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+    }
+
+    def "GlossyBlackWoodPlank" (
+        active = true
+        references = @Materials/GlossyBlackWoodPlank.usdz@
+    )
+    {
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+        over "Basecolor"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+
+        over "Roughness"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+
+        over "Metallic"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+
+        over "MaterialXPreviewSurface"
+        {
+            float2 ui:nodegraph:node:size = (207.5, 199)
+        }
+
+        over "add"
+        {
+            float2 ui:nodegraph:node:size = (61.5, 36.5)
+        }
+
+        over "multiply"
+        {
+            float2 ui:nodegraph:node:size = (60, 36)
+        }
+
+        over "Normal"
+        {
+            float2 ui:nodegraph:node:size = (148.5, 199)
+        }
+    }
+
+    def RealityKitComponent "InputTarget"
+    {
+        uniform token info:id = "RealityKit.InputTarget"
+    }
+}
+

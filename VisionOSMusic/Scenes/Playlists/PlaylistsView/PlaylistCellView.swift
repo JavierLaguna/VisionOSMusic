@@ -38,6 +38,6 @@ struct PlaylistCellView: View {
 }
 
 #Preview {
-    PlaylistCellView(playlist: Playlist.mockPlaylist)
+    PlaylistCellView(playlist: Playlist.mockRockPlaylist)
         .previewLayout(.sizeThatFits)
 }

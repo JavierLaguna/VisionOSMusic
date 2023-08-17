@@ -1,5 +1,6 @@
 {
   "pathsToIds" : {
+    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/DrumDemoScene.usda" : "3EB5737C-18BF-4649-93A8-1A0EC6DBE4C9",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/DrumSet.usda" : "68909BD5-79FB-443C-B900-8584A5C6F6C3",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "CB766F92-EE55-4A63-9401-E7B8C009764D",
     "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GuitarScene.usda" : "B2710F7C-DD4C-4B4E-B46A-CEA2BD350D29",
@@ -28,6 +29,7 @@
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Intro22.usda" : "7A25476F-46D5-458D-B691-90B64C64AFCA",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Scene 1.usda" : "105529DB-885A-48C5-A771-17ED05D54D9A",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scenes\/Scene.usda" : "EDCFBE4C-874E-4733-9400-44A0EC220B7A",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/SticksScene.usda" : "185816F3-0C52-431A-8C55-14A251778D0A",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Test.usda" : "4A27FAD1-D329-4C61-8974-B9607E5CA578",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/ViolinScene.usda" : "475084E7-70FD-4028-9C0D-366F65BCC07C",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/wheel.usdz" : "05310BF2-AC4F-4A0C-A3FB-7A93CBD45350"

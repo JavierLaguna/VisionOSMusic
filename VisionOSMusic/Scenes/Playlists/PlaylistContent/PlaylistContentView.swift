@@ -7,6 +7,8 @@ struct PlaylistContentView: View {
     
     private let playlist: Playlist
     
+    @State private var selection: Song.ID?
+    
     init(playlist: Playlist) {
         self.playlist = playlist
     }
@@ -27,7 +29,7 @@ struct PlaylistContentView: View {
                     .resizable()
                     .scaledToFit()
             } placeholder: {
-                //put your placeholder here
+                LoadingView()
             }
             .frame(width: 40, height: 40)
             
@@ -39,15 +41,6 @@ struct PlaylistContentView: View {
                     .font(.footnote)
                     .fontWeight(.light)
             }
-        }
-    }
-    
-    @ViewBuilder
-    func link(song: Song) -> some View { // TODO: JLI
-        NavigationLink {
-            SongDetailView(song: song)
-        } label: {
-            songTableCell(song: song)
         }
     }
     
@@ -103,32 +96,33 @@ struct PlaylistContentView: View {
                 }
             }
             
-            Table(playlist.songs) {
+            Table(playlist.songs, selection: $selection) {
                 TableColumn("#") {
                     Text(getSongPosition(song: $0))
                 }
                 .width(32)
                 
                 TableColumn("Song") {
-                    link(song: $0)
+                    songTableCell(song: $0)
                 }
                 
                 TableColumn("Album", value: \.album)
                 
                 TableColumn("🕒", value: \.duration)
             }
+            .navigationDestination(for: Song.self) { song in
+                SongDetailView(song: song)
+            }
             
         }
         .clipShape(.rect(cornerRadius: 16))
         .padding(.vertical, 20)
         .padding(.horizontal, 16)
-//        .navigationTitle("PLAYU")
-//        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    PlaylistContentView(playlist: Playlist.mockPlaylist)
+    PlaylistContentView(playlist: Playlist.mockRockPlaylist)
         .environment(MainViewModel())
         .glassBackgroundEffect()
 }
