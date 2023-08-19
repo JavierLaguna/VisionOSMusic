@@ -7,8 +7,9 @@ struct MainInstrumentsView: View {
     
     private let modelDepth: Double = 200
     
-    @Environment(\.openWindow) private var openWindow
-    @Environment(\.dismissWindow) private var dismissWindow
+    @Environment(\.openImmersiveSpace) private var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
+    
     @State private var selection: Instrument = .drums
     @State private var isRotated = false
     
@@ -23,7 +24,9 @@ struct MainInstrumentsView: View {
     }
     
     private func openDemo() {
-        openWindow(id: WindowName.drumDemo)
+        Task {
+            await openImmersiveSpace(id: WindowName.drumDemo)
+        }
     }
     
     var body: some View {

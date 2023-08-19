@@ -16,15 +16,9 @@
         "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
         "Root",
         "VintageGramophone",
-        "geom"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
-        "Root"
+        "geom",
+        "realistic",
+        "materials"
       ],
       {
         "isExpanded" : true,
@@ -43,9 +37,15 @@
         "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
         "Root",
         "VintageGramophone",
-        "geom",
-        "realistic",
-        "materials"
+        "geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -81,14 +81,6 @@
     "objectMetadataList" : [
       [
         "3EB5737C-18BF-4649-93A8-1A0EC6DBE4C9",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "3EB5737C-18BF-4649-93A8-1A0EC6DBE4C9",
         "Root",
         "KickEmiter"
       ],
@@ -110,6 +102,14 @@
         "selectedAudioFilePrim" : {
           "string" : "\/Root\/kick_wav"
         }
+      },
+      [
+        "3EB5737C-18BF-4649-93A8-1A0EC6DBE4C9",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
@@ -177,43 +177,6 @@
     "objectMetadataList" : [
       [
         "185816F3-0C52-431A-8C55-14A251778D0A",
-        "Root",
-        "Sticks",
-        "Stick_R",
-        "geom",
-        "realistic",
-        "geo",
-        "lod0"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "185816F3-0C52-431A-8C55-14A251778D0A",
-        "Root",
-        "Sticks",
-        "Stick_R",
-        "geom"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "185816F3-0C52-431A-8C55-14A251778D0A",
-        "Root",
-        "Sticks",
-        "Stick_R",
-        "geom",
-        "realistic"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "185816F3-0C52-431A-8C55-14A251778D0A",
         "Root"
       ],
       {
@@ -237,7 +200,10 @@
         "185816F3-0C52-431A-8C55-14A251778D0A",
         "Root",
         "Sticks",
-        "Stick_R"
+        "Stick_R",
+        "geom",
+        "realistic",
+        "materials"
       ],
       {
         "isExpanded" : true,
@@ -246,7 +212,30 @@
       [
         "185816F3-0C52-431A-8C55-14A251778D0A",
         "Root",
-        "Sticks"
+        "Stick_L"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "185816F3-0C52-431A-8C55-14A251778D0A",
+        "Root",
+        "Sticks",
+        "Stick_R",
+        "geom",
+        "realistic"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "185816F3-0C52-431A-8C55-14A251778D0A",
+        "Root",
+        "Sticks",
+        "Stick_R",
+        "geom"
       ],
       {
         "isExpanded" : true,
@@ -259,7 +248,17 @@
         "Stick_R",
         "geom",
         "realistic",
-        "materials"
+        "geo",
+        "lod0"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "185816F3-0C52-431A-8C55-14A251778D0A",
+        "Root",
+        "Stick_R"
       ],
       {
         "isExpanded" : true,
@@ -280,7 +279,8 @@
       [
         "475084E7-70FD-4028-9C0D-366F65BCC07C",
         "Root",
-        "Violin"
+        "Violin",
+        "geom"
       ],
       {
         "isExpanded" : true,
@@ -289,8 +289,7 @@
       [
         "475084E7-70FD-4028-9C0D-366F65BCC07C",
         "Root",
-        "Violin",
-        "geom"
+        "Violin"
       ],
       {
         "isExpanded" : true,
@@ -315,16 +314,6 @@
         "829713DC-4E20-4295-881D-C2F45033D3FF",
         "Root",
         "Sticks",
-        "Stick_L"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "829713DC-4E20-4295-881D-C2F45033D3FF",
-        "Root",
-        "Sticks",
         "Stick_L",
         "geom",
         "realistic",
@@ -337,23 +326,7 @@
       [
         "829713DC-4E20-4295-881D-C2F45033D3FF",
         "Root",
-        "Sticks",
-        "Stick_L",
-        "geom",
-        "realistic",
-        "materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "829713DC-4E20-4295-881D-C2F45033D3FF",
-        "Root",
-        "DrumStick",
-        "geom",
-        "realistic",
-        "materials"
+        "Sticks"
       ],
       {
         "isExpanded" : true,
@@ -374,7 +347,11 @@
       [
         "829713DC-4E20-4295-881D-C2F45033D3FF",
         "Root",
-        "Sticks"
+        "Sticks",
+        "Stick_L",
+        "geom",
+        "realistic",
+        "materials"
       ],
       {
         "isExpanded" : true,
@@ -394,6 +371,28 @@
       [
         "829713DC-4E20-4295-881D-C2F45033D3FF",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "829713DC-4E20-4295-881D-C2F45033D3FF",
+        "Root",
+        "Sticks",
+        "Stick_L"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "829713DC-4E20-4295-881D-C2F45033D3FF",
+        "Root",
+        "DrumStick",
+        "geom",
+        "realistic",
+        "materials"
       ],
       {
         "isExpanded" : true,
@@ -448,6 +447,15 @@
     "objectMetadataList" : [
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
+        "Sphere_Left"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root"
       ],
       {
@@ -458,15 +466,6 @@
         "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root",
         "Sphere_Right"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "AF09ED6F-1707-48FD-8720-65B998362C09",
-        "Root",
-        "Sphere_Left"
       ],
       {
         "isExpanded" : true,
@@ -524,6 +523,30 @@
 
     ]
   },
+  "D615B912-853E-47A2-AF5D-70ED3021B5A2" : {
+    "objectMetadataList" : [
+      [
+        "D615B912-853E-47A2-AF5D-70ED3021B5A2",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D615B912-853E-47A2-AF5D-70ED3021B5A2",
+        "Root",
+        "KickEmiter"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/kick_wav"
+        }
+      }
+    ]
+  },
   "D66134B1-3681-4A8E-AFE5-29F257229F3B" : {
     "objectMetadataList" : [
       [
@@ -538,9 +561,7 @@
       },
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "GridMaterial",
-        "GridMaterial"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -548,7 +569,9 @@
       },
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root"
+        "Root",
+        "GridMaterial",
+        "GridMaterial"
       ],
       {
         "isExpanded" : true,
@@ -591,7 +614,7 @@
         "EB2627C7-EF96-4D37-842B-99C89C885A2E",
         "Root",
         "Satellite",
-        "Materials"
+        "satellite"
       ],
       {
         "isExpanded" : true,
@@ -601,7 +624,7 @@
         "EB2627C7-EF96-4D37-842B-99C89C885A2E",
         "Root",
         "Satellite",
-        "satellite"
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -613,7 +636,8 @@
     "objectMetadataList" : [
       [
         "EDCFBE4C-874E-4733-9400-44A0EC220B7A",
-        "Root"
+        "Root",
+        "AcousticGuitar"
       ],
       {
         "isExpanded" : true,
@@ -621,8 +645,7 @@
       },
       [
         "EDCFBE4C-874E-4733-9400-44A0EC220B7A",
-        "Root",
-        "AcousticGuitar"
+        "Root"
       ],
       {
         "isExpanded" : true,

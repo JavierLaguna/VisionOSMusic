@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmiter", "DrumStick"]
+    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmiter", "kick_wav"]
     def Xform "KickEmiter" (
         customData = {
             float3 rotationEulerHint = (0, 3.1415927, 0)
@@ -36,6 +36,26 @@ def Xform "Root"
         quatf xformOp:orient = (-4.371139e-8, 0, 1, 0)
         float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (2.0336642, 2.5945961, 1.3969038)
+                float radius = 1.2972981
+                token shapeType = "Box"
+            }
+        }
     }
 
     def Xform "KickPiece" (
@@ -50,13 +70,11 @@ def Xform "Root"
             uniform token info:id = "RealityKitContent.DrumKitPieceComponent"
         }
     }
-}
 
-def RealityKitAudioFile "kick_wav"
-{
-    uniform asset file = @Sounds/kick.wav@
-    uniform token normalization = "none"
-    uniform bool shouldLoop = 1
-    uniform bool shouldRandomizeStartTime = 0
+    def RealityKitAudioFile "kick_wav"
+    {
+        uniform asset file = @Sounds/kick.wav@
+        uniform bool shouldLoop = 1
+    }
 }
 

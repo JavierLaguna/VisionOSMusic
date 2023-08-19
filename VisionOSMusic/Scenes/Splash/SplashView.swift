@@ -10,7 +10,7 @@ struct SplashView: View {
     
     private func start() {
         Task {
-            await TimerUtils.waitTime(time: .seconds(6))
+//            await TimerUtils.waitTime(time: .seconds(6))
                         
             await MainActor.run {
                 openWindow(id: WindowName.main)

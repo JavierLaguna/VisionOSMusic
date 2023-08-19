@@ -13,7 +13,7 @@ struct VisionOSMusicApp: App {
     }
     
     var body: some Scene {
-
+        
         WindowGroup(id: WindowName.splash) {
             SplashView()
         }
@@ -34,16 +34,16 @@ struct VisionOSMusicApp: App {
         .windowStyle(.plain)
         
         
+        //        WindowGroup(id: WindowName.drumDemo) {
+        //            DrumDemo()
+        //        }
+        //        .windowStyle(.volumetric)
+        //        .defaultSize(width: 1, height: 1, depth: 1, in: .meters)
+        
+        
         ImmersiveSpace(id: WindowName.drumDemo) {
             DrumDemo()
         }
         .immersionStyle(selection: $drumDemoImmersionStyle, in: .mixed)
-        
-        
-//        WindowGroup(id: WindowName.drumDemo) {
-//            SplashView()
-//        }
-//        .windowStyle(.volumetric)
-//        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
     }
 }
