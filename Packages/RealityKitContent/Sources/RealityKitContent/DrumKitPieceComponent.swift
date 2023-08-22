@@ -11,11 +11,20 @@ public struct DrumKitPieceComponent: Component, Codable {
     public init() {}
 }
 
+// MARK: PieceType
 extension DrumKitPieceComponent {
     
-    public enum PieceType: String, Codable {
+    public enum PieceType: String, Codable, CaseIterable {
         case kick
         case snare
         case cymbal
+        
+        public var soundPath: String {
+            switch self {
+            case .kick: "/Root/kick_wav"
+            case .snare: "/Root/kick_wav"
+            case .cymbal: "/Root/kick_wav"
+            }
+        }
     }
 }

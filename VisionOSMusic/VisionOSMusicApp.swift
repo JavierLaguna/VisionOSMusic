@@ -10,6 +10,7 @@ struct VisionOSMusicApp: App {
     
     init() {
         DrumKitPieceComponent.registerComponent()
+        DrumKitPieceRuntimeComponent.registerComponent()
     }
     
     var body: some Scene {

@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmiter", "kick_wav"]
+    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmiter", "kick_wav", "SnarePiece", "SnareEmiter", "snare_wav", "RidePiece"]
     def Xform "KickEmiter" (
         customData = {
             float3 rotationEulerHint = (0, 3.1415927, 0)
@@ -34,28 +34,8 @@ def Xform "Root"
     )
     {
         quatf xformOp:orient = (-4.371139e-8, 0, 1, 0)
-        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def RealityKitComponent "InputTarget"
-        {
-            uniform token info:id = "RealityKit.InputTarget"
-        }
-
-        def RealityKitComponent "Collider"
-        {
-            uint group = 1
-            uniform token info:id = "RealityKit.Collider"
-            uint mask = 4294967295
-            token type = "Default"
-
-            def RealityKitStruct "Shape"
-            {
-                float3 extent = (2.0336642, 2.5945961, 1.3969038)
-                float radius = 1.2972981
-                token shapeType = "Box"
-            }
-        }
     }
 
     def Xform "KickPiece" (
@@ -75,6 +55,61 @@ def Xform "Root"
     {
         uniform asset file = @Sounds/kick.wav@
         uniform bool shouldLoop = 1
+    }
+
+    def Xform "SnarePiece" (
+        active = true
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0.32496852, 0.8101267, -0.3355414)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitCustomComponent "RealityKitContent_DrumKitPieceComponent"
+        {
+            uniform token info:id = "RealityKitContent.DrumKitPieceComponent"
+            token type = "snare"
+        }
+    }
+
+    def Xform "RidePiece" (
+        active = true
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.47372913, 1.3095653, -0.23689741)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitCustomComponent "RealityKitContent_DrumKitPieceComponent"
+        {
+            uniform token info:id = "RealityKitContent.DrumKitPieceComponent"
+            token type = "snare"
+        }
+    }
+
+    def Xform "SnareEmiter" (
+        customData = {
+            float3 rotationEulerHint = (1.5707961, 3.1415927, 0)
+        }
+    )
+    {
+        quatf xformOp:orient = (3.090862e-8, 3.090862e-8, -0.70710677, 0.70710677)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0.40503716, 0.6375679, -0.33459282)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "SpatialAudio"
+        {
+            float directivityFocus = 0.455193
+            uniform token info:id = "RealityKit.SpatialAudio"
+        }
+    }
+
+    def RealityKitAudioFile "snare_wav"
+    {
+        uniform asset file = @Sounds/snare.wav@
     }
 }
 

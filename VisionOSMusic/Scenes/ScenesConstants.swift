@@ -14,4 +14,5 @@ struct Scene3D {
     static let guitar = "GuitarScene"
     static let violin = "ViolinScene"
     static let sticks = "SticksScene"
+    static let drumsDemo = "DrumDemoScene"
 }
