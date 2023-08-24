@@ -24,21 +24,34 @@ final class DrumDemoViewModel {
             
             scene.performQuery(audioQuery).forEach({ audioEmitter in
                 
-                DrumKitPieceComponent.PieceType.allCases.forEach {
-                    guard let resource = try? AudioFileResource.load(named: $0.soundPath,
-                                                                     from: realitySceneFileName,
-                                                                     in: realityKitContentBundle) else { return }
-                    
-                    let audioPlaybackController = audioEmitter.prepareAudio(resource)
-                    audioControllers[$0] = audioPlaybackController
+                guard let type = getPieceType(by: audioEmitter.name),
+                      let resource = try? AudioFileResource.load(named: type.soundPath,
+                                                                 from: realitySceneFileName,
+                                                                 in: realityKitContentBundle) else {
+                    return
                 }
                 
+                let audioPlaybackController = audioEmitter.prepareAudio(resource)
+                audioControllers[type] = audioPlaybackController
             })
         }
     }
     
-    func playKickSound() {
-        let audioPlaybackController = audioControllers[.kick]
+    func playSound(of piece: DrumKitPieceComponent.PieceType) {
+        let audioPlaybackController = audioControllers[piece]
         audioPlaybackController?.play()
+    }
+}
+
+// MARK: Private methods
+private extension DrumDemoViewModel {
+    
+    func getPieceType(by audioEmitterName: String) -> DrumKitPieceComponent.PieceType? {
+        switch audioEmitterName {
+        case Scene3D.DrumDemo.SoundEmitter.kick: DrumKitPieceComponent.PieceType.kick
+        case Scene3D.DrumDemo.SoundEmitter.snare: DrumKitPieceComponent.PieceType.snare
+        case Scene3D.DrumDemo.SoundEmitter.cymbal: DrumKitPieceComponent.PieceType.cymbal
+        default: nil
+        }
     }
 }

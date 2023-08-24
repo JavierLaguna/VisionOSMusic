@@ -18,13 +18,12 @@ struct DrumDemo: View {
             return
         }
         
-        // Highlight the trail entity associated with this location marker entity.
-        //  let trailEntity: Entity? = entity.children.first(where: { $0.hasMaterialParameter(named: TrailAnimationSystem.materialParameterName) })
-        
         let tag: ObjectIdentifier = entity.id
         let view = DrumPieceView(
             type: drumKitPiece.type,
-            onPressPlayButton: viewModel.playKickSound
+            onPressPlayButton: {
+                viewModel.playSound(of: drumKitPiece.type)
+            }
         ).tag(tag)
         
         entity.components[DrumKitPieceRuntimeComponent.self] = DrumKitPieceRuntimeComponent(attachmentTag: tag)
@@ -39,7 +38,6 @@ struct DrumDemo: View {
                 rootEntity.position = SIMD3<Float>(0, 0, -2)
                 content.add(rootEntity)
                 
-                // TODO: JLI understand :)
                 subscriptions.append(content.subscribe(to: ComponentEvents.DidAdd.self, componentType: DrumKitPieceComponent.self, { event in
                     createDrumKitPieceView(for: event.entity)
                 }))
@@ -58,13 +56,8 @@ struct DrumDemo: View {
                     return
                 }
                 
-                if let drumKitPieceComponent = entity.components[DrumKitPieceComponent.self] {
-                    // attachmentEntity.components.set(RegionSpecificComponent(region: pointOfInterestComponent.region))
-                    // attachmentEntity.components.set(OpacityComponent(opacity: 0))
-                }
-                
                 viewModel.rootEntity?.addChild(attachmentEntity)
-                attachmentEntity.setPosition([0, 0.1, 0], relativeTo: entity)
+                attachmentEntity.setPosition([0, 0.15, 0], relativeTo: entity)
                 // attachmentEntity.components.set(BillboardComponent())
             }
             

@@ -15,4 +15,13 @@ struct Scene3D {
     static let violin = "ViolinScene"
     static let sticks = "SticksScene"
     static let drumsDemo = "DrumDemoScene"
+    
+    struct DrumDemo {
+    
+        struct SoundEmitter {
+            static let kick = "KickEmitter"
+            static let snare = "SnareEmitter"
+            static let cymbal = "RideEmitter"
+        }
+    }
 }

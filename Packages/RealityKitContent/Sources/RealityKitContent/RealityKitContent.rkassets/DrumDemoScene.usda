@@ -7,24 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmiter", "kick_wav", "SnarePiece", "SnareEmiter", "snare_wav", "RidePiece"]
-    def Xform "KickEmiter" (
-        customData = {
-            float3 rotationEulerHint = (0, 3.1415927, 0)
-        }
-    )
-    {
-        quatf xformOp:orient = (-4.371139e-8, 0, 1, 0)
-        float3 xformOp:translate = (-9.49949e-8, 0.33991405, 0.10883868)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def RealityKitComponent "SpatialAudio"
-        {
-            float directivityFocus = 0.455193
-            uniform token info:id = "RealityKit.SpatialAudio"
-        }
-    }
-
+    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmitter", "kick_wav", "SnarePiece", "SnareEmitter", "snare_wav", "RidePiece", "RideEmitter"]
     def "DrumKit" (
         active = true
         customData = {
@@ -54,7 +37,7 @@ def Xform "Root"
     def RealityKitAudioFile "kick_wav"
     {
         uniform asset file = @Sounds/kick.wav@
-        uniform bool shouldLoop = 1
+        uniform bool shouldLoop = 0
     }
 
     def Xform "SnarePiece" (
@@ -85,11 +68,38 @@ def Xform "Root"
         def RealityKitCustomComponent "RealityKitContent_DrumKitPieceComponent"
         {
             uniform token info:id = "RealityKitContent.DrumKitPieceComponent"
-            token type = "snare"
+            token type = "cymbal"
         }
     }
 
-    def Xform "SnareEmiter" (
+    def RealityKitAudioFile "snare_wav"
+    {
+        uniform asset file = @Sounds/snare.wav@
+    }
+
+    def RealityKitAudioFile "crash_wav"
+    {
+        uniform asset file = @Sounds/crash.wav@
+    }
+
+    def Xform "KickEmitter" (
+        customData = {
+            float3 rotationEulerHint = (0, 3.1415927, 0)
+        }
+    )
+    {
+        quatf xformOp:orient = (-4.371139e-8, 0, 1, 0)
+        float3 xformOp:translate = (-9.49949e-8, 0.33991405, 0.10883868)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "SpatialAudio"
+        {
+            float directivityFocus = 0.455193
+            uniform token info:id = "RealityKit.SpatialAudio"
+        }
+    }
+
+    def Xform "SnareEmitter" (
         customData = {
             float3 rotationEulerHint = (1.5707961, 3.1415927, 0)
         }
@@ -107,9 +117,22 @@ def Xform "Root"
         }
     }
 
-    def RealityKitAudioFile "snare_wav"
+    def Xform "RideEmitter" (
+        customData = {
+            float3 rotationEulerHint = (1.9198622, 3.3161256, -0.4537847)
+        }
+    )
     {
-        uniform asset file = @Sounds/snare.wav@
+        quatf xformOp:orient = (0.23227689, -0.058971442, -0.5728091, 0.7838747)
+        float3 xformOp:scale = (2.626285, 2.626285, 2.6262853)
+        float3 xformOp:translate = (-0.4867034, 1.1841469, -0.24686442)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "SpatialAudio"
+        {
+            float directivityFocus = 0.455193
+            uniform token info:id = "RealityKit.SpatialAudio"
+        }
     }
 }
 

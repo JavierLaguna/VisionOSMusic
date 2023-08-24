@@ -22,8 +22,8 @@ extension DrumKitPieceComponent {
         public var soundPath: String {
             switch self {
             case .kick: "/Root/kick_wav"
-            case .snare: "/Root/kick_wav"
-            case .cymbal: "/Root/kick_wav"
+            case .snare: "/Root/snare_wav"
+            case .cymbal: "/Root/crash_wav"
             }
         }
     }

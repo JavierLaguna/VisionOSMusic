@@ -26,10 +26,7 @@ struct DrumPieceView: View {
                 .background(.regularMaterial)
                 .clipShape(.rect(cornerRadius: 12))
             
-            Button("Play") {
-                print("PREES")
-                onPressPlayButton()
-            }
+            Button("Play", action: onPressPlayButton)
         }
         .padding()
         .padding(.bottom, 12)

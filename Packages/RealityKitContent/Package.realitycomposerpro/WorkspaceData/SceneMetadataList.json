@@ -4,9 +4,7 @@
       [
         "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
         "Root",
-        "VintageGramophone",
-        "geom",
-        "realistic"
+        "VintageGramophone"
       ],
       {
         "isExpanded" : true,
@@ -17,8 +15,7 @@
         "Root",
         "VintageGramophone",
         "geom",
-        "realistic",
-        "materials"
+        "realistic"
       ],
       {
         "isExpanded" : true,
@@ -37,7 +34,10 @@
       [
         "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
         "Root",
-        "VintageGramophone"
+        "VintageGramophone",
+        "geom",
+        "realistic",
+        "materials"
       ],
       {
         "isExpanded" : true,
@@ -82,7 +82,7 @@
       [
         "3EB5737C-18BF-4649-93A8-1A0EC6DBE4C9",
         "Root",
-        "SpatialAudio"
+        "KickEmiter"
       ],
       {
         "isExpanded" : false,
@@ -102,7 +102,7 @@
       [
         "3EB5737C-18BF-4649-93A8-1A0EC6DBE4C9",
         "Root",
-        "KickEmiter"
+        "SpatialAudio"
       ],
       {
         "isExpanded" : false,
@@ -178,9 +178,20 @@
       [
         "185816F3-0C52-431A-8C55-14A251778D0A",
         "Root",
+        "Stick_L"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "185816F3-0C52-431A-8C55-14A251778D0A",
+        "Root",
         "Sticks",
         "Stick_R",
-        "geom"
+        "geom",
+        "realistic",
+        "geo"
       ],
       {
         "isExpanded" : true,
@@ -195,36 +206,6 @@
         "realistic",
         "geo",
         "lod0"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "185816F3-0C52-431A-8C55-14A251778D0A",
-        "Root",
-        "Sticks",
-        "Stick_R",
-        "geom",
-        "realistic",
-        "materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "185816F3-0C52-431A-8C55-14A251778D0A",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "185816F3-0C52-431A-8C55-14A251778D0A",
-        "Root",
-        "Stick_L"
       ],
       {
         "isExpanded" : true,
@@ -258,7 +239,26 @@
         "Stick_R",
         "geom",
         "realistic",
-        "geo"
+        "materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "185816F3-0C52-431A-8C55-14A251778D0A",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "185816F3-0C52-431A-8C55-14A251778D0A",
+        "Root",
+        "Sticks",
+        "Stick_R",
+        "geom"
       ],
       {
         "isExpanded" : true,
@@ -268,6 +268,14 @@
   },
   "475084E7-70FD-4028-9C0D-366F65BCC07C" : {
     "objectMetadataList" : [
+      [
+        "475084E7-70FD-4028-9C0D-366F65BCC07C",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "475084E7-70FD-4028-9C0D-366F65BCC07C",
         "Root",
@@ -280,7 +288,8 @@
       },
       [
         "475084E7-70FD-4028-9C0D-366F65BCC07C",
-        "Root"
+        "Root",
+        "Violin"
       ],
       {
         "isExpanded" : true,
@@ -296,20 +305,31 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "475084E7-70FD-4028-9C0D-366F65BCC07C",
-        "Root",
-        "Violin"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
       }
     ]
   },
   "829713DC-4E20-4295-881D-C2F45033D3FF" : {
     "objectMetadataList" : [
+      [
+        "829713DC-4E20-4295-881D-C2F45033D3FF",
+        "Root",
+        "Sticks"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "829713DC-4E20-4295-881D-C2F45033D3FF",
+        "Root",
+        "Sticks",
+        "Stick_L",
+        "geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "829713DC-4E20-4295-881D-C2F45033D3FF",
         "Root",
@@ -327,43 +347,7 @@
         "829713DC-4E20-4295-881D-C2F45033D3FF",
         "Root",
         "Sticks",
-        "Stick_L",
-        "geom",
-        "realistic"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "829713DC-4E20-4295-881D-C2F45033D3FF",
-        "Root",
-        "Sticks",
-        "Stick_L",
-        "geom"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "829713DC-4E20-4295-881D-C2F45033D3FF",
-        "Root",
-        "Sticks",
         "Stick_L"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "829713DC-4E20-4295-881D-C2F45033D3FF",
-        "Root",
-        "Sticks",
-        "Stick_L",
-        "geom",
-        "realistic",
-        "geo"
       ],
       {
         "isExpanded" : true,
@@ -392,7 +376,23 @@
       [
         "829713DC-4E20-4295-881D-C2F45033D3FF",
         "Root",
-        "Sticks"
+        "Sticks",
+        "Stick_L",
+        "geom",
+        "realistic",
+        "geo"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "829713DC-4E20-4295-881D-C2F45033D3FF",
+        "Root",
+        "Sticks",
+        "Stick_L",
+        "geom",
+        "realistic"
       ],
       {
         "isExpanded" : true,
@@ -413,7 +413,8 @@
       [
         "A8DC38D1-9EFF-4FF9-868B-711544477B61",
         "Root",
-        "DrumKit"
+        "DrumKit",
+        "geom"
       ],
       {
         "isExpanded" : true,
@@ -422,8 +423,7 @@
       [
         "A8DC38D1-9EFF-4FF9-868B-711544477B61",
         "Root",
-        "DrumKit",
-        "geom"
+        "DrumKit"
       ],
       {
         "isExpanded" : true,
@@ -448,6 +448,15 @@
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root",
+        "Sphere_Right"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
         "Sphere_Left"
       ],
       {
@@ -457,15 +466,6 @@
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
         "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "AF09ED6F-1707-48FD-8720-65B998362C09",
-        "Root",
-        "Sphere_Right"
       ],
       {
         "isExpanded" : true,
@@ -527,8 +527,7 @@
     "objectMetadataList" : [
       [
         "D615B912-853E-47A2-AF5D-70ED3021B5A2",
-        "Root",
-        "DrumKit"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -549,6 +548,30 @@
       [
         "D615B912-853E-47A2-AF5D-70ED3021B5A2",
         "Root",
+        "RideEmiter"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/crash_wav"
+        }
+      },
+      [
+        "D615B912-853E-47A2-AF5D-70ED3021B5A2",
+        "Root",
+        "RideEmitter"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/crash_wav"
+        }
+      },
+      [
+        "D615B912-853E-47A2-AF5D-70ED3021B5A2",
+        "Root",
         "SnareEmiter"
       ],
       {
@@ -560,24 +583,41 @@
       },
       [
         "D615B912-853E-47A2-AF5D-70ED3021B5A2",
-        "Root"
+        "Root",
+        "SnareEmitter"
       ],
       {
-        "isExpanded" : true,
-        "isLocked" : false
-      }
-    ]
-  },
-  "D66134B1-3681-4A8E-AFE5-29F257229F3B" : {
-    "objectMetadataList" : [
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/snare_wav"
+        }
+      },
       [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root"
+        "D615B912-853E-47A2-AF5D-70ED3021B5A2",
+        "Root",
+        "DrumKit"
       ],
       {
         "isExpanded" : true,
         "isLocked" : false
       },
+      [
+        "D615B912-853E-47A2-AF5D-70ED3021B5A2",
+        "Root",
+        "KickEmitter"
+      ],
+      {
+        "isExpanded" : false,
+        "isLocked" : false,
+        "selectedAudioFilePrim" : {
+          "string" : "\/Root\/kick_wav"
+        }
+      }
+    ]
+  },
+  "D66134B1-3681-4A8E-AFE5-29F257229F3B" : {
+    "objectMetadataList" : [
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
@@ -593,6 +633,14 @@
         "Root",
         "GridMaterial",
         "GridMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -626,6 +674,15 @@
       },
       [
         "EB2627C7-EF96-4D37-842B-99C89C885A2E",
+        "Root",
+        "Satellite"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "EB2627C7-EF96-4D37-842B-99C89C885A2E",
         "Root"
       ],
       {
@@ -637,15 +694,6 @@
         "Root",
         "Satellite",
         "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "EB2627C7-EF96-4D37-842B-99C89C885A2E",
-        "Root",
-        "Satellite"
       ],
       {
         "isExpanded" : true,
