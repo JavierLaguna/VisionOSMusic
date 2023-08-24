@@ -9,6 +9,9 @@ struct VisionOSMusicApp: App {
     @State private var mainVM = MainViewModel()
     
     init() {
+        BillboardSystem.registerSystem()
+        BillboardComponent.registerComponent()
+        
         DrumKitPieceComponent.registerComponent()
         DrumKitPieceRuntimeComponent.registerComponent()
     }

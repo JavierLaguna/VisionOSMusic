@@ -58,7 +58,7 @@ struct DrumDemo: View {
                 
                 viewModel.rootEntity?.addChild(attachmentEntity)
                 attachmentEntity.setPosition([0, 0.15, 0], relativeTo: entity)
-                // attachmentEntity.components.set(BillboardComponent())
+                attachmentEntity.components.set(BillboardComponent())
             }
             
         } attachments: {
@@ -66,31 +66,31 @@ struct DrumDemo: View {
                 pair.view
             }
         }
-//        .gesture(TapGesture().targetedToAnyEntity().onEnded({ entity in
-            //            var transform = entity.entity.transform
-            //            transform.translation = SIMD3(0.1, 0, -0.1)
-            //            entity.entity.move(
-            //                to: transform,
-            //                relativeTo: nil,
-            //                duration: 3,
-            //                timingFunction: .easeInOut
-            //            )
-            
-//            let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
-//                var transform = entity.entity.transform
-//                let radians = 90.0 * Float.pi / 100.0
-//                transform.rotation *= simd_quatf(angle: radians, axis: SIMD3(0.0, 0.0, 1.0))
-//                
-//                entity.entity.move(
-//                    to: transform,
-//                    relativeTo: nil,
-//                    duration: 3,
-//                    timingFunction: .easeInOut
-//                )
-//            }
-//            
-//            timer.fire()
-//        }))
+        //        .gesture(TapGesture().targetedToAnyEntity().onEnded({ entity in
+        //            var transform = entity.entity.transform
+        //            transform.translation = SIMD3(0.1, 0, -0.1)
+        //            entity.entity.move(
+        //                to: transform,
+        //                relativeTo: nil,
+        //                duration: 3,
+        //                timingFunction: .easeInOut
+        //            )
+        
+        //            let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
+        //                var transform = entity.entity.transform
+        //                let radians = 90.0 * Float.pi / 100.0
+        //                transform.rotation *= simd_quatf(angle: radians, axis: SIMD3(0.0, 0.0, 1.0))
+        //
+        //                entity.entity.move(
+        //                    to: transform,
+        //                    relativeTo: nil,
+        //                    duration: 3,
+        //                    timingFunction: .easeInOut
+        //                )
+        //            }
+        //
+        //            timer.fire()
+        //        }))
     }
 }
 
