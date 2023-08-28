@@ -11,6 +11,7 @@ struct MainInstrumentsView: View {
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     
     @State private var selection: Instrument = .drums
+    @State private var demoIsOpen = false
     @State private var isRotated = false
     
     private func rotateModel() {
@@ -23,9 +24,15 @@ struct MainInstrumentsView: View {
         isRotated = false
     }
     
-    private func openDemo() {
+    private func toggleDemo() {
         Task {
-            await openImmersiveSpace(id: WindowName.drumDemo)
+            if demoIsOpen {
+                await dismissImmersiveSpace()
+            } else {
+                await openImmersiveSpace(id: WindowName.drumDemo)
+            }
+            
+            demoIsOpen.toggle()
         }
     }
     
@@ -63,7 +70,7 @@ struct MainInstrumentsView: View {
                 .padding(.top, 32)
             
             HStack(spacing: 40) {
-                Button("DEMO", action: openDemo)
+                Button(demoIsOpen ? "CLOSE" : "DEMO", action: toggleDemo)
                 .isVisible(when: selection.hasDemo)
                 .animation(.easeInOut, value: selection.hasDemo)
                 
