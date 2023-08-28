@@ -27,6 +27,7 @@
 		496C78BD2A7D210C00161EF6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C78BC2A7D210C00161EF6 /* SplashView.swift */; };
 		496C78C22A80C9D100161EF6 /* MainInstrumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C78C12A80C9D100161EF6 /* MainInstrumentsView.swift */; };
 		4977BCB52A9CABB700497A2F /* PieceType+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977BCB42A9CABB700497A2F /* PieceType+Info.swift */; };
+		4977BCB72A9CE2CA00497A2F /* SticksModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977BCB62A9CE2CA00497A2F /* SticksModel3D.swift */; };
 		497A63242A93F890005A0280 /* DrumPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A63232A93F890005A0280 /* DrumPieceView.swift */; };
 		4989D39F2A6045F50040A41F /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 4989D39E2A6045F50040A41F /* RealityKitContent */; };
 		4989D3A12A6045F50040A41F /* VisionOSMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989D3A02A6045F50040A41F /* VisionOSMusicApp.swift */; };
@@ -69,6 +70,7 @@
 		496C78BC2A7D210C00161EF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		496C78C12A80C9D100161EF6 /* MainInstrumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInstrumentsView.swift; sourceTree = "<group>"; };
 		4977BCB42A9CABB700497A2F /* PieceType+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PieceType+Info.swift"; sourceTree = "<group>"; };
+		4977BCB62A9CE2CA00497A2F /* SticksModel3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SticksModel3D.swift; sourceTree = "<group>"; };
 		497A63232A93F890005A0280 /* DrumPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumPieceView.swift; sourceTree = "<group>"; };
 		4989D3992A6045F50040A41F /* VisionOSMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionOSMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4989D39D2A6045F50040A41F /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				4930A7062A94A57D00FE382F /* DrumDemo */,
 				496C78C12A80C9D100161EF6 /* MainInstrumentsView.swift */,
+				4977BCB62A9CE2CA00497A2F /* SticksModel3D.swift */,
 			);
 			path = Instruments;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				496C78C22A80C9D100161EF6 /* MainInstrumentsView.swift in Sources */,
 				49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */,
 				496C78BD2A7D210C00161EF6 /* SplashView.swift in Sources */,
+				4977BCB72A9CE2CA00497A2F /* SticksModel3D.swift in Sources */,
 				49BC06832A60649800105373 /* PlaylistCellView.swift in Sources */,
 				49BC067A2A60567600105373 /* Playlist.swift in Sources */,
 				4930A70C2A94A6BF00FE382F /* Entity+utils.swift in Sources */,

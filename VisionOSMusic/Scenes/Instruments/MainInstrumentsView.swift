@@ -40,28 +40,38 @@ struct MainInstrumentsView: View {
         VStack(spacing: 80) {
             Color.clear
                 .overlay {
-                    Model3D(named: selection.scene, bundle: realityKitContentBundle) { model in
-                        model
-                            .resizable()
-                            .scaledToFit()
-                            .rotation3DEffect(
-                                Rotation3D(
-                                    eulerAngles: .init(
-                                        angles: [
-                                            selection.sceneOrientation.x,
-                                            isRotated ? 3.2: selection.sceneOrientation.y,
-                                            selection.sceneOrientation.z
-                                        ],
-                                        order: .xyz
+                    if selection == .sticks {
+                        
+                        SticksModel3D()
+                        
+                    } else {
+                        
+                        
+                        Model3D(named: selection.scene, bundle: realityKitContentBundle) { model in
+                            model
+                                .resizable()
+                                .scaledToFit()
+                                .rotation3DEffect(
+                                    Rotation3D(
+                                        eulerAngles: .init(
+                                            angles: [
+                                                selection.sceneOrientation.x,
+                                                isRotated ? 3.2: selection.sceneOrientation.y,
+                                                selection.sceneOrientation.z
+                                            ],
+                                            order: .xyz
+                                        )
                                     )
                                 )
-                            )
-                            .frame(depth: modelDepth)
-                            .offset(z: -modelDepth / 2)
+                                .frame(depth: modelDepth)
+                                .offset(z: -modelDepth / 2)
+                            
+                        } placeholder: {
+                            LoadingView()
+                                .offset(z: -modelDepth * 0.75)
+                        }
                         
-                    } placeholder: {
-                        LoadingView()
-                            .offset(z: -modelDepth * 0.75)
+                        
                     }
                 }
                 .dragRotation(yawLimit: .degrees(20), pitchLimit: .degrees(20))
