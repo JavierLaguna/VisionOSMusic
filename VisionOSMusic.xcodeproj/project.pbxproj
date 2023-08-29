@@ -28,6 +28,7 @@
 		496C78C22A80C9D100161EF6 /* MainInstrumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C78C12A80C9D100161EF6 /* MainInstrumentsView.swift */; };
 		4977BCB52A9CABB700497A2F /* PieceType+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977BCB42A9CABB700497A2F /* PieceType+Info.swift */; };
 		4977BCB72A9CE2CA00497A2F /* SticksModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977BCB62A9CE2CA00497A2F /* SticksModel3D.swift */; };
+		4977BCBA2A9DDF0200497A2F /* PostersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977BCB92A9DDF0200497A2F /* PostersView.swift */; };
 		497A63242A93F890005A0280 /* DrumPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A63232A93F890005A0280 /* DrumPieceView.swift */; };
 		4989D39F2A6045F50040A41F /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 4989D39E2A6045F50040A41F /* RealityKitContent */; };
 		4989D3A12A6045F50040A41F /* VisionOSMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989D3A02A6045F50040A41F /* VisionOSMusicApp.swift */; };
@@ -71,6 +72,7 @@
 		496C78C12A80C9D100161EF6 /* MainInstrumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInstrumentsView.swift; sourceTree = "<group>"; };
 		4977BCB42A9CABB700497A2F /* PieceType+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PieceType+Info.swift"; sourceTree = "<group>"; };
 		4977BCB62A9CE2CA00497A2F /* SticksModel3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SticksModel3D.swift; sourceTree = "<group>"; };
+		4977BCB92A9DDF0200497A2F /* PostersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersView.swift; sourceTree = "<group>"; };
 		497A63232A93F890005A0280 /* DrumPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumPieceView.swift; sourceTree = "<group>"; };
 		4989D3992A6045F50040A41F /* VisionOSMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionOSMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4989D39D2A6045F50040A41F /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			path = Instruments;
 			sourceTree = "<group>";
 		};
+		4977BCB82A9DDEED00497A2F /* Posters */ = {
+			isa = PBXGroup;
+			children = (
+				4977BCB92A9DDF0200497A2F /* PostersView.swift */,
+			);
+			path = Posters;
+			sourceTree = "<group>";
+		};
 		4989D3902A6045F50040A41F = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +287,7 @@
 				496C78C02A80C6FA00161EF6 /* Instruments */,
 				49BC06842A6064C300105373 /* Main */,
 				49BC067F2A6063D900105373 /* Playlists */,
+				4977BCB82A9DDEED00497A2F /* Posters */,
 				4945AC572A8A182F00A0FB0D /* SmallPlayer */,
 				496C78BB2A7D20FC00161EF6 /* Splash */,
 			);
@@ -414,6 +425,7 @@
 				49B43BF52A701C4B007E9986 /* MainViewModel.swift in Sources */,
 				497A63242A93F890005A0280 /* DrumPieceView.swift in Sources */,
 				49E1FE532A655AB4000077FE /* DragRotationModifier.swift in Sources */,
+				4977BCBA2A9DDF0200497A2F /* PostersView.swift in Sources */,
 				4945AC552A8A163B00A0FB0D /* ScenesConstants.swift in Sources */,
 				49BC067D2A6056C300105373 /* Models+Mocks.swift in Sources */,
 				494318BA2A727E1400F2C363 /* HomeView.swift in Sources */,

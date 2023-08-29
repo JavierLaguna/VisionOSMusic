@@ -6,6 +6,7 @@ import RealityKitContent
 struct VisionOSMusicApp: App {
     
     @State private var drumDemoImmersionStyle: ImmersionStyle = .mixed
+    @State private var postersImmersionStyle: ImmersionStyle = .mixed
     @State private var mainVM = MainViewModel()
     
     init() {
@@ -49,5 +50,11 @@ struct VisionOSMusicApp: App {
             DrumDemo()
         }
         .immersionStyle(selection: $drumDemoImmersionStyle, in: .mixed)
+        
+        
+        ImmersiveSpace(id: WindowName.posters) {
+            PostersView()
+        }
+        .immersionStyle(selection: $postersImmersionStyle, in: .mixed)
     }
 }

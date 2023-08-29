@@ -36,42 +36,42 @@ struct MainInstrumentsView: View {
         }
     }
     
+    @ViewBuilder
+    private var instrumentModel3D: some View {
+        Model3D(named: selection.scene, bundle: realityKitContentBundle) { model in
+            model
+                .resizable()
+                .scaledToFit()
+                .rotation3DEffect(
+                    Rotation3D(
+                        eulerAngles: .init(
+                            angles: [
+                                selection.sceneOrientation.x,
+                                isRotated ? 3.2: selection.sceneOrientation.y,
+                                selection.sceneOrientation.z
+                            ],
+                            order: .xyz
+                        )
+                    )
+                )
+                .frame(depth: modelDepth)
+                .offset(z: -modelDepth / 2)
+            
+        } placeholder: {
+            LoadingView()
+                .offset(z: -modelDepth * 0.75)
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 80) {
             Color.clear
                 .overlay {
                     if selection == .sticks {
-                        
                         SticksModel3D()
                         
                     } else {
-                        
-                        
-                        Model3D(named: selection.scene, bundle: realityKitContentBundle) { model in
-                            model
-                                .resizable()
-                                .scaledToFit()
-                                .rotation3DEffect(
-                                    Rotation3D(
-                                        eulerAngles: .init(
-                                            angles: [
-                                                selection.sceneOrientation.x,
-                                                isRotated ? 3.2: selection.sceneOrientation.y,
-                                                selection.sceneOrientation.z
-                                            ],
-                                            order: .xyz
-                                        )
-                                    )
-                                )
-                                .frame(depth: modelDepth)
-                                .offset(z: -modelDepth / 2)
-                            
-                        } placeholder: {
-                            LoadingView()
-                                .offset(z: -modelDepth * 0.75)
-                        }
-                        
-                        
+                        instrumentModel3D
                     }
                 }
                 .dragRotation(yawLimit: .degrees(20), pitchLimit: .degrees(20))
