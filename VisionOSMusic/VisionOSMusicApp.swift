@@ -39,11 +39,11 @@ struct VisionOSMusicApp: App {
         .windowStyle(.plain)
         
         
-        //        WindowGroup(id: WindowName.drumDemo) {
-        //            DrumDemo()
-        //        }
-        //        .windowStyle(.volumetric)
-        //        .defaultSize(width: 1, height: 1, depth: 1, in: .meters)
+        WindowGroup(id: WindowName.snareDrum) {
+            DrumDemo()
+        }
+        .windowStyle(.volumetric)
+        .defaultSize(width: 1, height: 1, depth: 1, in: .meters)
         
         
         ImmersiveSpace(id: WindowName.drumDemo) {

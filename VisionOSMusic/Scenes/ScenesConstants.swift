@@ -6,6 +6,7 @@ struct WindowName {
     static let smallPlayer = "SmallPlayerWindow"
     static let drumDemo = "DrumDemoWindow"
     static let posters = "PostersWindow"
+    static let snareDrum = "SnareDrumWindow"
 }
 
 struct Scene3D {
@@ -16,6 +17,7 @@ struct Scene3D {
     static let violin = "ViolinScene"
     static let sticks = "SticksScene"
     static let drumsDemo = "DrumDemoScene"
+    static let snareDrum = "SnareDrumScene"
     
     struct DrumDemo {
     

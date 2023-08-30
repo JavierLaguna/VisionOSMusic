@@ -25,6 +25,13 @@ struct MainView: View {
             .tabItem {
                 Label("Instruments", systemImage: "guitars.fill")
             }
+            
+            NavigationStack {
+                SettingsView()
+            }
+            .tabItem {
+                Label("Settings", systemImage: "gear")
+            }
         }
         .ornament(
             attachmentAnchor: .scene(alignment: .bottom),
