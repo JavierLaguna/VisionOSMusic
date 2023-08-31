@@ -40,10 +40,10 @@ struct VisionOSMusicApp: App {
         
         
         WindowGroup(id: WindowName.snareDrum) {
-            DrumDemo()
+            SnareDrumView()
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: 1, height: 1, depth: 1, in: .meters)
+        .defaultSize(width: 0.5, height: 0.5, depth: 0.5, in: .meters)
         
         
         ImmersiveSpace(id: WindowName.drumDemo) {

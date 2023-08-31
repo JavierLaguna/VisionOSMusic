@@ -9,6 +9,8 @@ struct MainInstrumentsView: View {
     
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
     
     @State private var selection: Instrument = .drums
     @State private var demoIsOpen = false
@@ -24,7 +26,7 @@ struct MainInstrumentsView: View {
         isRotated = false
     }
     
-    private func toggleDemo() {
+    private func toggleDrumsDemo() {
         Task {
             if demoIsOpen {
                 await dismissImmersiveSpace()
@@ -33,6 +35,27 @@ struct MainInstrumentsView: View {
             }
             
             demoIsOpen.toggle()
+        }
+    }
+    
+    private func toggleSnareDemo() {
+        if demoIsOpen {
+            dismissWindow(id: WindowName.snareDrum)
+        } else {
+            openWindow(id: WindowName.snareDrum)
+        }
+        
+        demoIsOpen.toggle()
+    }
+    
+    private func onPressDemoButton() {
+        switch selection {
+        case .drums:
+            toggleDrumsDemo()
+        case .snare:
+            toggleSnareDemo()
+        default:
+            break
         }
     }
     
@@ -80,9 +103,9 @@ struct MainInstrumentsView: View {
                 .padding(.top, 32)
             
             HStack(spacing: 40) {
-                Button(demoIsOpen ? "CLOSE" : "DEMO", action: toggleDemo)
-                .isVisible(when: selection.hasDemo)
-                .animation(.easeInOut, value: selection.hasDemo)
+                Button(demoIsOpen ? "CLOSE" : "DEMO", action: onPressDemoButton)
+                    .isVisible(when: selection.hasDemo)
+                    .animation(.easeInOut, value: selection.hasDemo)
                 
                 Picker("Instruments", selection: $selection) {
                     ForEach(Instrument.allCases) { item in
