@@ -43,6 +43,7 @@
 		49B43BF52A701C4B007E9986 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B43BF42A701C4B007E9986 /* MainViewModel.swift */; };
 		49B43BF92A702749007E9986 /* Array+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B43BF82A702749007E9986 /* Array+subscript.swift */; };
 		49B62EED2AA0F768005130C2 /* SnareDrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B62EEC2AA0F768005130C2 /* SnareDrumView.swift */; };
+		49B62EEF2AA10164005130C2 /* SnareDrumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B62EEE2AA10164005130C2 /* SnareDrumViewModel.swift */; };
 		49BC067A2A60567600105373 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06792A60567600105373 /* Playlist.swift */; };
 		49BC067D2A6056C300105373 /* Models+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC067C2A6056C300105373 /* Models+Mocks.swift */; };
 		49BC06812A60645D00105373 /* PlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06802A60645D00105373 /* PlaylistsView.swift */; };
@@ -91,6 +92,7 @@
 		49B43BF42A701C4B007E9986 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		49B43BF82A702749007E9986 /* Array+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+subscript.swift"; sourceTree = "<group>"; };
 		49B62EEC2AA0F768005130C2 /* SnareDrumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnareDrumView.swift; sourceTree = "<group>"; };
+		49B62EEE2AA10164005130C2 /* SnareDrumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnareDrumViewModel.swift; sourceTree = "<group>"; };
 		49BC06792A60567600105373 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		49BC067C2A6056C300105373 /* Models+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Mocks.swift"; sourceTree = "<group>"; };
 		49BC06802A60645D00105373 /* PlaylistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				49B62EEC2AA0F768005130C2 /* SnareDrumView.swift */,
+				49B62EEE2AA10164005130C2 /* SnareDrumViewModel.swift */,
 			);
 			path = SnareDrum;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				49B43BF32A701B7F007E9986 /* PlayerControls.swift in Sources */,
 				49940D972A72776B00340359 /* Int+formatter.swift in Sources */,
 				4945AC592A8A185500A0FB0D /* SmallPlayerView.swift in Sources */,
+				49B62EEF2AA10164005130C2 /* SnareDrumViewModel.swift in Sources */,
 				4930A7082A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift in Sources */,
 				4989D3A12A6045F50040A41F /* VisionOSMusicApp.swift in Sources */,
 				4963D7AC2A7A9A7900787123 /* SongDetailView.swift in Sources */,
