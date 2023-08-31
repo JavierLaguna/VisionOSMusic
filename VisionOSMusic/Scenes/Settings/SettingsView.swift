@@ -6,11 +6,20 @@ struct SettingsView: View {
     @AppStorage(BusinessConstants.UserDefaults.introEnabled)
     private var introEnabled: Bool = BusinessConstants.DefaultValues.introEnabled
     
-    @State var pickerSelection = "Option 1"
+    @State private var pickerSelection = "Option 1"
+    @State private var infoIsOpen = false
+    
+    private func openInfoView() {
+        infoIsOpen = true
+    }
+    
+    private func closeInfoView() {
+        infoIsOpen = false
+    }
     
     var body: some View {
         VStack(alignment: .trailing, spacing: 0) {
-            Button(action: {}, label: {
+            Button(action: openInfoView, label: {
                 Image(systemName: "info.circle.fill")
             })
             .padding(.trailing, 32)
@@ -32,6 +41,27 @@ struct SettingsView: View {
             }
         }
         .padding(.vertical, 32)
+        .sheet(isPresented: $infoIsOpen, content: {
+            VStack(spacing: 24) {
+                HStack {
+                    Spacer()
+                    
+                    Button(action: closeInfoView, label: {
+                        Image(systemName: "xmark.circle.fill")
+                    })
+                }
+                
+                Text(" VisionOS Music")
+                    .font(.extraLargeTitle)
+                
+                Text("My first xrOS App!")
+                    .font(.body)
+                
+                Text("👨🏻‍💻 Javier Laguna 📱")
+                    .font(.caption)
+            }
+            .padding(32)
+        })
     }
 }
 
