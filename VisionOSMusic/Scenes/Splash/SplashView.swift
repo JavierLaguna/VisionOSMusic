@@ -5,22 +5,25 @@ import RealityKitContent
 
 struct SplashView: View {
     
+    @AppStorage(BusinessConstants.UserDefaults.introEnabled)
+    private var introEnabled: Bool = BusinessConstants.DefaultValues.introEnabled
+    
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
     
-    private func start() {
-        Task {
-//            await TimerUtils.waitTime(time: .seconds(6))
-                        
-            await MainActor.run {
-                openWindow(id: WindowName.main)
-            }
-            
-            await TimerUtils.waitTime(time: .seconds(1))
-            
-            await MainActor.run {
-                dismissWindow(id: WindowName.splash)
-            }
+    private func start() async {
+        if introEnabled {
+            await TimerUtils.waitTime(time: .seconds(6))
+        }
+        
+        await MainActor.run {
+            openWindow(id: WindowName.main)
+        }
+        
+        await TimerUtils.waitTime(time: .seconds(0.25))
+        
+        await MainActor.run {
+            dismissWindow(id: WindowName.splash)
         }
     }
     
@@ -42,7 +45,7 @@ struct SplashView: View {
         }
         .padding(48)
         .task {
-            start()
+            await start()
         }
     }
 }
