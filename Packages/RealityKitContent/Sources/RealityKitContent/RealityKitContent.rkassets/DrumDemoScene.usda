@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmitter", "kick_wav", "SnarePiece", "SnareEmitter", "snare_wav", "RidePiece", "RideEmitter"]
+    reorder nameChildren = ["DrumKit", "KickPiece", "KickEmitter", "kick_wav", "SnarePiece", "SnareEmitter", "snare_wav", "crash_wav", "RidePiece", "RideEmitter", "StickRide"]
     def "DrumKit" (
         active = true
         customData = {
@@ -132,6 +132,51 @@ def Xform "Root"
         {
             float directivityFocus = 0.455193
             uniform token info:id = "RealityKit.SpatialAudio"
+        }
+    }
+
+    def "StickRide" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+        references = @3D Assets/DrumStick.usdz@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.555617, 1.492034, -0.45403388)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.014300842, 0.0142734945, 0.41614905)
+                token shapeType = "Box"
+            }
+        }
+
+        def RealityKitComponent "CharacterController"
+        {
+            uniform token info:id = "RealityKit.CharacterController"
+
+            def RealityKitStruct "m_controllerDesc"
+            {
+                def RealityKitStruct "collisionFilter"
+                {
+                }
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ struct DrumDemo: View {
     
     @State private var subscriptions = [EventSubscription]()
     @State private var attachmentsProvider = AttachmentsProvider()
+    @State private var attachmentsVisibles = true
     
     private func createDrumKitPieceView(for entity: Entity) {
         guard entity.components[DrumKitPieceRuntimeComponent.self] == nil,
@@ -22,7 +23,7 @@ struct DrumDemo: View {
         let view = DrumPieceView(
             type: drumKitPiece.type,
             onPressPlayButton: {
-                viewModel.playSound(of: drumKitPiece.type)
+                onTapPlay(of: drumKitPiece.type)
             }
         ).tag(tag)
         
@@ -30,13 +31,38 @@ struct DrumDemo: View {
         attachmentsProvider.attachments[tag] = AnyView(view)
     }
     
+    private func hideAttachments() {
+        withAnimation(.smooth) {
+            attachmentsVisibles = false
+        }
+    }
+    
+    private func showAttachments() {
+        withAnimation(.smooth) {
+            attachmentsVisibles = true
+        }
+    }
+    
+    private func onTapPlay(of piece: DrumKitPieceComponent.PieceType) {
+        Task {
+            hideAttachments()
+            await viewModel.onTapPlay(of: piece)
+            showAttachments()
+        }
+    }
+    
     var body: some View {
         RealityView { content, _ in
             do {
-                let rootEntity = try await Entity(named: Scene3D.drumsDemo, in: realityKitContentBundle)
+                let rootEntity = try await Entity(named: Scene3D.DrumDemo.name, in: realityKitContentBundle)
                 viewModel.rootEntity = rootEntity
                 rootEntity.position = SIMD3<Float>(0, 0, -2)
                 content.add(rootEntity)
+                
+                let stickEntity = rootEntity.findEntity(named: Scene3D.DrumDemo.Sticks.ride)
+                //  stickEntity.components.set(ControlledOpacityComponent(shouldShow: false))
+                stickEntity?.components.set(OpacityComponent(opacity: 0.0))
+                viewModel.stickEntity = stickEntity
                 
                 subscriptions.append(content.subscribe(to: ComponentEvents.DidAdd.self, componentType: DrumKitPieceComponent.self, { event in
                     createDrumKitPieceView(for: event.entity)
@@ -59,6 +85,7 @@ struct DrumDemo: View {
                 viewModel.rootEntity?.addChild(attachmentEntity)
                 attachmentEntity.setPosition([0, 0.15, 0], relativeTo: entity)
                 attachmentEntity.components.set(BillboardComponent())
+                attachmentEntity.components.set(OpacityComponent(opacity: attachmentsVisibles ? 1.0 : 0.0))
             }
             
         } attachments: {
@@ -66,31 +93,6 @@ struct DrumDemo: View {
                 pair.view
             }
         }
-        //        .gesture(TapGesture().targetedToAnyEntity().onEnded({ entity in
-        //            var transform = entity.entity.transform
-        //            transform.translation = SIMD3(0.1, 0, -0.1)
-        //            entity.entity.move(
-        //                to: transform,
-        //                relativeTo: nil,
-        //                duration: 3,
-        //                timingFunction: .easeInOut
-        //            )
-        
-        //            let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
-        //                var transform = entity.entity.transform
-        //                let radians = 90.0 * Float.pi / 100.0
-        //                transform.rotation *= simd_quatf(angle: radians, axis: SIMD3(0.0, 0.0, 1.0))
-        //
-        //                entity.entity.move(
-        //                    to: transform,
-        //                    relativeTo: nil,
-        //                    duration: 3,
-        //                    timingFunction: .easeInOut
-        //                )
-        //            }
-        //
-        //            timer.fire()
-        //        }))
     }
 }
 

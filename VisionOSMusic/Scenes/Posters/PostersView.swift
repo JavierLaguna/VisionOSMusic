@@ -90,21 +90,6 @@ struct PostersView: View {
                 duration: 3,
                 timingFunction: .easeInOut
             )
-            
-//            let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
-//                var transform = entity.entity.transform
-//                let radians = 90.0 * Float.pi / 100.0
-//                transform.rotation *= simd_quatf(angle: radians, axis: SIMD3(0.0, 0.0, 1.0))
-//                
-//                entity.entity.move(
-//                    to: transform,
-//                    relativeTo: nil,
-//                    duration: 3,
-//                    timingFunction: .easeInOut
-//                )
-//            }
-//            
-//            timer.fire()
         }))
     }
 }
