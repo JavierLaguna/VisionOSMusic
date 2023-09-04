@@ -5,52 +5,52 @@ import RealityKitContent
 
 struct SnareDrumView: View {
     
-    @State private var viewModel = SnareDrumViewModel()
+    @Bindable private var viewModel = SnareDrumViewModel()
     
-    var body: some View {
-        ZStack {
-            SnareModelView()
-                .environment(viewModel)
-         
-            ModelControlsView()
-                .offset(y: 124)
-                .environment(viewModel)
+    @State private var isPickerVisible: Bool = false
+    @State private var rotationTimer: Timer?
+    
+    private func startRotation() {
+        guard let entity = viewModel.entity else {
+            return
         }
+        
+        rotationTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+            var transform = entity.transform
+            transform.rotation = simd_quatf(angle: .pi, axis: SIMD3(0.0, 1.0, 0.0))
+            
+            viewModel.entity?.move(
+                to: transform,
+                relativeTo: viewModel.entity,
+                duration: 3,
+                timingFunction: .easeInOut
+            )
+        }
+        
+        rotationTimer?.fire()
     }
-}
-
-private struct SnareModelView: View {
     
-    @Environment(SnareDrumViewModel.self) private var viewModel
+    private func stopRotation() {
+        rotationTimer?.invalidate()
+        rotationTimer = nil
+    }
     
-    @State private var entity: Entity?
-    
-    var body: some View {
+    @ViewBuilder
+    private var snareRealityModel: some View {
         RealityView { content in
             do {
                 let rootEntity = try await Entity(named: Scene3D.snareDrum, in: realityKitContentBundle)
-                entity = rootEntity
-//                rootEntity.position = SIMD3<Float>(0, 0, -2)
-//                content.add(rootEntity)
-//                
-//                subscriptions.append(content.subscribe(to: ComponentEvents.DidAdd.self, componentType: DrumKitPieceComponent.self, { event in
-//                    createDrumKitPieceView(for: event.entity)
-//                }))
+                viewModel.entity = rootEntity
+                content.add(rootEntity)
                 
             } catch {
                 fatalError("Failed to load a model asset.")
             }
         }
     }
-}
-
-private struct ModelControlsView: View {
     
-    @Environment(SnareDrumViewModel.self) private var viewModel
-    
-    @State private var isPickerVisible: Bool = false
-    
-    var body: some View {
+    @ViewBuilder
+    private var modelControlsView: some View {
         HStack(spacing: 17) {
             Toggle(isOn: $isPickerVisible) {
                 Label("Sun", systemImage: "sun.max")
@@ -60,7 +60,7 @@ private struct ModelControlsView: View {
                 Label("Poles", systemImage: "mappin.and.ellipse")
             }
 
-            Toggle(isOn: $isPickerVisible) {
+            Toggle(isOn: $viewModel.rotateIsOn) {
                 Label("Rotate", systemImage: "arrow.triangle.2.circlepath")
             }
 
@@ -73,6 +73,22 @@ private struct ModelControlsView: View {
         .labelStyle(.iconOnly)
         .padding(12)
         .glassBackgroundEffect(in: .rect(cornerRadius: 50))
+    }
+
+    var body: some View {
+        ZStack {
+            snareRealityModel
+         
+            modelControlsView
+                .offset(y: 124)
+        }
+        .onChange(of: viewModel.rotateIsOn) { _, rotateIsOn in
+            if rotateIsOn {
+                startRotation()
+            } else {
+                stopRotation()
+            }
+        }
     }
 }
 
