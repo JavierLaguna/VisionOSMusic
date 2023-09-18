@@ -13,7 +13,7 @@ extension DrumKitPieceComponent.PieceType {
     
     var image: String {
         switch self {
-        case .kick: ""
+        case .kick: "bass_drum_image"
         case .snare: "snare_image"
         case .cymbal: "cymbal_image"
         }
