@@ -34,14 +34,14 @@ struct MainView: View {
             }
         }
         .ornament(
-            attachmentAnchor: .scene(alignment: .bottom),
+            attachmentAnchor: .scene(.bottom),
             contentAlignment: .top
         ) {
             PlayerControls()
         }
         .ornament(
             visibility: viewModel.currentSong == nil ? .hidden : .automatic,
-            attachmentAnchor: .scene(alignment: .topTrailing)
+            attachmentAnchor: .scene(.topTrailing)
         ) {
             if let currentSong = viewModel.currentSong {
                 SongPlayer(song: currentSong)

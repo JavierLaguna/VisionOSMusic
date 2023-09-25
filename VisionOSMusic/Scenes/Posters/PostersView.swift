@@ -79,7 +79,9 @@ struct PostersView: View {
 //            }
             
         } attachments: {
-            
+            Attachment(id: "Attachment") {
+                Text("Poster")
+            }
         }
         .gesture(TapGesture().targetedToAnyEntity().onEnded({ entity in
             var transform = entity.entity.transform

@@ -25,7 +25,7 @@ struct DrumDemo: View {
             onPressPlayButton: {
                 onTapPlay(of: drumKitPiece.type)
             }
-        ).tag(tag)
+        ).tag(tag)// TODO: JLI ??
         
         entity.components[DrumKitPieceRuntimeComponent.self] = DrumKitPieceRuntimeComponent(attachmentTag: tag)
         attachmentsProvider.attachments[tag] = AnyView(view)
@@ -90,7 +90,9 @@ struct DrumDemo: View {
             
         } attachments: {
             ForEach(attachmentsProvider.sortedTagViewPairs, id: \.tag) { pair in
-                pair.view
+                Attachment(id: pair.tag) {
+                    pair.view
+                }
             }
         }
     }
