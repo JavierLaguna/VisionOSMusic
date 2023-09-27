@@ -15,6 +15,9 @@ struct PlaylistsMainContentView: View {
             PlaylistsCarousel(title: "Podcasts", playlists: viewModel.playlists)
         }
         .padding()
+        .navigationDestination(for: Playlist.self) { playlist in
+            PlaylistContentView(playlist: playlist)
+        }
     }
 }
 
@@ -31,20 +34,22 @@ private struct Header: View {
     private func list(of playlists: [Playlist]) -> some View {
         VStack {
             ForEach(playlists) { playlist in
-                HStack {
-                    Image(playlist.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 56, height: 56)
-                    
-                    Text(playlist.name)
-                        .font(.subheadline)
-                    
-                    Spacer()
+                NavigationLink(value: playlist) {
+                    HStack {
+                        Image(playlist.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 56, height: 56)
+                        Text(playlist.name)
+                            .font(.subheadline)
+                        
+                        Spacer()
+                    }
+                    .background(.background)
+                    .clipShape(.rect(cornerRadius: 4))
+                    .hoverEffect(.highlight)
                 }
-                .background(.background)
-                .clipShape(.rect(cornerRadius: 4))
-                .hoverEffect(.highlight)
+                .buttonStyle(.plain) // TODO: JLI
             }
         }
     }
@@ -79,27 +84,30 @@ private struct PlaylistsCarousel: View {
     }
     
     private func item(playlist: Playlist) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Image(playlist.image)
-                .resizable()
-                .scaledToFit()
-                .clipShape(.rect(cornerRadius: 8))
-            
-            VStack(alignment: .leading) {
-                Text(playlist.name)
-                    .font(.title3)
+        NavigationLink(value: playlist) {
+            VStack(alignment: .leading, spacing: 16) {
+                Image(playlist.image)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(.rect(cornerRadius: 8))
                 
-                Text(playlist.authors)
-                    .font(.caption)
-                    .lineLimit(2)
+                VStack(alignment: .leading) {
+                    Text(playlist.name)
+                        .font(.title3)
+                    
+                    Text(playlist.authors)
+                        .font(.caption)
+                        .lineLimit(2)
+                }
             }
+            .padding()
+            .frame(width: 160, height: 230)
+            .background(.background)
+            .clipShape(.rect(cornerRadius: 8))
+            .padding()
+            .hoverEffect(.highlight)
         }
-        .padding()
-        .frame(width: 160, height: 230)
-        .background(.background)
-        .clipShape(.rect(cornerRadius: 8))
-        .padding()
-        .hoverEffect(.highlight)
+        .buttonStyle(.plain) // TODO: JLI
     }
     
     var body: some View {
@@ -123,7 +131,8 @@ private struct PlaylistsCarousel: View {
 }
 
 #Preview {
-    PlaylistsMainContentView()
-        .environment(MainViewModel())
-        .glassBackgroundEffect()
+    NavigationStack {
+        PlaylistsMainContentView()
+    }
+    .environment(MainViewModel())
 }

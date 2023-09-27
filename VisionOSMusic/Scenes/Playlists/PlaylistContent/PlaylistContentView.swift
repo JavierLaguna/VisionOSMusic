@@ -97,6 +97,7 @@ struct PlaylistContentView: View {
             }
             
             Table(playlist.songs, selection: $selection) {
+                
                 TableColumn("#") {
                     Text(getSongPosition(song: $0))
                 }
@@ -110,19 +111,21 @@ struct PlaylistContentView: View {
                 
                 TableColumn("🕒", value: \.duration)
             }
-            .navigationDestination(for: Song.self) { song in
-                SongDetailView(song: song)
-            }
-            
         }
         .clipShape(.rect(cornerRadius: 16))
         .padding(.vertical, 20)
         .padding(.horizontal, 16)
+        .navigationTitle(playlist.description ?? "")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationDestination(for: Song.self) { song in
+            SongDetailView(song: song)
+        }
     }
 }
 
 #Preview {
-    PlaylistContentView(playlist: Playlist.mockRockPlaylist)
-        .environment(MainViewModel())
-        .glassBackgroundEffect()
+    NavigationStack {
+        PlaylistContentView(playlist: Playlist.mockRockPlaylist)
+            .environment(MainViewModel())
+    }
 }

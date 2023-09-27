@@ -1,5 +1,5 @@
 
-struct Playlist: Identifiable, Equatable {
+struct Playlist: Identifiable, Hashable, Equatable {
     let id: String
     let name: String
     let image: String

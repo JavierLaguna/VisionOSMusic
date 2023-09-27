@@ -7,10 +7,26 @@ struct PlaylistsView: View {
     
     @State private var selectedListId: String?
     
+    private func showHome() {
+        selectedListId = nil
+    }
+    
     var body: some View {
         NavigationSplitView {
-            List(viewModel.playlists, selection: $selectedListId) { list in
-                PlaylistCellView(playlist: list)
+            VStack(alignment: .leading, spacing: 16) {
+                Button(action: showHome, label: {
+                    HStack {
+                        Image(systemName: "house.fill")
+                        
+                        Text("Home")
+                    }
+                })
+                .buttonStyle(.borderless)
+                .padding(.horizontal)
+                
+                List(viewModel.playlists, selection: $selectedListId) { list in
+                    PlaylistCellView(playlist: list)
+                }
             }
             .navigationTitle("Playlists")
             
@@ -20,8 +36,6 @@ struct PlaylistsView: View {
                    let selectedPlaylist = viewModel.playlists.first(where: { selectedListId == $0.id }) {
                     
                     PlaylistContentView(playlist: selectedPlaylist)
-                        .navigationTitle(selectedPlaylist.description ?? "")
-                        .navigationBarTitleDisplayMode(.large)
                     
                 } else {
                     PlaylistsMainContentView()
