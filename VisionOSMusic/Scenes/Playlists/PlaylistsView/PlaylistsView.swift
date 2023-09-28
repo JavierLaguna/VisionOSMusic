@@ -12,6 +12,10 @@ struct PlaylistsView: View {
         selectedListId = nil
     }
     
+    private func getSelectedPlaylist() -> Playlist? {
+        viewModel.playlists.first(where: { selectedListId == $0.id })
+    }
+    
     var body: some View {
         NavigationSplitView {
             VStack(alignment: .leading, spacing: 16) {
@@ -34,8 +38,7 @@ struct PlaylistsView: View {
         } detail: {
             NavigationStack(path: coordinator.pathBinding) {
                 Group {
-                    if let selectedListId,
-                       let selectedPlaylist = viewModel.playlists.first(where: { selectedListId == $0.id }) {
+                    if let selectedPlaylist = getSelectedPlaylist() {
                         
                         PlaylistContentView(playlist: selectedPlaylist)
                         

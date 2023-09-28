@@ -23,12 +23,7 @@ struct PlaylistContentView: View {
     }
     
     private func getSelectedSong() -> Song? {
-        guard let selection,
-              let song = playlist.songs.first(where: {$0.id == selection}) else {
-            return nil
-        }
-        
-        return song
+        playlist.songs.first(where: { $0.id == selection })
     }
     
     private func onSelectSong() {
