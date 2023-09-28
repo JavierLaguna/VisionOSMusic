@@ -4,6 +4,7 @@ import SwiftUI
 struct PlaylistContentView: View {
     
     @Environment(MainViewModel.self) private var viewModel
+    @Environment(PlaylistsCoordinator.self) private var coordinator
     
     private let playlist: Playlist
     
@@ -19,6 +20,23 @@ struct PlaylistContentView: View {
         }
         
         return ""
+    }
+    
+    private func getSelectedSong() -> Song? {
+        guard let selection,
+              let song = playlist.songs.first(where: {$0.id == selection}) else {
+            return nil
+        }
+        
+        return song
+    }
+    
+    private func onSelectSong() {
+        guard let selectedSong = getSelectedSong() else {
+            return
+        }
+        
+        coordinator.navigateTo(song: selectedSong)
     }
     
     @ViewBuilder
@@ -97,7 +115,6 @@ struct PlaylistContentView: View {
             }
             
             Table(playlist.songs, selection: $selection) {
-                
                 TableColumn("#") {
                     Text(getSongPosition(song: $0))
                 }
@@ -117,15 +134,18 @@ struct PlaylistContentView: View {
         .padding(.horizontal, 16)
         .navigationTitle(playlist.description ?? "")
         .navigationBarTitleDisplayMode(.large)
-        .navigationDestination(for: Song.self) { song in
-            SongDetailView(song: song)
+        .onChange(of: selection) { _, _ in
+            onSelectSong()
         }
     }
 }
 
 #Preview {
-    NavigationStack {
+    @State var coordinator = PlaylistsCoordinator()
+    
+    return NavigationStack(path: $coordinator.path) {
         PlaylistContentView(playlist: Playlist.mockRockPlaylist)
-            .environment(MainViewModel())
     }
+    .environment(MainViewModel())
+    .environment(coordinator)
 }

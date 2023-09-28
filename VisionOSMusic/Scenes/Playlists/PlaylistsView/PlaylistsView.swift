@@ -4,6 +4,7 @@ import SwiftUI
 struct PlaylistsView: View {
     
     @Environment(MainViewModel.self) private var viewModel
+    @Environment(PlaylistsCoordinator.self) private var coordinator
     
     @State private var selectedListId: String?
     
@@ -31,16 +32,23 @@ struct PlaylistsView: View {
             .navigationTitle("Playlists")
             
         } detail: {
-            NavigationStack {
-                if let selectedListId,
-                   let selectedPlaylist = viewModel.playlists.first(where: { selectedListId == $0.id }) {
-                    
-                    PlaylistContentView(playlist: selectedPlaylist)
-                    
-                } else {
-                    PlaylistsMainContentView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+            NavigationStack(path: Binding(get: {
+                coordinator.path
+            }, set: { val in
+                coordinator.path = val
+            })) {
+                Group {
+                    if let selectedListId,
+                       let selectedPlaylist = viewModel.playlists.first(where: { selectedListId == $0.id }) {
+                        
+                        PlaylistContentView(playlist: selectedPlaylist)
+                        
+                    } else {
+                        PlaylistsMainContentView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)                        
+                    }
                 }
+                .navigationDestination(for: PlaylistsCoordinator.Routes.self) { $0 }
             }
         }
     }

@@ -15,9 +15,6 @@ struct PlaylistsMainContentView: View {
             PlaylistsCarousel(title: "Podcasts", playlists: viewModel.playlists)
         }
         .padding()
-        .navigationDestination(for: Playlist.self) { playlist in
-            PlaylistContentView(playlist: playlist)
-        }
     }
 }
 
@@ -34,7 +31,7 @@ private struct Header: View {
     private func list(of playlists: [Playlist]) -> some View {
         VStack {
             ForEach(playlists) { playlist in
-                NavigationLink(value: playlist) {
+                NavigationLink(value: PlaylistsCoordinator.Routes.playlist(playlist)) {
                     HStack {
                         Image(playlist.image)
                             .resizable()
@@ -84,7 +81,7 @@ private struct PlaylistsCarousel: View {
     }
     
     private func item(playlist: Playlist) -> some View {
-        NavigationLink(value: playlist) {
+        NavigationLink(value: PlaylistsCoordinator.Routes.playlist(playlist)) {
             VStack(alignment: .leading, spacing: 16) {
                 Image(playlist.image)
                     .resizable()

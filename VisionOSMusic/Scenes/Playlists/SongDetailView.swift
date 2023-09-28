@@ -60,7 +60,7 @@ struct SongDetailView: View {
                     .scaledToFit()
                     .frame(width: 48)
                     .onTapGesture {
-                         viewModel.play(song)
+                        viewModel.play(song)
                     }
             }
             .padding(.vertical, 16)
@@ -115,7 +115,8 @@ struct SongDetailView: View {
 }
 
 #Preview {
-    SongDetailView(song: Song.mockSong)
-        .environment(MainViewModel())
-        .glassBackgroundEffect()
+    NavigationStack{
+        SongDetailView(song: Song.mockSong)
+    }
+    .environment(MainViewModel())
 }

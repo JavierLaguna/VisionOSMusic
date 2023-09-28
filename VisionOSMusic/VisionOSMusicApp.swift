@@ -9,6 +9,8 @@ struct VisionOSMusicApp: App {
     @State private var postersImmersionStyle: ImmersionStyle = .mixed
     @State private var mainVM = MainViewModel()
     
+    @State private var coordinator = PlaylistsCoordinator()
+    
     init() {
         BillboardSystem.registerSystem()
         BillboardComponent.registerComponent()
@@ -28,6 +30,7 @@ struct VisionOSMusicApp: App {
         WindowGroup(id: WindowName.main) {
             MainView()
                 .environment(mainVM)
+                .environment(coordinator)
         }
         .windowStyle(.plain)
         
