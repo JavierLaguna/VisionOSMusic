@@ -32,11 +32,7 @@ struct PlaylistsView: View {
             .navigationTitle("Playlists")
             
         } detail: {
-            NavigationStack(path: Binding(get: {
-                coordinator.path
-            }, set: { val in
-                coordinator.path = val
-            })) {
+            NavigationStack(path: coordinator.pathBinding) {
                 Group {
                     if let selectedListId,
                        let selectedPlaylist = viewModel.playlists.first(where: { selectedListId == $0.id }) {
@@ -45,7 +41,7 @@ struct PlaylistsView: View {
                         
                     } else {
                         PlaylistsMainContentView()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)                        
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
                 .navigationDestination(for: PlaylistsCoordinator.Routes.self) { $0 }

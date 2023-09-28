@@ -5,11 +5,15 @@ import RealityKitContent
 @main
 struct VisionOSMusicApp: App {
     
+    // MARK: ImmersionStyles
     @State private var drumDemoImmersionStyle: ImmersionStyle = .mixed
     @State private var postersImmersionStyle: ImmersionStyle = .mixed
+    
+    // MARK: ViewModels
     @State private var mainVM = MainViewModel()
     
-    @State private var coordinator = PlaylistsCoordinator()
+    // MARK: Coordinators
+    @State private var playlistsCoordinator = PlaylistsCoordinator()
     
     init() {
         BillboardSystem.registerSystem()
@@ -30,7 +34,7 @@ struct VisionOSMusicApp: App {
         WindowGroup(id: WindowName.main) {
             MainView()
                 .environment(mainVM)
-                .environment(coordinator)
+                .environment(playlistsCoordinator)
         }
         .windowStyle(.plain)
         

@@ -5,8 +5,14 @@ import SwiftUI
 @Observable
 final class PlaylistsCoordinator {
     
-//    var path = NavigationPath()
+    //    var path = NavigationPath()
     var path: [Routes] = []
+    var pathBinding: Binding<[Routes]> {
+        Binding(
+            get: { self.path },
+            set: { self.path = $0 }
+        )
+    }
     
     func navigateTo(song: Song) {
         path.append(.song(song))
@@ -17,7 +23,7 @@ final class PlaylistsCoordinator {
 extension PlaylistsCoordinator {
     
     enum Routes: Hashable, View {
-//        case home
+        //        case home
         case playlist(Playlist)
         case song(Song)
         
