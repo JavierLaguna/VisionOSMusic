@@ -15,11 +15,11 @@ struct PlaylistContentView: View {
     }
     
     private func getSongPosition(song: Song) -> String {
-        if let index = playlist.songs.firstIndex(of: song) {
-            return "\(index)"
+        guard let index = playlist.songs.firstIndex(of: song) else {
+            return ""
         }
         
-        return ""
+        return "\(index + 1)"
     }
     
     private func getSelectedSong() -> Song? {
@@ -140,6 +140,7 @@ struct PlaylistContentView: View {
     
     return NavigationStack(path: $coordinator.path) {
         PlaylistContentView(playlist: Playlist.mockRockPlaylist)
+            .navigationDestination(for: PlaylistsCoordinator.Routes.self) { $0 }
     }
     .environment(MainViewModel())
     .environment(coordinator)
