@@ -39,7 +39,6 @@ struct PlaylistsView: View {
             NavigationStack(path: coordinator.pathBinding) {
                 Group {
                     if let selectedPlaylist = getSelectedPlaylist() {
-                        
                         PlaylistContentView(playlist: selectedPlaylist)
                         
                     } else {

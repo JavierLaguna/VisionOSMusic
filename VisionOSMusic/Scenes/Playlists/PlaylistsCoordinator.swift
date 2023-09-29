@@ -5,12 +5,7 @@ import SwiftUI
 @Observable
 final class PlaylistsCoordinator {
     
-    //    var path = NavigationPath()
-    var path: [Routes] = [] {
-        didSet {
-            print("COORD", path.count, path)
-        }
-    }
+    var path: [Routes] = []
     var pathBinding: Binding<[Routes]> {
         Binding(
             get: { self.path },
@@ -31,16 +26,12 @@ final class PlaylistsCoordinator {
 extension PlaylistsCoordinator {
     
     enum Routes: Hashable, View {
-        case home
         case playlist(Playlist)
         case song(Song)
         
         // MARK: View
         var body: some View {
             switch self {
-            case .home:
-                PlaylistsMainContentView()
-                
             case .playlist(let playlist):
                 PlaylistContentView(playlist: playlist)
                 
