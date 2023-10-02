@@ -46,7 +46,7 @@ private struct Header: View {
                     .clipShape(.rect(cornerRadius: 4))
                     .hoverEffect(.highlight)
                 }
-                .buttonStyle(.plain) // TODO: JLI
+                .plainNavLink
             }
         }
     }
@@ -104,7 +104,7 @@ private struct PlaylistsCarousel: View {
             .padding()
             .hoverEffect(.highlight)
         }
-        .buttonStyle(.plain) // TODO: JLI
+        .plainNavLink
     }
     
     var body: some View {
@@ -128,8 +128,6 @@ private struct PlaylistsCarousel: View {
 }
 
 #Preview {
-    NavigationStack {
-        PlaylistsMainContentView()
-    }
-    .environment(MainViewModel())
+    PlaylistsMainContentView()
+        .mockPlaylistNavStacked
 }

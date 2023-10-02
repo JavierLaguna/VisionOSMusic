@@ -25,7 +25,7 @@ struct DrumDemo: View {
             onPressPlayButton: {
                 onTapPlay(of: drumKitPiece.type)
             }
-        ).tag(tag)// TODO: JLI ??
+        )
         
         entity.components[DrumKitPieceRuntimeComponent.self] = DrumKitPieceRuntimeComponent(attachmentTag: tag)
         attachmentsProvider.attachments[tag] = AnyView(view)

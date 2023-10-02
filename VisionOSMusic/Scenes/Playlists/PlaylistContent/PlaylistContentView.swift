@@ -136,12 +136,6 @@ struct PlaylistContentView: View {
 }
 
 #Preview {
-    @State var coordinator = PlaylistsCoordinator()
-    
-    return NavigationStack(path: $coordinator.path) {
-        PlaylistContentView(playlist: Playlist.mockRockPlaylist)
-            .navigationDestination(for: PlaylistsCoordinator.Routes.self) { $0 }
-    }
-    .environment(MainViewModel())
-    .environment(coordinator)
+    PlaylistContentView(playlist: Playlist.mockRockPlaylist)
+        .mockPlaylistNavStacked
 }

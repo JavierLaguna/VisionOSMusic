@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		490BF6062A71596D008CB8F3 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6052A71596D008CB8F3 /* PlayerStatus.swift */; };
 		490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6072A71628F008CB8F3 /* TimerUtils.swift */; };
+		490C057B2ACAE5230012990C /* PlainNavLinkModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C057A2ACAE5230012990C /* PlainNavLinkModifier.swift */; };
+		490C057D2ACAF70B0012990C /* MockPlaylistNavStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C057C2ACAF70A0012990C /* MockPlaylistNavStack.swift */; };
 		492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAB2A81175A00008C2D /* Instrument.swift */; };
 		492CDDAE2A81435200008C2D /* View+visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAD2A81435200008C2D /* View+visibility.swift */; };
 		4930A7082A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */; };
@@ -58,6 +60,8 @@
 /* Begin PBXFileReference section */
 		490BF6052A71596D008CB8F3 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		490BF6072A71628F008CB8F3 /* TimerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtils.swift; sourceTree = "<group>"; };
+		490C057A2ACAE5230012990C /* PlainNavLinkModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainNavLinkModifier.swift; sourceTree = "<group>"; };
+		490C057C2ACAF70A0012990C /* MockPlaylistNavStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlaylistNavStack.swift; sourceTree = "<group>"; };
 		492CDDAB2A81175A00008C2D /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		492CDDAD2A81435200008C2D /* View+visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+visibility.swift"; sourceTree = "<group>"; };
 		4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumKitPieceRuntimeComponent.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				4989D3A92A6045F60040A41F /* Preview Assets.xcassets */,
+				490C057C2ACAF70A0012990C /* MockPlaylistNavStack.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				49E1FE522A655AB4000077FE /* DragRotationModifier.swift */,
+				490C057A2ACAE5230012990C /* PlainNavLinkModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 				4977BCBA2A9DDF0200497A2F /* PostersView.swift in Sources */,
 				4945AC552A8A163B00A0FB0D /* ScenesConstants.swift in Sources */,
 				49BC067D2A6056C300105373 /* Models+Mocks.swift in Sources */,
+				490C057D2ACAF70B0012990C /* MockPlaylistNavStack.swift in Sources */,
 				494318BA2A727E1400F2C363 /* HomeView.swift in Sources */,
 				496C78C22A80C9D100161EF6 /* MainInstrumentsView.swift in Sources */,
 				49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */,
@@ -493,6 +500,7 @@
 				4969FA782A666BDD001CFC54 /* SongPlayer.swift in Sources */,
 				492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */,
 				4945AC5E2A8A2DFB00A0FB0D /* DrumDemo.swift in Sources */,
+				490C057B2ACAE5230012990C /* PlainNavLinkModifier.swift in Sources */,
 				490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

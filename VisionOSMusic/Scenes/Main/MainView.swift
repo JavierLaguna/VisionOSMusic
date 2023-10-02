@@ -43,9 +43,7 @@ struct MainView: View {
             visibility: viewModel.currentSong == nil ? .hidden : .automatic,
             attachmentAnchor: .scene(.topTrailing)
         ) {
-            if let currentSong = viewModel.currentSong {
-                SongPlayer(song: currentSong)
-            }
+            SongPlayer()
         }
     }
 }
