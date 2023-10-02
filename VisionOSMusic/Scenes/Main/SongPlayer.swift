@@ -57,8 +57,9 @@ struct SongPlayer: View {
 }
 
 #Preview {
-    var mainViewModel = MainViewModel()
+    let mainViewModel = MainViewModel()
     mainViewModel.currentSong = Song.mockSong
+    mainViewModel.currentSongSecond = 123
     
     return SongPlayer()
         .environment(mainViewModel)
