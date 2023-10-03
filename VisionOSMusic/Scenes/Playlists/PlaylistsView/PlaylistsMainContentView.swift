@@ -39,6 +39,7 @@ private struct Header: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 56, height: 56)
+                        
                         Text(playlist.name)
                             .font(.subheadline)
                         

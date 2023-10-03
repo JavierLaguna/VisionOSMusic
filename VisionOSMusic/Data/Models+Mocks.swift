@@ -748,3 +748,11 @@ Quisque auctor varius ultrices. Mauris auctor, ligula nec pharetra commodo, dolo
 Morbi imperdiet, risus sollicitudin auctor tincidunt, mauris eros lobortis massa, tempus ullamcorper ipsum eros ut enim. Vestibulum bibendum ullamcorper orci, a feugiat orci. Curabitur sodales aliquam lobortis. Phasellus et leo in neque posuere aliquet. Suspendisse vel nunc condimentum, fringilla mauris ut, ultricies lacus. Donec eget tortor in ipsum mollis pellentesque. Nunc vitae iaculis quam. Donec bibendum arcu sit amet arcu consectetur, eu venenatis nisl fringilla. Proin fringilla malesuada consectetur. Nulla eu augue a urna luctus molestie quis tempus leo. Donec hendrerit ut dui at tempus. Sed sodales ligula eu nulla maximus consequat. Nunc hendrerit enim id metus tincidunt, ac consequat enim condimentum. Suspendisse hendrerit diam ac gravida porta. Donec ut justo non erat aliquam tristique eu ut massa. Mauris ac neque vel diam dignissim varius.
 """
 }
+
+extension User {
+    
+    static let mockUser = User(
+        name: "Javier Laguna",
+        avatar: "user_avatar"
+    )
+}

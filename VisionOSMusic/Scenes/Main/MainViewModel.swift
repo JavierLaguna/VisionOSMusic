@@ -5,6 +5,7 @@ import SwiftUI
 @Observable
 final class MainViewModel {
     
+    let user = User.mockUser
     let playlists = Playlist.mockPlaylists
     let highlighPlaylist = Playlist.mockPlaylists.choose(6)
     let recommendationCategories = [
