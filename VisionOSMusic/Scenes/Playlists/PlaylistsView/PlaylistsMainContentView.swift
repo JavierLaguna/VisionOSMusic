@@ -7,12 +7,14 @@ struct PlaylistsMainContentView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            Header(playlists: viewModel.playlists)
+            Header(playlists: viewModel.highlighPlaylist)
             
-            // Content
-            PlaylistsCarousel(title: "For you", playlists: viewModel.playlists)
-            
-            PlaylistsCarousel(title: "Podcasts", playlists: viewModel.playlists)
+            ForEach(viewModel.recommendationCategories) {
+                PlaylistsCarousel(
+                    title: $0.title,
+                    playlists: $0.playlists
+                )
+            }
         }
         .padding()
     }

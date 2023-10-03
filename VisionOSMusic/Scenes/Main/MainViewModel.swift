@@ -6,6 +6,17 @@ import SwiftUI
 final class MainViewModel {
     
     let playlists = Playlist.mockPlaylists
+    let highlighPlaylist = Playlist.mockPlaylists.choose(6)
+    let recommendationCategories = [
+        RecommendationCategory(
+            title: "For you",
+            playlists: Playlist.mockPlaylists.choose(6)
+        ),
+        RecommendationCategory(
+            title: "Podcasts",
+            playlists: Playlist.mockPlaylists.choose(4)
+        )
+    ]
     
     var currentPlaylist: Playlist? = nil
     var currentSong: Song? = nil {

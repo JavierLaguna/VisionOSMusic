@@ -11,6 +11,8 @@
 		490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6072A71628F008CB8F3 /* TimerUtils.swift */; };
 		490C057B2ACAE5230012990C /* PlainNavLinkModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C057A2ACAE5230012990C /* PlainNavLinkModifier.swift */; };
 		490C057D2ACAF70B0012990C /* MockPlaylistNavStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C057C2ACAF70A0012990C /* MockPlaylistNavStack.swift */; };
+		490C057F2ACB3A020012990C /* Collection+choose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C057E2ACB3A020012990C /* Collection+choose.swift */; };
+		490C05812ACB3B290012990C /* RecommendationCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05802ACB3B290012990C /* RecommendationCategory.swift */; };
 		492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAB2A81175A00008C2D /* Instrument.swift */; };
 		492CDDAE2A81435200008C2D /* View+visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAD2A81435200008C2D /* View+visibility.swift */; };
 		4930A7082A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */; };
@@ -62,6 +64,8 @@
 		490BF6072A71628F008CB8F3 /* TimerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtils.swift; sourceTree = "<group>"; };
 		490C057A2ACAE5230012990C /* PlainNavLinkModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainNavLinkModifier.swift; sourceTree = "<group>"; };
 		490C057C2ACAF70A0012990C /* MockPlaylistNavStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlaylistNavStack.swift; sourceTree = "<group>"; };
+		490C057E2ACB3A020012990C /* Collection+choose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+choose.swift"; sourceTree = "<group>"; };
+		490C05802ACB3B290012990C /* RecommendationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCategory.swift; sourceTree = "<group>"; };
 		492CDDAB2A81175A00008C2D /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		492CDDAD2A81435200008C2D /* View+visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+visibility.swift"; sourceTree = "<group>"; };
 		4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumKitPieceRuntimeComponent.swift; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				49B43BF82A702749007E9986 /* Array+subscript.swift */,
+				490C057E2ACB3A020012990C /* Collection+choose.swift */,
 				4930A70B2A94A6BF00FE382F /* Entity+utils.swift */,
 				49940D962A72776B00340359 /* Int+formatter.swift */,
 				4977BCB42A9CABB700497A2F /* PieceType+Info.swift */,
@@ -316,6 +321,7 @@
 				492CDDAB2A81175A00008C2D /* Instrument.swift */,
 				490BF6052A71596D008CB8F3 /* PlayerStatus.swift */,
 				49BC06792A60567600105373 /* Playlist.swift */,
+				490C05802ACB3B290012990C /* RecommendationCategory.swift */,
 				49BC06882A61332F00105373 /* Song.swift */,
 			);
 			path = Models;
@@ -463,6 +469,7 @@
 				49B62EED2AA0F768005130C2 /* SnareDrumView.swift in Sources */,
 				498EF83F2A9F654B00790749 /* BusinessConstants.swift in Sources */,
 				49B43BF92A702749007E9986 /* Array+subscript.swift in Sources */,
+				490C057F2ACB3A020012990C /* Collection+choose.swift in Sources */,
 				495B271A2A9795FA008434D7 /* BillboardSystem.swift in Sources */,
 				49B43BF32A701B7F007E9986 /* PlayerControls.swift in Sources */,
 				49940D972A72776B00340359 /* Int+formatter.swift in Sources */,
@@ -492,6 +499,7 @@
 				49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */,
 				496C78BD2A7D210C00161EF6 /* SplashView.swift in Sources */,
 				4977BCB72A9CE2CA00497A2F /* SticksModel3D.swift in Sources */,
+				490C05812ACB3B290012990C /* RecommendationCategory.swift in Sources */,
 				49BC06832A60649800105373 /* PlaylistCellView.swift in Sources */,
 				49BC067A2A60567600105373 /* Playlist.swift in Sources */,
 				4930A70C2A94A6BF00FE382F /* Entity+utils.swift in Sources */,
