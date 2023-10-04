@@ -25,12 +25,8 @@ struct HomeView: View {
     private func openSmallPlayer() {
         openWindow(id: WindowName.smallPlayer)
         
-        Task {
-            await TimerUtils.waitTime(time: .seconds(0.25))
-            
-            await MainActor.run {
-                dismissWindow(id: WindowName.main)
-            }
+        TimerUtils.executeOnMainThreadAfter() {
+            dismissWindow(id: WindowName.main)
         }
     }
     
@@ -61,12 +57,8 @@ struct HomeView: View {
     private func navigateToPlaylist(playlist: Playlist) {
         mainCoordinator.navigateToPlaylist()
         
-        Task { // TODO: JLI
-            await TimerUtils.waitTime(time: .seconds(0.25))
-            
-            await MainActor.run {
-                playlistsCoordinator.navigateTo(playlist: playlist)
-            }
+        TimerUtils.executeOnMainThreadAfter() {
+            playlistsCoordinator.navigateTo(playlist: playlist)
         }
     }
     
@@ -240,8 +232,5 @@ private struct SectionContainerModifier: ViewModifier {
     NavigationStack {
         HomeView()
     }
-    .environment(MainViewModel())
-    .environment(MainCoordinator())
-    .environment(PlaylistsCoordinator())
-    // TODO: JLI
+    .allEnvironmentsInjected
 }

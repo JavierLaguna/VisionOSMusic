@@ -5,12 +5,12 @@ extension View {
     
     var mockPlaylistNavStacked: some View {
         self.modifier(
-            MockPlaylistNavStack()
+            MockPlaylistNavStackModifier()
         )
     }
 }
 
-private struct MockPlaylistNavStack: ViewModifier {
+private struct MockPlaylistNavStackModifier: ViewModifier {
     
     @State private var coordinator = PlaylistsCoordinator()
     

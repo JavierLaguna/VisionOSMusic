@@ -115,7 +115,7 @@ struct SongDetailView: View {
 }
 
 #Preview {
-    NavigationStack{
+    NavigationStack {
         SongDetailView(song: Song.mockSong)
     }
     .environment(MainViewModel())

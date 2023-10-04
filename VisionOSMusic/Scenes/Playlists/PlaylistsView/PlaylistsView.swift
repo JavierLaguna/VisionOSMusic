@@ -54,5 +54,5 @@ struct PlaylistsView: View {
 
 #Preview {
     PlaylistsView()
-        .environment(MainViewModel())
+        .allEnvironmentsInjected
 }

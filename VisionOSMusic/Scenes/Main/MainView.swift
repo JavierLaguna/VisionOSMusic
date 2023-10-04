@@ -55,8 +55,6 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        .environment(MainViewModel())
-        .environment(MainCoordinator())
-        .environment(PlaylistsCoordinator())
+        .allEnvironmentsInjected
 }
 

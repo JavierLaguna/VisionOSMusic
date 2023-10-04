@@ -10,12 +10,8 @@ struct PlayerControls: View {
     private func openSmallPlayer() {
         openWindow(id: WindowName.smallPlayer)
         
-        Task {
-            await TimerUtils.waitTime(time: .seconds(0.25))
-            
-            await MainActor.run {
-                dismissWindow(id: WindowName.main)
-            }
+        TimerUtils.executeOnMainThreadAfter() {
+            dismissWindow(id: WindowName.main)
         }
     }
     

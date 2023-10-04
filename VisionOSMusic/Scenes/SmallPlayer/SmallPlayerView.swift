@@ -10,12 +10,8 @@ struct SmallPlayerView: View {
     private func restoreWindow() {
         openWindow(id: WindowName.main)
         
-        Task {
-            await TimerUtils.waitTime(time: .seconds(0.25))
-            
-            await MainActor.run {
-                dismissWindow(id: WindowName.smallPlayer)
-            }
+        TimerUtils.executeOnMainThreadAfter() {
+            dismissWindow(id: WindowName.smallPlayer)
         }
     }
     
