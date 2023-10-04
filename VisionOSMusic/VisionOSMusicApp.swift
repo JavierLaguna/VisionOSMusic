@@ -5,6 +5,9 @@ import RealityKitContent
 @main
 struct VisionOSMusicApp: App {
     
+    // MARK: AppDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     // MARK: ImmersionStyles
     @State private var drumDemoImmersionStyle: ImmersionStyle = .mixed
     @State private var postersImmersionStyle: ImmersionStyle = .mixed
@@ -13,6 +16,7 @@ struct VisionOSMusicApp: App {
     @State private var mainVM = MainViewModel()
     
     // MARK: Coordinators
+    @State private var mainCoordinator = MainCoordinator()
     @State private var playlistsCoordinator = PlaylistsCoordinator()
     
     init() {
@@ -34,6 +38,7 @@ struct VisionOSMusicApp: App {
         WindowGroup(id: WindowName.main) {
             MainView()
                 .environment(mainVM)
+                .environment(mainCoordinator)
                 .environment(playlistsCoordinator)
         }
         .windowStyle(.plain)
@@ -63,5 +68,12 @@ struct VisionOSMusicApp: App {
             PostersView()
         }
         .immersionStyle(selection: $postersImmersionStyle, in: .mixed)
+    }
+}
+
+final class AppDelegate: NSObject, UIApplicationDelegate {
+ 
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: UIApplication) -> Bool {
+        return true
     }
 }

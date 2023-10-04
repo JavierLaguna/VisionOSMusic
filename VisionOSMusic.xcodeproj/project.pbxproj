@@ -14,6 +14,7 @@
 		490C057F2ACB3A020012990C /* Collection+choose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C057E2ACB3A020012990C /* Collection+choose.swift */; };
 		490C05812ACB3B290012990C /* RecommendationCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05802ACB3B290012990C /* RecommendationCategory.swift */; };
 		490C05832ACC73200012990C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05822ACC731F0012990C /* User.swift */; };
+		490C05852ACD496B0012990C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05842ACD496B0012990C /* MainCoordinator.swift */; };
 		492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAB2A81175A00008C2D /* Instrument.swift */; };
 		492CDDAE2A81435200008C2D /* View+visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAD2A81435200008C2D /* View+visibility.swift */; };
 		4930A7082A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */; };
@@ -68,6 +69,7 @@
 		490C057E2ACB3A020012990C /* Collection+choose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+choose.swift"; sourceTree = "<group>"; };
 		490C05802ACB3B290012990C /* RecommendationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCategory.swift; sourceTree = "<group>"; };
 		490C05822ACC731F0012990C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		490C05842ACD496B0012990C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		492CDDAB2A81175A00008C2D /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		492CDDAD2A81435200008C2D /* View+visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+visibility.swift"; sourceTree = "<group>"; };
 		4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumKitPieceRuntimeComponent.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		49BC06842A6064C300105373 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				490C05842ACD496B0012990C /* MainCoordinator.swift */,
 				4989D3A22A6045F50040A41F /* MainView.swift */,
 				49B43BF42A701C4B007E9986 /* MainViewModel.swift */,
 				49B43BF22A701B7F007E9986 /* PlayerControls.swift */,
@@ -466,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490C05852ACD496B0012990C /* MainCoordinator.swift in Sources */,
 				4989D3A32A6045F50040A41F /* MainView.swift in Sources */,
 				49940D992A72782500340359 /* String+formatter.swift in Sources */,
 				4977BCB52A9CABB700497A2F /* PieceType+Info.swift in Sources */,
