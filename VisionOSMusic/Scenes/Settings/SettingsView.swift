@@ -42,30 +42,11 @@ struct SettingsView: View {
         }
         .padding(.vertical, 32)
         .sheet(isPresented: $infoIsOpen, content: {
-            VStack(spacing: 24) {
-                HStack {
-                    Spacer()
-                    
-                    Button(action: closeInfoView, label: {
-                        Image(systemName: "xmark.circle.fill")
-                    })
-                }
-                
-                Text(" VisionOS Music")
-                    .font(.extraLargeTitle)
-                
-                Text("My first xrOS App!")
-                    .font(.body)
-                
-                Text("👨🏻‍💻 Javier Laguna 📱")
-                    .font(.caption)
-            }
-            .padding(32)
+            InfoView(onPressClose: closeInfoView)
         })
     }
 }
 
 #Preview {
     SettingsView()
-        .glassBackgroundEffect()
 }

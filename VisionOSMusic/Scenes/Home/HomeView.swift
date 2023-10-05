@@ -16,6 +16,8 @@ struct HomeView: View {
     
     private let spacing: CGFloat = 8.0
     
+    @State private var infoIsOpen = false
+    
     private func openPostersScene() {
         Task {
             await openImmersiveSpace(id: WindowName.posters)
@@ -31,7 +33,11 @@ struct HomeView: View {
     }
     
     private func onPressInfo() {
-        
+        infoIsOpen = true
+    }
+    
+    private func closeInfoView() {
+        infoIsOpen = false
     }
     
     private func onPressRapPlaylist() {
@@ -199,6 +205,9 @@ struct HomeView: View {
                 }
             }
         }
+        .sheet(isPresented: $infoIsOpen, content: {
+            InfoView(onPressClose: closeInfoView)
+        })
     }
 }
 
