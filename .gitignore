@@ -90,3 +90,6 @@ iOSInjectionProject/
 
 ## R.swift
 *.generated.swift
+
+## Others
+.DS_Store
