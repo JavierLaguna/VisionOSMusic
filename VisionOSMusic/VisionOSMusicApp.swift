@@ -9,7 +9,7 @@ struct VisionOSMusicApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     // MARK: ImmersionStyles
-    @State private var drumDemoImmersionStyle: ImmersionStyle = .mixed
+    @State private var drumsetDemoImmersionStyle: ImmersionStyle = .mixed
     @State private var postersImmersionStyle: ImmersionStyle = .mixed
     
     // MARK: ViewModels
@@ -61,7 +61,7 @@ struct VisionOSMusicApp: App {
         ImmersiveSpace(id: WindowName.drumDemo) {
             DrumDemo()
         }
-        .immersionStyle(selection: $drumDemoImmersionStyle, in: .mixed)
+        .immersionStyle(selection: $drumsetDemoImmersionStyle, in: .mixed)
         
         
         ImmersiveSpace(id: WindowName.posters) {

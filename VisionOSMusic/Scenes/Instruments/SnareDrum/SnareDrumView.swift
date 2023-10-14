@@ -93,11 +93,12 @@ struct SnareDrumView: View {
                 fatalError("Failed to load a model asset.")
             }
         }
+        .hoverEffect()
     }
     
     @ViewBuilder
     private var modelControlsView: some View {
-        HStack(spacing: 17) {
+        HStack(spacing: 16) {
             Toggle(isOn: $viewModel.rotateIsOn) {
                 Label("Rotate", systemImage: "arrow.triangle.2.circlepath")
             }
@@ -110,7 +111,7 @@ struct SnareDrumView: View {
         .buttonStyle(.borderless)
         .labelStyle(.iconOnly)
         .padding(12)
-        .glassBackgroundEffect(in: .rect(cornerRadius: 50))
+        .glassBackgroundEffect(in: .capsule)
     }
     
     var body: some View {
