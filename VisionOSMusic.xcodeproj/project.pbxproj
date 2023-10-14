@@ -252,6 +252,7 @@
 		4989D39B2A6045F50040A41F /* VisionOSMusic */ = {
 			isa = PBXGroup;
 			children = (
+				4989D3A02A6045F50040A41F /* VisionOSMusicApp.swift */,
 				49B43BF62A70272C007E9986 /* Utils */,
 				49E1FE512A655AA2000077FE /* Modifiers */,
 				4945AC5A2A8A2A3600A0FB0D /* Components */,
@@ -260,7 +261,6 @@
 				498EF83D2A9F653E00790749 /* Business */,
 				49BC067E2A6063D000105373 /* Scenes */,
 				4945AC562A8A180B00A0FB0D /* Resources */,
-				4989D3A02A6045F50040A41F /* VisionOSMusicApp.swift */,
 				4989D3A82A6045F60040A41F /* Preview Content */,
 			);
 			path = VisionOSMusic;
