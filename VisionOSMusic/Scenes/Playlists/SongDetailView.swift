@@ -7,6 +7,8 @@ struct SongDetailView: View {
     
     private let song: Song
     
+    @State private var isFavorite = false
+    
     init(song: Song) {
         self.song = song
     }
@@ -111,6 +113,12 @@ struct SongDetailView: View {
             .padding(.horizontal, 32)
         }
         .navigationTitle("\(song.name) - \(song.author)")
+        .toolbar(content: {
+            Toggle(isOn: $isFavorite, label: {
+                Label("Favorite", systemImage: "heart")
+                    .symbolVariant(isFavorite ? .fill : .none)
+            })
+        })
     }
 }
 
