@@ -90,12 +90,12 @@ struct MainInstrumentsView: View {
         VStack(spacing: 80) {
             Color.clear
                 .overlay {
-                    if selection == .sticks {
-                        SticksModel3D()
-                        
-                    } else {
+//                    if selection == .sticks {
+//                        SticksModel3D()
+//                        
+//                    } else {
                         instrumentModel3D
-                    }
+//                    }
                 }
                 .dragRotation(yawLimit: .degrees(20), pitchLimit: .degrees(20))
                 .offset(z: modelDepth)
