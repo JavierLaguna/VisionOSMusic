@@ -68,9 +68,9 @@ struct PostersView: View {
             
             content.add(planeEntity)
             
-//            generate().forEach {
-//                content.add($0)
-//            }
+            generate().forEach {
+                content.add($0)
+            }
             
         } update: { content, attachments in
             
