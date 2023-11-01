@@ -57,18 +57,19 @@ struct VisionOSMusicApp: App {
         ImmersiveSpace(id: WindowName.drumDemo) {
             DrumDemo()
         }
-        .immersionStyle(selection: $mainVM.drumsetDemoImmersionStyle, in: .mixed)
+        .immersionStyle(selection: $mainVM.immersionStyle, in: .mixed)
         
         
         ImmersiveSpace(id: WindowName.posters) {
             PostersView()
         }
-        .immersionStyle(selection: $mainVM.postersImmersionStyle, in: .mixed)
+        .immersionStyle(selection: $mainVM.immersionStyle, in: .mixed)
         
         ImmersiveSpace(id: WindowName.videoPlayer) {
             VideoPlayerView()
+                .environment(mainVM)
         }
-        .immersionStyle(selection: $mainVM.videoImmersionStyle,
+        .immersionStyle(selection: $mainVM.immersionStyle,
                         in: .mixed, .progressive, .full)
     }
 }

@@ -50,8 +50,7 @@ struct PlayerControls: View {
         }
         .padding(.vertical, 16)
         .padding(.horizontal, 32)
-        .clipShape(.capsule)
-        .glassBackgroundEffect()
+        .glassBackgroundEffect(in: .capsule)
     }
 }
 

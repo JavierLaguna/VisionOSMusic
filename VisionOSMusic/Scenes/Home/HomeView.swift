@@ -20,7 +20,12 @@ struct HomeView: View {
     
     private func openPostersScene() {
         Task {
-            await openImmersiveSpace(id: WindowName.posters)
+//            await openImmersiveSpace(id: WindowName.posters)
+            await openImmersiveSpace(id: WindowName.videoPlayer)
+        }
+        
+        TimerUtils.executeOnMainThreadAfter() {
+            dismissWindow(id: WindowName.main)
         }
     }
     
