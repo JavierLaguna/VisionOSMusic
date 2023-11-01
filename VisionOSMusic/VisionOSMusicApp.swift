@@ -8,10 +8,6 @@ struct VisionOSMusicApp: App {
     // MARK: AppDelegate
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    // MARK: ImmersionStyles
-    @State private var drumsetDemoImmersionStyle: ImmersionStyle = .mixed
-    @State private var postersImmersionStyle: ImmersionStyle = .mixed
-    
     // MARK: ViewModels
     @State private var mainVM = MainViewModel()
     
@@ -61,13 +57,19 @@ struct VisionOSMusicApp: App {
         ImmersiveSpace(id: WindowName.drumDemo) {
             DrumDemo()
         }
-        .immersionStyle(selection: $drumsetDemoImmersionStyle, in: .mixed)
+        .immersionStyle(selection: $mainVM.drumsetDemoImmersionStyle, in: .mixed)
         
         
         ImmersiveSpace(id: WindowName.posters) {
             PostersView()
         }
-        .immersionStyle(selection: $postersImmersionStyle, in: .mixed)
+        .immersionStyle(selection: $mainVM.postersImmersionStyle, in: .mixed)
+        
+        ImmersiveSpace(id: WindowName.videoPlayer) {
+            VideoPlayerView()
+        }
+        .immersionStyle(selection: $mainVM.videoImmersionStyle,
+                        in: .mixed, .progressive, .full)
     }
 }
 

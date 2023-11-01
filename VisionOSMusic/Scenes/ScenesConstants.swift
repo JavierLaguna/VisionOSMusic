@@ -7,6 +7,7 @@ struct WindowName {
     static let drumDemo = "DrumDemoWindow"
     static let posters = "PostersWindow"
     static let snareDrum = "SnareDrumWindow"
+    static let videoPlayer = "VideoPlayerWindow"
 }
 
 struct Scene3D {

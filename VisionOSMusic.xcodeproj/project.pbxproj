@@ -57,6 +57,8 @@
 		49BC06832A60649800105373 /* PlaylistCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06822A60649800105373 /* PlaylistCellView.swift */; };
 		49BC06872A61329E00105373 /* PlaylistContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06862A61329E00105373 /* PlaylistContentView.swift */; };
 		49BC06892A61332F00105373 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06882A61332F00105373 /* Song.swift */; };
+		49D0596D2AF0E74800A01E17 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0596C2AF0E74800A01E17 /* VideoPlayerView.swift */; };
+		49D059702AF0E9B400A01E17 /* battery.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 49D0596F2AF0E9B400A01E17 /* battery.mp4 */; };
 		49E1FE532A655AB4000077FE /* DragRotationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FE522A655AB4000077FE /* DragRotationModifier.swift */; };
 		49E680D92ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E680D82ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift */; };
 		49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */; };
@@ -115,6 +117,8 @@
 		49BC06822A60649800105373 /* PlaylistCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCellView.swift; sourceTree = "<group>"; };
 		49BC06862A61329E00105373 /* PlaylistContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistContentView.swift; sourceTree = "<group>"; };
 		49BC06882A61332F00105373 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		49D0596C2AF0E74800A01E17 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		49D0596F2AF0E9B400A01E17 /* battery.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = battery.mp4; sourceTree = "<group>"; };
 		49E1FE522A655AB4000077FE /* DragRotationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRotationModifier.swift; sourceTree = "<group>"; };
 		49E680D82ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEnvironmentsInjected.swift; sourceTree = "<group>"; };
 		49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		4945AC562A8A180B00A0FB0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49D0596E2AF0E99300A01E17 /* Videos */,
 				4989D3A62A6045F60040A41F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -366,6 +371,7 @@
 				498EF83A2A9F626700790749 /* Settings */,
 				4945AC572A8A182F00A0FB0D /* SmallPlayer */,
 				496C78BB2A7D20FC00161EF6 /* Splash */,
+				49D0596B2AF0E72B00A01E17 /* VideoPlayer */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -399,6 +405,22 @@
 				49BC06862A61329E00105373 /* PlaylistContentView.swift */,
 			);
 			path = PlaylistContent;
+			sourceTree = "<group>";
+		};
+		49D0596B2AF0E72B00A01E17 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				49D0596C2AF0E74800A01E17 /* VideoPlayerView.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		49D0596E2AF0E99300A01E17 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				49D0596F2AF0E9B400A01E17 /* battery.mp4 */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 		49E1FE512A655AA2000077FE /* Modifiers */ = {
@@ -472,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4989D3AA2A6045F60040A41F /* Preview Assets.xcassets in Resources */,
+				49D059702AF0E9B400A01E17 /* battery.mp4 in Resources */,
 				4989D3A72A6045F60040A41F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +517,7 @@
 				490C057F2ACB3A020012990C /* Collection+choose.swift in Sources */,
 				495B271A2A9795FA008434D7 /* BillboardSystem.swift in Sources */,
 				49B43BF32A701B7F007E9986 /* PlayerControls.swift in Sources */,
+				49D0596D2AF0E74800A01E17 /* VideoPlayerView.swift in Sources */,
 				49940D972A72776B00340359 /* Int+formatter.swift in Sources */,
 				4945AC592A8A185500A0FB0D /* SmallPlayerView.swift in Sources */,
 				49B62EEF2AA10164005130C2 /* SnareDrumViewModel.swift in Sources */,
