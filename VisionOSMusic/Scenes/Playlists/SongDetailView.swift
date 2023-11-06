@@ -75,13 +75,22 @@ struct SongDetailView: View {
                 
                 Spacer()
                 
-                Image(systemName: "play.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 48)
-                    .onTapGesture {
-                        viewModel.play(song)
+                VStack(spacing: 16) {
+                    Image(systemName: "play.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 48)
+                        .onTapGesture {
+                            viewModel.play(song)
+                        }
+                    
+                    if song.songVideoclip != nil {
+                        Button(action: openImmersiveVideoclip) {
+                            Text("Immersive Videoclip")
+                                .fontWeight(.light)
+                        }
                     }
+                }
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 32)

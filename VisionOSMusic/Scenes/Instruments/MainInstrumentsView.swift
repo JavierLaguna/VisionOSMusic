@@ -114,7 +114,7 @@ struct MainInstrumentsView: View {
                 }
                 .onChange(of: selection, onChangeSelection)
                 .pickerStyle(.segmented)
-                .frame(width: 324)
+                .frame(width: 384)
                 
                 Button(action: rotateModel) {
                     Image(systemName: "arrow.2.circlepath.circle.fill")

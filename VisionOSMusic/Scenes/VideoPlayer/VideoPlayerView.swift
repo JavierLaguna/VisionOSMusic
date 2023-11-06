@@ -129,9 +129,12 @@ struct VideoPlayerView: View {
     }
     
     private func closeScene() {
+        player?.pause()
+        
+        openWindow(id: WindowName.main)
+        
         Task {
             await dismissImmersiveSpace()
-            openWindow(id: WindowName.main)
         }
     }
     
