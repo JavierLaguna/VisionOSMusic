@@ -21,6 +21,7 @@ final class MainViewModel {
     
     // MARK: ImmersionStyles
     var immersionStyle: ImmersionStyle = .mixed
+    var immersionVideoclip: SongVideoclip? = nil
     
     var currentPlaylist: Playlist? = nil
     var currentSongSecond: Int? = nil

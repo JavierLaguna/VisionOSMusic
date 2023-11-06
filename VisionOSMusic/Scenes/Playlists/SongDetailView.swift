@@ -3,6 +3,8 @@ import SwiftUI
 
 struct SongDetailView: View {
     
+    @Environment(\.openImmersiveSpace) private var openImmersiveSpace
+    @Environment(\.dismissWindow) private var dismissWindow
     @Environment(MainViewModel.self) private var viewModel
     
     private let song: Song
@@ -11,6 +13,22 @@ struct SongDetailView: View {
     
     init(song: Song) {
         self.song = song
+    }
+    
+    private func openImmersiveVideoclip() {
+        guard let songVideoclip = song.songVideoclip else {
+            return
+        }
+        
+        viewModel.immersionVideoclip = songVideoclip
+        
+        Task {
+            await openImmersiveSpace(id: WindowName.videoPlayer)
+            
+            TimerUtils.executeOnMainThreadAfter() {
+                dismissWindow(id: WindowName.main)
+            }
+        }
     }
     
     @ViewBuilder

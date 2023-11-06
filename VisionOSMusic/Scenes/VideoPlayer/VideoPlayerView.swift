@@ -3,20 +3,15 @@ import SwiftUI
 import RealityKit
 import AVKit
 
-
-enum ImmersionStylesSelectable: CaseIterable {
-    case automatic
-    case mixed
-    case progressive
-    case full
-}
-
-
 struct VideoPlayerView: View {
     
+    static private let playerControlsAttachmentId = "playerControlsAttachmentId"
+    
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     @Environment(MainViewModel.self) private var viewModel
     
-    private let immersionStyles: [ImmersionStyle] = [.mixed, .progressive, .full]
+    private let immersionStyles: [ImmersionStylesSelectable] = [.mixed, .progressive, .full]
     
     @State private var player: AVPlayer?
     
@@ -24,34 +19,23 @@ struct VideoPlayerView: View {
         player?.timeControlStatus == .playing
     }
     
-    private var immersionStyleSelected: Binding<String> {
+    private var immersionStyleSelected: Binding<ImmersionStylesSelectable> {
         Binding(
-            get: {
-                switch viewModel.immersionStyle {
-                    case is FullImmersionStyle:
-                    return "FULL"
-                    
-                default:
-                    return ""
-                }
-            },
-            set: { _ in viewModel.immersionStyle = .full }
+            get: { ImmersionStylesSelectable(from: viewModel.immersionStyle) },
+            set: { viewModel.immersionStyle = $0.style }
         )
     }
     
     @ViewBuilder
     private var videoPlayerControls: some View {
         HStack(spacing: 32) {
-            Picker("Immersion Style", selection: immersionStyleSelected) {
-                Text("PRUEBA")
-                    .tag("")
-                
-                Text("PRUEB2")
-                    .tag("PRUEB2")
-                
-                Text("FULL")
-            }
-            .pickerStyle(.segmented)
+            Button(action: toggleMute, label: {
+                Image(systemName: player?.isMuted ?? false ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40)
+                    .padding()
+            })
             
             Button(action: togglePlayPause, label: {
                 Image(systemName: isPlayingVideo ? "pause.fill" : "play.fill")
@@ -60,13 +44,23 @@ struct VideoPlayerView: View {
                     .frame(width: 48, height: 88)
                     .contentTransition(.symbolEffect(.replace))
                     .symbolEffect(.bounce, value: isPlayingVideo)
+                    .padding()
             })
             
-            Button(action: toggleMute, label: {
-                Image(systemName: player?.isMuted ?? false ? "speaker.slash.fill" : "speaker.wave.2.fill")
+            Picker("Immersion Style", selection: immersionStyleSelected) {
+                ForEach(immersionStyles) { style in
+                    Label(style.title, systemImage: style.image)
+                        .tag(style)
+                }
+            }
+            .pickerStyle(.segmented)
+            
+            Button(action: closeScene, label: {
+                Image(systemName: "rectangle.portrait.and.arrow.right.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40)
+                    .padding()
             })
         }
         .padding(.vertical, 16)
@@ -77,7 +71,7 @@ struct VideoPlayerView: View {
     private func onAppearView() {
         viewModel.immersionStyle = .progressive
     }
-
+    
     private func headRelativeVideo() -> Entity {
         let headAnchor = AnchorEntity(.head, trackingMode: .once)
         let videoPlayerEntity = makeVideoPlayerEntity()
@@ -89,26 +83,32 @@ struct VideoPlayerView: View {
     
     private func makeVideoPlayerEntity() -> Entity {
         let entity = Entity()
-        let videoAsset = AVURLAsset(url: Bundle.main.url(forResource: "battery", withExtension: "mp4")!) // TODO: JLI !
         
+        guard let videoclip = viewModel.immersionVideoclip,
+              let assetUrl = Bundle.main.url(
+                forResource: videoclip.name,
+                withExtension: videoclip.format
+              ) else {
+            return entity
+        }
+        
+        let videoAsset = AVURLAsset(url: assetUrl)
         let playerItem = AVPlayerItem(asset: videoAsset)
         
         let player = AVPlayer()
         player.replaceCurrentItem(with: playerItem)
-
+        
         var videoPlayerComponent = VideoPlayerComponent(avPlayer: player)
         videoPlayerComponent.isPassthroughTintingEnabled = true
         
         entity.components[VideoPlayerComponent.self] = videoPlayerComponent
-
+        
         // Make player small
         // entity.scale *= 0.4
         
         self.player = player
         self.player?.play()
-        
-        self.player?.isMuted = true // TODO: REMOVE
-        
+                
         return entity
     }
     
@@ -127,15 +127,22 @@ struct VideoPlayerView: View {
         
         player.isMuted = !player.isMuted
     }
-
+    
+    private func closeScene() {
+        Task {
+            await dismissImmersiveSpace()
+            openWindow(id: WindowName.main)
+        }
+    }
+    
     var body: some View {
         RealityView { content, _ in
             let videoPlayerEntity = headRelativeVideo()
             content.add(videoPlayerEntity)
-                       
+            
         } update: { content, attachments in
             guard let videoPlayerEntity = content.entities.first,
-                  let attachmentEntity = attachments.entity(for: "att") else {
+                  let attachmentEntity = attachments.entity(for: Self.playerControlsAttachmentId) else {
                 return
             }
             
@@ -144,7 +151,7 @@ struct VideoPlayerView: View {
             attachmentEntity.setPosition([0, -0.56, -1.8], relativeTo: videoPlayerEntity)
             
         } attachments: {
-            Attachment(id: "att") { // TODO: JLI
+            Attachment(id: Self.playerControlsAttachmentId) {
                 videoPlayerControls
             }
         }

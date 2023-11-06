@@ -737,7 +737,8 @@ extension Song {
  
  Battery
  """,
-        youtubeId: "_efOnc3onfQ"
+        youtubeId: "_efOnc3onfQ",
+        songVideoclip: SongVideoclip.batteryVideoclip
     )
     
     static let songLyricsMock = """
@@ -754,5 +755,13 @@ extension User {
     static let mockUser = User(
         name: "Javier Laguna",
         avatar: "user_avatar"
+    )
+}
+
+extension SongVideoclip {
+    
+    static let batteryVideoclip = SongVideoclip(
+        name: "battery",
+        format: "mp4"
     )
 }
