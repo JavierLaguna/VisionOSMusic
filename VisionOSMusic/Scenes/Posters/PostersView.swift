@@ -7,11 +7,10 @@ struct PostersView: View {
     private let lists = ["playlist_techno", "playlist_rock", "playlist_pop"]
     
     @State var planeEntity: Entity = {
-        let wallAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(0.1, 0.1)))
-        let planeMesh = MeshResource.generatePlane(width: 0.5, depth: 2.625, cornerRadius: 0.1)
+        let wallAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(0.6, 0.6)))
+        let planeMesh = MeshResource.generatePlane(width: 3.75, depth: 2.625, cornerRadius: 0.1)
         
         let material = PostersView.loadImageMaterial(imageUrl: "playlist_rap")
-        let material2 = SimpleMaterial(color: .green, isMetallic: false)
         
         let planeEntity = ModelEntity(mesh: planeMesh, materials: [material])
         planeEntity.name = "canvas"
