@@ -58,12 +58,12 @@
 		49BC06872A61329E00105373 /* PlaylistContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06862A61329E00105373 /* PlaylistContentView.swift */; };
 		49BC06892A61332F00105373 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC06882A61332F00105373 /* Song.swift */; };
 		49D0596D2AF0E74800A01E17 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0596C2AF0E74800A01E17 /* VideoPlayerView.swift */; };
-		49D059702AF0E9B400A01E17 /* battery.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 49D0596F2AF0E9B400A01E17 /* battery.mp4 */; };
 		49D0597A2AF3907900A01E17 /* ImmersionStylesSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D059792AF3907900A01E17 /* ImmersionStylesSelectable.swift */; };
 		49D0597C2AF397C400A01E17 /* SongVideoclip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0597B2AF397C400A01E17 /* SongVideoclip.swift */; };
 		49E1FE532A655AB4000077FE /* DragRotationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FE522A655AB4000077FE /* DragRotationModifier.swift */; };
 		49E680D92ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E680D82ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift */; };
 		49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */; };
+		49F3581E2AF963A20055D406 /* battery.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 49F3581D2AF963A20055D406 /* battery.mp4 */; };
 		49F50D832AC4B2D1001E5346 /* PlaylistsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F50D822AC4B2D1001E5346 /* PlaylistsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,12 +120,12 @@
 		49BC06862A61329E00105373 /* PlaylistContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistContentView.swift; sourceTree = "<group>"; };
 		49BC06882A61332F00105373 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		49D0596C2AF0E74800A01E17 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
-		49D0596F2AF0E9B400A01E17 /* battery.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = battery.mp4; sourceTree = "<group>"; };
 		49D059792AF3907900A01E17 /* ImmersionStylesSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersionStylesSelectable.swift; sourceTree = "<group>"; };
 		49D0597B2AF397C400A01E17 /* SongVideoclip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongVideoclip.swift; sourceTree = "<group>"; };
 		49E1FE522A655AB4000077FE /* DragRotationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRotationModifier.swift; sourceTree = "<group>"; };
 		49E680D82ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEnvironmentsInjected.swift; sourceTree = "<group>"; };
 		49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
+		49F3581D2AF963A20055D406 /* battery.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = battery.mp4; sourceTree = "<group>"; };
 		49F50D822AC4B2D1001E5346 /* PlaylistsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -424,7 +424,7 @@
 		49D0596E2AF0E99300A01E17 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				49D0596F2AF0E9B400A01E17 /* battery.mp4 */,
+				49F3581D2AF963A20055D406 /* battery.mp4 */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -500,7 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4989D3AA2A6045F60040A41F /* Preview Assets.xcassets in Resources */,
-				49D059702AF0E9B400A01E17 /* battery.mp4 in Resources */,
+				49F3581E2AF963A20055D406 /* battery.mp4 in Resources */,
 				4989D3A72A6045F60040A41F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
