@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-enum ImmersionStylesSelectable: CaseIterable, Identifiable {
+enum ImmersionStylesSelectable: CaseIterable, Identifiable, Equatable {
     case automatic
     case mixed
     case progressive
