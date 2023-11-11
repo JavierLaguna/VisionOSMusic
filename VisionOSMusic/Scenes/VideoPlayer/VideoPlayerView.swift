@@ -1,6 +1,7 @@
 
 import SwiftUI
 import RealityKit
+import AVKit
 
 struct VideoPlayerView: View {
     
@@ -12,7 +13,9 @@ struct VideoPlayerView: View {
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     @Environment(MainViewModel.self) private var mainViewModel
     
-    @State private var viewModel: VideoPlayerViewModel!
+    private let videoclip: SongVideoclip
+    
+    @State private var viewModel = VideoPlayerViewModel()
     
     private var immersionStyleSelected: Binding<ImmersionStylesSelectable> {
         Binding(
@@ -26,7 +29,7 @@ struct VideoPlayerView: View {
     }
     
     init(videoclip: SongVideoclip) {
-        viewModel = VideoPlayerViewModel(videoclip: videoclip)
+        self.videoclip = videoclip
     }
     
     @ViewBuilder
@@ -73,7 +76,7 @@ struct VideoPlayerView: View {
     
     private func onAppearView() {
         mainViewModel.immersionStyle = .progressive
-        viewModel.isPlayingVideo = true
+        viewModel.load(videoclip: videoclip)
     }
     
     private func togglePlayPause() {
@@ -134,7 +137,7 @@ struct VideoPlayerView: View {
 
 #Preview {
     VideoPlayerView(
-        videoclip: SongVideoclip(name: "battery", format: "mp4")
+        videoclip: SongVideoclip.batteryVideoclip
     )
     .environment(MainViewModel())
 }

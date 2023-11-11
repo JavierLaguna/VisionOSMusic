@@ -7,9 +7,7 @@ import AVKit
 final class VideoPlayerViewModel {
     
     let immersionStyles: [ImmersionStylesSelectable] = [.mixed, .progressive, .full]
-    
-    private let videoclip: SongVideoclip
-    
+        
     private(set) var videoPlayerEntity: Entity
     private(set) var player: AVPlayer
     
@@ -28,42 +26,43 @@ final class VideoPlayerViewModel {
         }
     }
     
-    init(videoclip: SongVideoclip) {
-        self.videoclip = videoclip
-        
+    init() {
         let player = AVPlayer()
         self.player = player
         
-        videoPlayerEntity = Self.headRelativeVideo(videoclip: videoclip, player: player)
-    }
-}
-
-// MARK: Private methods
-private extension VideoPlayerViewModel {
-    
-    static func headRelativeVideo(videoclip: SongVideoclip, player: AVPlayer) -> Entity {
-        let headAnchor = AnchorEntity(.head, trackingMode: .once)
-        let videoPlayerEntity = makeVideoPlayerEntity(videoclip: videoclip, player: player)
-        videoPlayerEntity.position = SIMD3<Float>(0, 0, -2)
-        headAnchor.addChild(videoPlayerEntity)
-        
-        return headAnchor
+        videoPlayerEntity = Self.headRelativeVideo(player: player)
     }
     
-    static func makeVideoPlayerEntity(videoclip: SongVideoclip, player: AVPlayer) -> Entity {
-        let entity = Entity()
-        
+    func load(videoclip: SongVideoclip) {
         guard let assetUrl = Bundle.main.url(
             forResource: videoclip.name,
             withExtension: videoclip.format
         ) else {
-            return entity
+            return
         }
         
         let videoAsset = AVURLAsset(url: assetUrl)
         let playerItem = AVPlayerItem(asset: videoAsset)
         
         player.replaceCurrentItem(with: playerItem)
+        isPlayingVideo = true
+    }
+}
+
+// MARK: Private methods
+private extension VideoPlayerViewModel {
+    
+    static func headRelativeVideo(player: AVPlayer) -> Entity {
+        let headAnchor = AnchorEntity(.head, trackingMode: .once)
+        let videoPlayerEntity = makeVideoPlayerEntity(player: player)
+        videoPlayerEntity.position = SIMD3<Float>(0, 0, -2)
+        headAnchor.addChild(videoPlayerEntity)
+        
+        return headAnchor
+    }
+    
+    static func makeVideoPlayerEntity(player: AVPlayer) -> Entity {
+        let entity = Entity()
         
         var videoPlayerComponent = VideoPlayerComponent(avPlayer: player)
         videoPlayerComponent.isPassthroughTintingEnabled = true

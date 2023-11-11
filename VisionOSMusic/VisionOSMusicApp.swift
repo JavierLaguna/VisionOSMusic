@@ -70,6 +70,7 @@ struct VisionOSMusicApp: App {
                 if let videoclip = mainVM.immersionVideoclip {
                     VideoPlayerView(videoclip: videoclip)
                         .environment(mainVM)
+                    
                 } else {
                     EmptyView()
                 }
