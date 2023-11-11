@@ -16,6 +16,10 @@ struct VisionOSMusicApp: App {
     @State private var playlistsCoordinator = PlaylistsCoordinator()
     
     init() {
+        realityKitRegister()
+    }
+    
+    private func realityKitRegister() {
         BillboardSystem.registerSystem()
         BillboardComponent.registerComponent()
         

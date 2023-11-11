@@ -89,16 +89,12 @@ struct VideoPlayerView: View {
     
     private func closeScene() {
         viewModel.isPlayingVideo = false
-        
         mainViewModel.immersionStyle = .mixed
-        
-        openWindow(id: WindowName.main)
-        
-//        Task {
-//            await TimerUtils.waitTime(time: .seconds(0.25))
-//            
-//            await dismissImmersiveSpace()
-//        }
+                
+        Task {
+            await dismissImmersiveSpace()
+            openWindow(id: WindowName.main)
+        }
     }
     
     var body: some View {
