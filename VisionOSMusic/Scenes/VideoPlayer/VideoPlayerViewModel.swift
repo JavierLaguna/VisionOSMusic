@@ -8,6 +8,8 @@ final class VideoPlayerViewModel {
     
     let immersionStyles: [ImmersionStylesSelectable] = [.mixed, .progressive, .full]
     
+    private let videoclip: SongVideoclip
+    
     private(set) var videoPlayerEntity: Entity
     private(set) var player: AVPlayer
     
@@ -26,31 +28,30 @@ final class VideoPlayerViewModel {
         }
     }
     
-    init() {
+    init(videoclip: SongVideoclip) {
+        self.videoclip = videoclip
+        
         let player = AVPlayer()
         self.player = player
         
-        videoPlayerEntity = Self.headRelativeVideo(player: player)
+        videoPlayerEntity = Self.headRelativeVideo(videoclip: videoclip, player: player)
     }
 }
 
 // MARK: Private methods
 private extension VideoPlayerViewModel {
     
-    static func headRelativeVideo(player: AVPlayer) -> Entity {
+    static func headRelativeVideo(videoclip: SongVideoclip, player: AVPlayer) -> Entity {
         let headAnchor = AnchorEntity(.head, trackingMode: .once)
-        let videoPlayerEntity = makeVideoPlayerEntity(player: player)
+        let videoPlayerEntity = makeVideoPlayerEntity(videoclip: videoclip, player: player)
         videoPlayerEntity.position = SIMD3<Float>(0, 0, -2)
         headAnchor.addChild(videoPlayerEntity)
         
         return headAnchor
     }
     
-    static func makeVideoPlayerEntity(player: AVPlayer) -> Entity {
+    static func makeVideoPlayerEntity(videoclip: SongVideoclip, player: AVPlayer) -> Entity {
         let entity = Entity()
-        
-        // TODO: JLI
-        let videoclip = SongVideoclip(name: "battery", format: "mp4")
         
         guard let assetUrl = Bundle.main.url(
             forResource: videoclip.name,

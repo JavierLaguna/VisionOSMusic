@@ -66,8 +66,14 @@ struct VisionOSMusicApp: App {
         .immersionStyle(selection: $mainVM.immersionStyle, in: .mixed)
         
         ImmersiveSpace(id: WindowName.videoPlayer) {
-            VideoPlayerView()
-                .environment(mainVM)
+            Group {
+                if let videoclip = mainVM.immersionVideoclip {
+                    VideoPlayerView(videoclip: videoclip)
+                        .environment(mainVM)
+                } else {
+                    EmptyView()
+                }
+            }
         }
         .immersionStyle(selection: $mainVM.immersionStyle,
                         in: .mixed, .progressive, .full)

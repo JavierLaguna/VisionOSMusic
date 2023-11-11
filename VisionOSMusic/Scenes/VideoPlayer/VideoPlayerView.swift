@@ -1,7 +1,6 @@
 
 import SwiftUI
 import RealityKit
-import AVKit
 
 struct VideoPlayerView: View {
     
@@ -13,7 +12,7 @@ struct VideoPlayerView: View {
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     @Environment(MainViewModel.self) private var mainViewModel
     
-    @State private var viewModel = VideoPlayerViewModel()
+    @State private var viewModel: VideoPlayerViewModel!
     
     private var immersionStyleSelected: Binding<ImmersionStylesSelectable> {
         Binding(
@@ -24,6 +23,10 @@ struct VideoPlayerView: View {
                 mainViewModel.immersionStyle = $0.style
             }
         )
+    }
+    
+    init(videoclip: SongVideoclip) {
+        viewModel = VideoPlayerViewModel(videoclip: videoclip)
     }
     
     @ViewBuilder
@@ -88,11 +91,11 @@ struct VideoPlayerView: View {
         
         openWindow(id: WindowName.main)
         
-        Task {
-            await TimerUtils.waitTime(time: .seconds(0.25))
-            
-            await dismissImmersiveSpace()
-        }
+//        Task {
+//            await TimerUtils.waitTime(time: .seconds(0.25))
+//            
+//            await dismissImmersiveSpace()
+//        }
     }
     
     var body: some View {
@@ -130,6 +133,8 @@ struct VideoPlayerView: View {
 }
 
 #Preview {
-    VideoPlayerView()
-        .environment(MainViewModel())
+    VideoPlayerView(
+        videoclip: SongVideoclip(name: "battery", format: "mp4")
+    )
+    .environment(MainViewModel())
 }
