@@ -6,7 +6,9 @@ struct SettingsView: View {
     @AppStorage(BusinessConstants.UserDefaults.introEnabled)
     private var introEnabled: Bool = BusinessConstants.DefaultValues.introEnabled
     
-    @State private var pickerSelection = "Option 1"
+    @AppStorage(BusinessConstants.UserDefaults.favoriteImmersiveBg)
+    private var favoriteImmersiveBg: ImmersiveBackgroundScene = BusinessConstants.DefaultValues.favoriteImmersiveBg
+    
     @State private var infoIsOpen = false
     
     private func openInfoView() {
@@ -30,12 +32,13 @@ struct SettingsView: View {
                         Text("Splash intro animation")
                     }
                     
-                    Picker(selection: $pickerSelection) {
-                        Text("Option 1").tag("Option 1")
-                        Text("Option 2").tag("Option 2")
-                        Text("Option 3").tag("Option 3")
+                    Picker(selection: $favoriteImmersiveBg) {
+                        ForEach(ImmersiveBackgroundScene.allCases) { bg in
+                            Text(bg.title)
+                                .tag(bg.rawValue)
+                        }
                     } label: {
-                        Text("This is a simple picker")
+                        Text("Favorite immersive scene")
                     }
                 }
             }

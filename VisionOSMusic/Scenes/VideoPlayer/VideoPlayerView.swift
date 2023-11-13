@@ -1,21 +1,23 @@
 
 import SwiftUI
 import RealityKit
-import AVKit
 
 struct VideoPlayerView: View {
     
-    static private let bgImageResource = "starfield_bg_scene"
-    static private let bgImageEntityName = "bgImageEntityName"
     static private let playerControlsAttachmentId = "playerControlsAttachmentId"
     
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     @Environment(MainViewModel.self) private var mainViewModel
     
+    @AppStorage(BusinessConstants.UserDefaults.favoriteImmersiveBg)
+    private var favoriteImmersiveBg: ImmersiveBackgroundScene = BusinessConstants.DefaultValues.favoriteImmersiveBg
+    
     private let videoclip: SongVideoclip
     
     @State private var viewModel = VideoPlayerViewModel()
+    @State private var backgroundEntity: ImmersiveViewBackgroundEntity?
+    @State private var videoPlayerEntity: Entity?
     
     private var immersionStyleSelected: Binding<ImmersionStylesSelectable> {
         Binding(
@@ -61,6 +63,14 @@ struct VideoPlayerView: View {
             }
             .pickerStyle(.segmented)
             
+            Button(action: viewModel.randomImmersiveBg, label: {
+                Image(systemName: "arrow.triangle.2.circlepath.camera.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40)
+                    .padding()
+            })
+            
             Button(action: closeScene, label: {
                 Image(systemName: "rectangle.portrait.and.arrow.right.fill")
                     .resizable()
@@ -77,6 +87,7 @@ struct VideoPlayerView: View {
     private func onAppearView() {
         mainViewModel.immersionStyle = .progressive
         viewModel.load(videoclip: videoclip)
+        viewModel.setInitial(immersiveBg: favoriteImmersiveBg)
     }
     
     private func togglePlayPause() {
@@ -90,7 +101,7 @@ struct VideoPlayerView: View {
     private func closeScene() {
         viewModel.isPlayingVideo = false
         mainViewModel.immersionStyle = .mixed
-                
+        
         Task {
             await dismissImmersiveSpace()
             openWindow(id: WindowName.main)
@@ -99,22 +110,22 @@ struct VideoPlayerView: View {
     
     var body: some View {
         RealityView { content, _ in
-            let backgroundEntity = ImmersiveViewBackground(imageResource: Self.bgImageResource)
-            backgroundEntity.name = Self.bgImageEntityName
+            let backgroundEntity = ImmersiveViewBackgroundEntity(imageResource: viewModel.immersiveBg.resource)
             content.add(backgroundEntity)
+            self.backgroundEntity = backgroundEntity
             
             let videoPlayerEntity = viewModel.videoPlayerEntity
             content.add(videoPlayerEntity)
+            self.videoPlayerEntity = videoPlayerEntity
             
         } update: { content, attachments in
-            if let backgroundEntity = content.entities.first(where: {
-                $0.name == Self.bgImageEntityName
-            }) {
+            if let backgroundEntity {
                 backgroundEntity.components.set(OpacityComponent(opacity: immersionStyleSelected.wrappedValue == .mixed ? 0.0 : 1.0))
+                backgroundEntity.update(imageResource: viewModel.immersiveBg.resource)
             }
             
-            let videoPlayerEntity = content.entities[1] // TODO: JLI
-            guard let attachmentEntity = attachments.entity(for: Self.playerControlsAttachmentId) else {
+            guard let videoPlayerEntity,
+                  let attachmentEntity = attachments.entity(for: Self.playerControlsAttachmentId) else {
                 return
             }
             

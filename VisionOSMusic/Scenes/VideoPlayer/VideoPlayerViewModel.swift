@@ -10,6 +10,7 @@ final class VideoPlayerViewModel {
         
     private(set) var videoPlayerEntity: Entity
     private(set) var player: AVPlayer
+    private(set) var immersiveBg: ImmersiveBackgroundScene = BusinessConstants.DefaultValues.favoriteImmersiveBg
     
     var isPlayingVideo: Bool = false {
         didSet {
@@ -33,6 +34,10 @@ final class VideoPlayerViewModel {
         videoPlayerEntity = Self.headRelativeVideo(player: player)
     }
     
+    func setInitial(immersiveBg: ImmersiveBackgroundScene) {
+        self.immersiveBg = immersiveBg
+    }
+    
     func load(videoclip: SongVideoclip) {
         guard let assetUrl = Bundle.main.url(
             forResource: videoclip.name,
@@ -46,6 +51,18 @@ final class VideoPlayerViewModel {
         
         player.replaceCurrentItem(with: playerItem)
         isPlayingVideo = true
+    }
+    
+    func randomImmersiveBg() {
+        guard let newBg = ImmersiveBackgroundScene.allCases.randomElement() else {
+            return
+        }
+        
+        if immersiveBg == newBg {
+            randomImmersiveBg()
+        } else {
+            immersiveBg = newBg
+        }
     }
 }
 
