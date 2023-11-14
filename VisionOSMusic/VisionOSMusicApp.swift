@@ -61,13 +61,13 @@ struct VisionOSMusicApp: App {
         ImmersiveSpace(id: WindowName.drumDemo) {
             DrumDemo()
         }
-        .immersionStyle(selection: $mainVM.immersionStyle, in: .mixed)
+        .immersionStyle(selection: .constant(.mixed), in: .mixed)
         
         
         ImmersiveSpace(id: WindowName.posters) {
             PostersView()
         }
-        .immersionStyle(selection: $mainVM.immersionStyle, in: .mixed)
+        .immersionStyle(selection: .constant(.mixed), in: .mixed)
         
         ImmersiveSpace(id: WindowName.videoPlayer) {
             Group {
@@ -82,11 +82,15 @@ struct VisionOSMusicApp: App {
         }
         .immersionStyle(selection: $mainVM.immersionStyle,
                         in: .mixed, .progressive, .full)
+        
+        ImmersiveSpace(id: WindowName.portal) {
+            PortalView()
+        }
     }
 }
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
- 
+    
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: UIApplication) -> Bool {
         return true
     }

@@ -32,6 +32,7 @@
 		49678CB92AFE8E300049A421 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49678CB82AFE8E300049A421 /* VideoPlayerViewModel.swift */; };
 		49678CBB2AFE98A10049A421 /* ImmersiveViewBackgroundEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49678CBA2AFE98A10049A421 /* ImmersiveViewBackgroundEntity.swift */; };
 		49678CBF2B022B9A0049A421 /* ImmersiveBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49678CBE2B022B9A0049A421 /* ImmersiveBackgroundScene.swift */; };
+		49678CC22B0255AC0049A421 /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49678CC12B0255AC0049A421 /* PortalView.swift */; };
 		4969FA782A666BDD001CFC54 /* SongPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969FA772A666BDD001CFC54 /* SongPlayer.swift */; };
 		496C78BD2A7D210C00161EF6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C78BC2A7D210C00161EF6 /* SplashView.swift */; };
 		496C78C22A80C9D100161EF6 /* MainInstrumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C78C12A80C9D100161EF6 /* MainInstrumentsView.swift */; };
@@ -96,6 +97,7 @@
 		49678CB82AFE8E300049A421 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		49678CBA2AFE98A10049A421 /* ImmersiveViewBackgroundEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveViewBackgroundEntity.swift; sourceTree = "<group>"; };
 		49678CBE2B022B9A0049A421 /* ImmersiveBackgroundScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveBackgroundScene.swift; sourceTree = "<group>"; };
+		49678CC12B0255AC0049A421 /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
 		4969FA772A666BDD001CFC54 /* SongPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlayer.swift; sourceTree = "<group>"; };
 		496C78BC2A7D210C00161EF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		496C78C12A80C9D100161EF6 /* MainInstrumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInstrumentsView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,14 @@
 				49B62EEE2AA10164005130C2 /* SnareDrumViewModel.swift */,
 			);
 			path = SnareDrum;
+			sourceTree = "<group>";
+		};
+		49678CC02B0255910049A421 /* Portal */ = {
+			isa = PBXGroup;
+			children = (
+				49678CC12B0255AC0049A421 /* PortalView.swift */,
+			);
+			path = Portal;
 			sourceTree = "<group>";
 		};
 		496C78BB2A7D20FC00161EF6 /* Splash */ = {
@@ -375,13 +385,14 @@
 		49BC067E2A6063D000105373 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4945AC542A8A163B00A0FB0D /* ScenesConstants.swift */,
 				494318B72A727DC100F2C363 /* Home */,
 				49A6595A2ACE9F3D0075EE1C /* Info */,
 				496C78C02A80C6FA00161EF6 /* Instruments */,
 				49BC06842A6064C300105373 /* Main */,
 				49BC067F2A6063D900105373 /* Playlists */,
+				49678CC02B0255910049A421 /* Portal */,
 				4977BCB82A9DDEED00497A2F /* Posters */,
+				4945AC542A8A163B00A0FB0D /* ScenesConstants.swift */,
 				498EF83A2A9F626700790749 /* Settings */,
 				4945AC572A8A182F00A0FB0D /* SmallPlayer */,
 				496C78BB2A7D20FC00161EF6 /* Splash */,
@@ -543,6 +554,7 @@
 				49E680D92ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift in Sources */,
 				4963D7AC2A7A9A7900787123 /* SongDetailView.swift in Sources */,
 				4945AC5C2A8A2A4900A0FB0D /* LoadingView.swift in Sources */,
+				49678CC22B0255AC0049A421 /* PortalView.swift in Sources */,
 				498EF83C2A9F628400790749 /* SettingsView.swift in Sources */,
 				49BC06812A60645D00105373 /* PlaylistsView.swift in Sources */,
 				49BC06892A61332F00105373 /* Song.swift in Sources */,

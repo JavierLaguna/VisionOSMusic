@@ -8,6 +8,7 @@ struct WindowName {
     static let posters = "PostersWindow"
     static let snareDrum = "SnareDrumWindow"
     static let videoPlayer = "VideoPlayerWindow"
+    static let portal = "PortalWindow"
 }
 
 struct Scene3D {
