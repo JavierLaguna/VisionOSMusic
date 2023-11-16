@@ -6,7 +6,7 @@ import RealityKitContent
 struct PortalView: View {
     
     @State var planeEntity: Entity = {
-        let wallAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(1, 1)))
+        let wallAnchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2(1, 1)))
         let planeMesh = MeshResource.generatePlane(width: 3.75, depth: 2.625, cornerRadius: 0.1)
         
         let material = PostersView.loadImageMaterial(imageUrl: "playlist_rap")
@@ -46,7 +46,12 @@ struct PortalView: View {
         let world = Entity()
         world.components[WorldComponent.self] = .init()
         
-        let rootEntity = try! ModelEntity.load(named: Scene3D.snareDrum, in: realityKitContentBundle)
+        let environment = try! EnvironmentResource.load(named: Scene3D.Component.sunlight)
+        world.components[ImageBasedLightComponent.self] = .init(source: .single(environment), intensityExponent: 50)
+        world.components[ImageBasedLightReceiverComponent.self] = .init(imageBasedLight: world)
+        
+        let rootEntity = try! ModelEntity.load(named: Scene3D.fender, in: realityKitContentBundle)
+        rootEntity.position = SIMD3<Float>(x: 0, y: -0.5, z: -1)
         world.addChild(rootEntity)
         
         return world

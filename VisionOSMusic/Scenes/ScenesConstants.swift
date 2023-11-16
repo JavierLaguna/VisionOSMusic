@@ -19,6 +19,7 @@ struct Scene3D {
     static let violin = "ViolinScene"
     static let sticks = "SticksScene"
     static let snareDrum = "SnareDrumScene"
+    static let fender = "FenderStratocasterScene"
     
     struct DrumDemo {
         
@@ -33,5 +34,9 @@ struct Scene3D {
             static let snare = "SnareEmitter"
             static let cymbal = "RideEmitter"
         }
+    }
+    
+    struct Component {
+        static let sunlight = "Sunlight"
     }
 }
