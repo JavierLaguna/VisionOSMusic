@@ -17,12 +17,7 @@ struct HomeView: View {
     private let spacing: CGFloat = 8.0
     
     @State private var infoIsOpen = false
-    
-    private func openPostersScene() {
-        Task {
-            await openImmersiveSpace(id: WindowName.portal)
-        }
-    }
+    @State private var showImmersiveSpace = false
     
     private func openSmallPlayer() {
         openWindow(id: WindowName.smallPlayer)
@@ -114,13 +109,15 @@ struct HomeView: View {
             .scaledToFit()
             .shadow(radius: 10)
             .overlay(alignment: .bottom) {
-                Text("Immersion")
+                Text(showImmersiveSpace ? "Close Immersion" : "Immersion")
                     .font(.title3)
                     .offset(z: 8)
                     .shadow(color: .primary, radius: 22, y: 4)
             }
             .embeddedOnSectionContainer(spacing: spacing)
-            .onTapGesture(perform: openPostersScene)
+            .onTapGesture {
+                showImmersiveSpace.toggle()
+            }
     }
     
     @ViewBuilder
@@ -208,6 +205,15 @@ struct HomeView: View {
         .sheet(isPresented: $infoIsOpen, content: {
             InfoView(onPressClose: closeInfoView)
         })
+        .onChange(of: showImmersiveSpace) { _, newValue in
+            Task {
+                if newValue {
+                    await openImmersiveSpace(id: WindowName.portal)
+                } else {
+                    await dismissImmersiveSpace()
+                }
+            }
+        }
     }
 }
 
