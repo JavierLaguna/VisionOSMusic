@@ -25,6 +25,8 @@ struct VisionOSMusicApp: App {
         
         DrumKitPieceComponent.registerComponent()
         DrumKitPieceRuntimeComponent.registerComponent()
+        
+//        ParticleTransitionSystem.registerSystem()
     }
     
     var body: some Scene {
