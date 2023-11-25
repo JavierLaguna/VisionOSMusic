@@ -3,10 +3,16 @@ import RealityKit
 
 extension ModelEntity {
     
-    func setPhysicsComponent(mode: PhysicsBodyMode, inertia: Float = 10, mass: Float = 1) async {
-        
+    func setModelMeshCollisionComponent() async {
         if let collisionShape = model?.mesh {
             components[CollisionComponent.self] = try? await .init(shapes: [.generateConvex(from: collisionShape)])
+        }
+    }
+    
+    func setPhysicsComponent(mode: PhysicsBodyMode, inertia: Float = 10, mass: Float = 1) async {
+        
+        if components[CollisionComponent.self] == nil {
+           await setModelMeshCollisionComponent()
         }
 
         if mode == .static {
@@ -19,5 +25,9 @@ extension ModelEntity {
                 mode: .dynamic
             )
         }
+    }
+    
+    func resetPhysicsComponent() {
+        components[PhysicsBodyComponent.self] = nil
     }
 }

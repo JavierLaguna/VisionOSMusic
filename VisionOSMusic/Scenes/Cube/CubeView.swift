@@ -4,6 +4,7 @@ import RealityKit
 
 struct CubeView: View {
     
+    private let cubeName = "CubeEntity"
     private let cubeFaces = [
         "playlist_rock",
         "playlist_rap",
@@ -12,6 +13,9 @@ struct CubeView: View {
         "playlist_blues",
         "playlist_pop"
     ]
+    
+    @State private var root: Entity?
+    @State private var cube: ModelEntity?
     
     private func makeFloor() -> Entity {
         let entity = Entity()
@@ -57,9 +61,39 @@ struct CubeView: View {
                 mesh: .generateBox(width: 0.5, height: 0.5, depth: 0.5, splitFaces: true),
                 materials: materials)
             )
+            
+            await entity.components.set(InputTargetComponent())
+            await entity.setModelMeshCollisionComponent()
         }
                 
         return entity
+    }
+    
+    private func onTapCube() {
+        guard let cube else { return }
+        
+        cube.resetPhysicsComponent()
+        
+        Task {
+            let destTransform = await Transform(
+                scale: cube.scale,
+                rotation: simd_quatf(
+                    angle: 0,
+                    axis: [0, 1, 1]
+                ),
+                translation: [0, 3, -2.5]
+            )
+                        
+            await cube.move(to: destTransform, relativeTo: root, duration: 2)
+            
+            try? await Task.sleep(for: .seconds(2.2))
+            
+            await cube.setPhysicsComponent(
+                mode: .dynamic,
+                inertia: 20,
+                mass: 10
+            )
+        }
     }
     
     var body: some View {
@@ -70,19 +104,25 @@ struct CubeView: View {
             root.addChild(floor)
             
             let cube = await makeCube()
+            cube.name = cubeName
             cube.position = [-1, 1, -2]
             // entity.scale = .one * 1.5
             cube.components[GroundingShadowComponent.self] = .init(castsShadow: true)
+            self.cube = cube
             root.addChild(cube)
             
             content.add(root)
-            
-            let destTransform = Transform(scale: cube.scale, rotation: simd_quatf(angle: 0, axis: [0, 1, 1]),
-                                          translation: [0, 3, -2.5])
-            cube.move(to: destTransform, relativeTo: root, duration: 2)
-            
-            await cube.setPhysicsComponent(mode: .dynamic, inertia: 20, mass: 10)
         }
+        .gesture(
+            SpatialTapGesture()
+//                .targetedToEntity(cube)
+                .targetedToAnyEntity()
+                .onEnded { value in
+                    if value.entity.name == cubeName {
+                        onTapCube()
+                    }
+                }
+        )
     }
 }
 
