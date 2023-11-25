@@ -76,6 +76,7 @@ struct HomeView: View {
             Image(viewModel.user.avatar)
                 .resizable()
                 .scaledToFit()
+                .clipShape(Circle())
                 .shadow(color: .accent, radius: 10)
             
             Text(viewModel.user.name)
