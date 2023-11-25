@@ -66,6 +66,7 @@
 		49D0597A2AF3907900A01E17 /* ImmersionStylesSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D059792AF3907900A01E17 /* ImmersionStylesSelectable.swift */; };
 		49D0597C2AF397C400A01E17 /* SongVideoclip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0597B2AF397C400A01E17 /* SongVideoclip.swift */; };
 		49D20CFE2B11E8C300CE32B8 /* ParticleTransitionSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D20CFD2B11E8C300CE32B8 /* ParticleTransitionSystem.swift */; };
+		49D20D012B11F21900CE32B8 /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D20D002B11F21900CE32B8 /* CubeView.swift */; };
 		49E1FE532A655AB4000077FE /* DragRotationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FE522A655AB4000077FE /* DragRotationModifier.swift */; };
 		49E680D92ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E680D82ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift */; };
 		49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */; };
@@ -135,6 +136,7 @@
 		49D059792AF3907900A01E17 /* ImmersionStylesSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersionStylesSelectable.swift; sourceTree = "<group>"; };
 		49D0597B2AF397C400A01E17 /* SongVideoclip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongVideoclip.swift; sourceTree = "<group>"; };
 		49D20CFD2B11E8C300CE32B8 /* ParticleTransitionSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleTransitionSystem.swift; sourceTree = "<group>"; };
+		49D20D002B11F21900CE32B8 /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 		49E1FE522A655AB4000077FE /* DragRotationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRotationModifier.swift; sourceTree = "<group>"; };
 		49E680D82ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEnvironmentsInjected.swift; sourceTree = "<group>"; };
 		49EF98932A8E213E00F14F9F /* YoutubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		49BC067E2A6063D000105373 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				49D20CFF2B11F20A00CE32B8 /* Cube */,
 				494318B72A727DC100F2C363 /* Home */,
 				49A6595A2ACE9F3D0075EE1C /* Info */,
 				496C78C02A80C6FA00161EF6 /* Instruments */,
@@ -456,6 +459,14 @@
 				49F3581D2AF963A20055D406 /* battery.mp4 */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		49D20CFF2B11F20A00CE32B8 /* Cube */ = {
+			isa = PBXGroup;
+			children = (
+				49D20D002B11F21900CE32B8 /* CubeView.swift */,
+			);
+			path = Cube;
 			sourceTree = "<group>";
 		};
 		49E1FE512A655AA2000077FE /* Modifiers */ = {
@@ -566,6 +577,7 @@
 				49E680D92ACDCEF000BD75B8 /* AllEnvironmentsInjected.swift in Sources */,
 				4963D7AC2A7A9A7900787123 /* SongDetailView.swift in Sources */,
 				4945AC5C2A8A2A4900A0FB0D /* LoadingView.swift in Sources */,
+				49D20D012B11F21900CE32B8 /* CubeView.swift in Sources */,
 				49678CC22B0255AC0049A421 /* PortalView.swift in Sources */,
 				498EF83C2A9F628400790749 /* SettingsView.swift in Sources */,
 				49BC06812A60645D00105373 /* PlaylistsView.swift in Sources */,

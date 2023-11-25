@@ -83,6 +83,11 @@ struct HomeView: View {
                 .font(.title2)
         }
         .embeddedOnSectionContainer(spacing: spacing)
+        .onTapGesture {
+            Task {
+                await openImmersiveSpace(id: WindowName.cube)
+            }
+        }
     }
     
     @ViewBuilder
