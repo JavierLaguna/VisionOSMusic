@@ -123,6 +123,20 @@ struct CubeView: View {
                     }
                 }
         )
+        .gesture(
+            DragGesture()
+//                .targetedToEntity(cube)
+                .targetedToAnyEntity()
+                .onChanged { value in
+                    guard value.entity.name == cubeName,
+                          let cube,
+                          let cubeParent = cube.parent else {
+                        return
+                    }
+                    
+                    cube.position = value.convert(value.location3D, from: .local, to: cubeParent)
+                }
+        )
     }
 }
 
