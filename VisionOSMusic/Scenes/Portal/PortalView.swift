@@ -41,9 +41,8 @@ struct PortalView: View {
     
     var body: some View {
         RealityView { content in
-            
-            let content = makePortalContent()
-            let portal = makePortal(content: content)
+            let portalContent = makePortalContent()
+            let portal = makePortal(content: portalContent)
             
             let wallAnchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2(1, 1)))
             
@@ -57,7 +56,7 @@ struct PortalView: View {
             wallAnchor.addChild(planeEntity)
             
             
-            content.add(content)
+            content.add(portalContent)
             content.add(portal)
             
             
