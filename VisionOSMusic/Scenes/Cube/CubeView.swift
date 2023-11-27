@@ -37,7 +37,7 @@ struct CubeView: View {
                             let texture = try await TextureResource(named: assetName)
                             var material = SimpleMaterial()
                             material.color = .init(texture: .init(texture))
-
+                            
                             return material
                             
                         } catch {
@@ -65,8 +65,14 @@ struct CubeView: View {
             await entity.components.set(InputTargetComponent())
             await entity.setModelMeshCollisionComponent()
         }
-                
+        
         return entity
+    }
+    
+    private func addPhysicsToCube() async {
+        guard let cube else { return }
+        
+        await cube.setPhysicsComponent(mode: .dynamic, inertia: 20, mass: 10)
     }
     
     private func onTapCube() {
@@ -83,16 +89,29 @@ struct CubeView: View {
                 ),
                 translation: [0, 3, -2.5]
             )
-                        
+            
             await cube.move(to: destTransform, relativeTo: root, duration: 2)
             
             try? await Task.sleep(for: .seconds(2.2))
             
-            await cube.setPhysicsComponent(
-                mode: .dynamic,
-                inertia: 20,
-                mass: 10
-            )
+            await addPhysicsToCube()
+        }
+    }
+    
+    private func onChangeCubeDrag(value: EntityTargetValue<DragGesture.Value>) {
+        guard let cube,
+              let cubeParent = cube.parent else {
+            return
+        }
+        
+        cube.resetPhysicsComponent()
+        
+        cube.position = value.convert(value.location3D, from: .local, to: cubeParent)
+    }
+    
+    private func onEndCubeDrag() {
+        Task {
+            await addPhysicsToCube()
         }
     }
     
@@ -115,7 +134,7 @@ struct CubeView: View {
         }
         .gesture(
             SpatialTapGesture()
-//                .targetedToEntity(cube)
+            //  .targetedToEntity(cube)
                 .targetedToAnyEntity()
                 .onEnded { value in
                     if value.entity.name == cubeName {
@@ -125,16 +144,17 @@ struct CubeView: View {
         )
         .gesture(
             DragGesture()
-//                .targetedToEntity(cube)
+            //  .targetedToEntity(cube)
                 .targetedToAnyEntity()
                 .onChanged { value in
-                    guard value.entity.name == cubeName,
-                          let cube,
-                          let cubeParent = cube.parent else {
-                        return
+                    if value.entity.name == cubeName {
+                        onChangeCubeDrag(value: value)
                     }
-                    
-                    cube.position = value.convert(value.location3D, from: .local, to: cubeParent)
+                }
+                .onEnded { value in
+                    if value.entity.name == cubeName {
+                        onEndCubeDrag()
+                    }
                 }
         )
     }
