@@ -17,7 +17,7 @@ struct HomeView: View {
     private let spacing: CGFloat = 8.0
     
     @State private var infoIsOpen = false
-    @State private var showImmersiveSpace = false
+    @State private var immersiveSpaceState: ImmersiveSpaceState = .closed
     
     private func openSmallPlayer() {
         openWindow(id: WindowName.smallPlayer)
@@ -84,9 +84,7 @@ struct HomeView: View {
         }
         .embeddedOnSectionContainer(spacing: spacing)
         .onTapGesture {
-            Task {
-                await openImmersiveSpace(id: WindowName.cube)
-            }
+            immersiveSpaceState = immersiveSpaceState == .cubeSpace ? .closed : .cubeSpace
         }
     }
     
@@ -115,14 +113,14 @@ struct HomeView: View {
             .scaledToFit()
             .shadow(radius: 10)
             .overlay(alignment: .bottom) {
-                Text(showImmersiveSpace ? "Close Immersion" : "Immersion")
+                Text(immersiveSpaceState == .posterSpace ? "Close Immersion" : "Immersion")
                     .font(.title3)
                     .offset(z: 8)
                     .shadow(color: .primary, radius: 22, y: 4)
             }
             .embeddedOnSectionContainer(spacing: spacing)
             .onTapGesture {
-                showImmersiveSpace.toggle()
+                immersiveSpaceState = immersiveSpaceState == .posterSpace ? .closed : .posterSpace
             }
     }
     
@@ -211,15 +209,31 @@ struct HomeView: View {
         .sheet(isPresented: $infoIsOpen, content: {
             InfoView(onPressClose: closeInfoView)
         })
-        .onChange(of: showImmersiveSpace) { _, newValue in
+        .onChange(of: immersiveSpaceState) { oldValue, newValue in
             Task {
-                if newValue {
-                    await openImmersiveSpace(id: WindowName.portal)
-                } else {
+                if oldValue != .closed {
                     await dismissImmersiveSpace()
+                }
+                
+                switch newValue {
+                case .cubeSpace:
+                    await openImmersiveSpace(id: WindowName.cube)
+                case .posterSpace:
+                    await openImmersiveSpace(id: WindowName.portal)
+                default:
+                    break
                 }
             }
         }
+    }
+}
+
+private extension HomeView {
+    
+    enum ImmersiveSpaceState {
+        case cubeSpace
+        case posterSpace
+        case closed
     }
 }
 
