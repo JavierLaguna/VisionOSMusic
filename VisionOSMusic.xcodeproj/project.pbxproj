@@ -15,6 +15,7 @@
 		490C05812ACB3B290012990C /* RecommendationCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05802ACB3B290012990C /* RecommendationCategory.swift */; };
 		490C05832ACC73200012990C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05822ACC731F0012990C /* User.swift */; };
 		490C05852ACD496B0012990C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05842ACD496B0012990C /* MainCoordinator.swift */; };
+		491754782B1527AC005142E9 /* PortalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491754772B1527AC005142E9 /* PortalViewModel.swift */; };
 		492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAB2A81175A00008C2D /* Instrument.swift */; };
 		492CDDAE2A81435200008C2D /* View+visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAD2A81435200008C2D /* View+visibility.swift */; };
 		4930A7082A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */; };
@@ -85,6 +86,7 @@
 		490C05802ACB3B290012990C /* RecommendationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCategory.swift; sourceTree = "<group>"; };
 		490C05822ACC731F0012990C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		490C05842ACD496B0012990C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		491754772B1527AC005142E9 /* PortalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewModel.swift; sourceTree = "<group>"; };
 		492CDDAB2A81175A00008C2D /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		492CDDAD2A81435200008C2D /* View+visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+visibility.swift"; sourceTree = "<group>"; };
 		4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumKitPieceRuntimeComponent.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				49678CC12B0255AC0049A421 /* PortalView.swift */,
+				491754772B1527AC005142E9 /* PortalViewModel.swift */,
 			);
 			path = Portal;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				49E1FE532A655AB4000077FE /* DragRotationModifier.swift in Sources */,
 				4977BCBA2A9DDF0200497A2F /* PostersView.swift in Sources */,
 				4945AC552A8A163B00A0FB0D /* ScenesConstants.swift in Sources */,
+				491754782B1527AC005142E9 /* PortalViewModel.swift in Sources */,
 				49678CB92AFE8E300049A421 /* VideoPlayerViewModel.swift in Sources */,
 				49678CBB2AFE98A10049A421 /* ImmersiveViewBackgroundEntity.swift in Sources */,
 				49D0597A2AF3907900A01E17 /* ImmersionStylesSelectable.swift in Sources */,

@@ -1,60 +1,76 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
 
 struct PortalView: View {
     
-    func makePortal(content: Entity) -> Entity {
-        let portal = Entity()
-        portal.components[ModelComponent.self] = .init(
-            mesh: .generatePlane(width: 1, height: 1, cornerRadius: 0.5),
-            materials: [PortalMaterial()]
-        )
-        
-        let portalComponent = PortalComponent(target: content)
-        portal.components[PortalComponent.self] = portalComponent
+    static private let controlsAttachmentId = "controlsAttachmentId"
+
+    @State private var viewModel = PortalViewModel()
     
-        return portal
-    }
-    
-    func makePortalContent() -> Entity {
-        let content = Entity()
-        content.components[WorldComponent.self] = .init()
-        
-        if let topLightResource = try? EnvironmentResource.load(named: Scene3D.Component.topLight) {
-            var topLight = ImageBasedLightComponent(source: .single(topLightResource), intensityExponent: 10)
-//            topLight.inheritsRotation = true
+    @ViewBuilder
+    private var controls: some View {
+        HStack {
+            Toggle(isOn: $viewModel.lightOn) {
+                Image(systemName: "lightbulb")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .symbolVariant(viewModel.lightOn ? .fill : .none)
+                    .contentTransition(.symbolEffect(.replace))
+                    .symbolEffect(.variableColor, value: viewModel.lightOn)
+            }
+            .toggleStyle(.button)
+            .padding(.vertical)
+            .rotationEffect(.degrees(90))
             
-            content.components[ImageBasedLightComponent.self] = topLight
-            content.components[ImageBasedLightReceiverComponent.self] = .init(imageBasedLight: content)
+            Slider(value: $viewModel.lightValue, in: (10...50))
         }
-        
-        let rootEntity = try! ModelEntity.load(named: Scene3D.fender, in: realityKitContentBundle)
-        rootEntity.position = SIMD3<Float>(x: 0, y: -0.5, z: -1)
-        content.addChild(rootEntity)
-        
-        return content
+        .padding(2)
+        .frame(width: 320)
+        .glassBackgroundEffect()
+        .rotationEffect(.degrees(270))
     }
     
     var body: some View {
-        RealityView { content in
-            let portalContent = makePortalContent()
-            let portal = makePortal(content: portalContent)
+        RealityView { content, _ in
+            let portalContent = viewModel.makePortalContent()
+            let portal = viewModel.makePortal(content: portalContent)
             
             let wallAnchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2(1, 1)))
             
             let planeMesh = MeshResource.generatePlane(width: 3.75, depth: 2.625, cornerRadius: 0.1)
             
             let material = PostersView.loadImageMaterial(imageUrl: "playlist_rap")
-    
+            
             let planeEntity = ModelEntity(mesh: planeMesh, materials: [material])
-    
+            
             wallAnchor.addChild(planeEntity)
             wallAnchor.addChild(portalContent)
             wallAnchor.addChild(portal)
             
             content.add(wallAnchor)
+            
+        } update: { content, attachments in
+            if let portalContent = viewModel.portalContent,
+               let light = viewModel.getLight() {
+                
+                portalContent.components[ImageBasedLightComponent.self] = light
+                
+            }
+            
+            guard let attachmentEntity = attachments.entity(for: Self.controlsAttachmentId) else {
+                return
+            }
+            
+            let headAnchor = AnchorEntity(.head)
+            attachmentEntity.position = [0.45, 0, -0.5]
+            headAnchor.addChild(attachmentEntity)
+            content.add(headAnchor)
+            
+        } attachments: {
+            Attachment(id: Self.controlsAttachmentId) {
+                controls
+            }
         }
     }
 }
