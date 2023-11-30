@@ -14,7 +14,7 @@ struct PortalView: View {
                 viewModel.lightValue > viewModel.minLightValue
             },
             set: {
-                viewModel.lightValue = $0 ? 20 : viewModel.minLightValue
+                viewModel.lightValue = $0 ? viewModel.initLightValue : viewModel.minLightValue
             }
         )
     }

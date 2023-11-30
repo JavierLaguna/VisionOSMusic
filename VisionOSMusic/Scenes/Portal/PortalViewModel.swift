@@ -7,12 +7,13 @@ import RealityKitContent
 final class PortalViewModel {
     
     let minLightValue: Float = 10
-    let maxLightValue: Float = 30
+    let initLightValue: Float = 13
+    let maxLightValue: Float = 16
     
     private var topLightResource: EnvironmentResource?
     
     var portalContent: Entity?
-    var lightValue: Float = 15
+    var lightValue: Float = 13
     
     init() {
         loadResources()
@@ -56,10 +57,6 @@ final class PortalViewModel {
         }
         
         return ImageBasedLightComponent(source: .single(topLightResource), intensityExponent: lightValue)
-    }
-    
-    func turnOnLight() {
-        
     }
 }
 
