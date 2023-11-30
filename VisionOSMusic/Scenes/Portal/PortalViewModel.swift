@@ -10,10 +10,18 @@ final class PortalViewModel {
     let initLightValue: Float = 13
     let maxLightValue: Float = 16
     
-    private var topLightResource: EnvironmentResource?
-    
     var portalContent: Entity?
-    var lightValue: Float = 13
+    var lightComponent: ImageBasedLightComponent?
+    var lightValue: Float = 13 {
+        didSet {
+            lightComponent?.intensityExponent = lightValue
+        }
+    }
+    var lightInheritsRotation = false {
+        didSet {
+            lightComponent?.inheritsRotation = lightInheritsRotation
+        }
+    }
     
     init() {
         loadResources()
@@ -42,21 +50,13 @@ final class PortalViewModel {
         
         content.components[ImageBasedLightReceiverComponent.self] = .init(imageBasedLight: content)
         
-        if let light = getLight() {
-            content.components[ImageBasedLightComponent.self] = light
+        if let lightComponent {
+            content.components[ImageBasedLightComponent.self] = lightComponent
         }
         
         portalContent = content
         
         return content
-    }
-    
-    func getLight() -> ImageBasedLightComponent? {
-        guard let topLightResource else {
-            return nil
-        }
-        
-        return ImageBasedLightComponent(source: .single(topLightResource), intensityExponent: lightValue)
     }
 }
 
@@ -64,6 +64,12 @@ final class PortalViewModel {
 private extension PortalViewModel {
     
     func loadResources() {
-        topLightResource = try? EnvironmentResource.load(named: Scene3D.Component.topLight)
+        guard let topLightResource = try? EnvironmentResource.load(named: Scene3D.Component.topLight) else {
+            return
+        }
+        
+        var lightComponent = ImageBasedLightComponent(source: .single(topLightResource), intensityExponent: lightValue)
+        lightComponent.inheritsRotation = lightInheritsRotation
+        self.lightComponent = lightComponent
     }
 }

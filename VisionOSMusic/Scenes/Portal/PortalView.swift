@@ -5,7 +5,7 @@ import RealityKit
 struct PortalView: View {
     
     static private let controlsAttachmentId = "controlsAttachmentId"
-
+    
     @State private var viewModel = PortalViewModel()
     
     private var lightIsOn: Binding<Bool> {
@@ -21,20 +21,36 @@ struct PortalView: View {
     
     @ViewBuilder
     private var controls: some View {
-        HStack {
-            Toggle(isOn: lightIsOn) {
-                Image(systemName: "lightbulb")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .symbolVariant(lightIsOn.wrappedValue ? .fill : .none)
-                    .contentTransition(.symbolEffect(.replace))
-                    .symbolEffect(.variableColor, value: lightIsOn.wrappedValue)
-            }
-            .toggleStyle(.button)
-            .padding(.vertical)
-            .rotationEffect(.degrees(90))
-            
+        VStack {
             Slider(value: $viewModel.lightValue, in: (viewModel.minLightValue...viewModel.maxLightValue))
+            
+            HStack {
+                Toggle(isOn: lightIsOn) {
+                    Image(systemName: "lightbulb")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .symbolVariant(lightIsOn.wrappedValue ? .fill : .none)
+                        .contentTransition(.symbolEffect(.replace))
+                        .symbolEffect(.variableColor, value: lightIsOn.wrappedValue)
+                }
+                .toggleStyle(.button)
+                .frame(width: 24, height: 24)
+                .padding()
+                .rotationEffect(.degrees(90))
+                
+                Toggle(isOn: $viewModel.lightInheritsRotation) {
+                    Image(systemName: "parkinglight")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .symbolVariant(viewModel.lightInheritsRotation ? .fill : .none)
+                        .contentTransition(.symbolEffect(.replace))
+                        .symbolEffect(.variableColor, value: viewModel.lightInheritsRotation)
+                }
+                .toggleStyle(.button)
+                .frame(width: 24, height: 24)
+                .padding()
+                .rotationEffect(.degrees(90))
+            }
         }
         .padding()
         .frame(width: 320)
@@ -63,20 +79,17 @@ struct PortalView: View {
             
         } update: { content, attachments in
             if let portalContent = viewModel.portalContent,
-               let light = viewModel.getLight() {
+               let light = viewModel.lightComponent {
                 
                 portalContent.components[ImageBasedLightComponent.self] = light
-                
             }
             
-            guard let attachmentEntity = attachments.entity(for: Self.controlsAttachmentId) else {
-                return
+            if let attachmentEntity = attachments.entity(for: Self.controlsAttachmentId) {
+                let headAnchor = AnchorEntity(.head)
+                attachmentEntity.position = [0.45, 0, -0.5]
+                headAnchor.addChild(attachmentEntity)
+                content.add(headAnchor)
             }
-            
-            let headAnchor = AnchorEntity(.head)
-            attachmentEntity.position = [0.45, 0, -0.5]
-            headAnchor.addChild(attachmentEntity)
-            content.add(headAnchor)
             
         } attachments: {
             Attachment(id: Self.controlsAttachmentId) {
