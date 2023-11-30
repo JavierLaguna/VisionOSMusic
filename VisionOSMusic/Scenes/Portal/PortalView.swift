@@ -8,24 +8,35 @@ struct PortalView: View {
 
     @State private var viewModel = PortalViewModel()
     
+    private var lightIsOn: Binding<Bool> {
+        Binding(
+            get: {
+                viewModel.lightValue > viewModel.minLightValue
+            },
+            set: {
+                viewModel.lightValue = $0 ? 20 : viewModel.minLightValue
+            }
+        )
+    }
+    
     @ViewBuilder
     private var controls: some View {
         HStack {
-            Toggle(isOn: $viewModel.lightOn) {
+            Toggle(isOn: lightIsOn) {
                 Image(systemName: "lightbulb")
                     .resizable()
                     .frame(width: 24, height: 24)
-                    .symbolVariant(viewModel.lightOn ? .fill : .none)
+                    .symbolVariant(lightIsOn.wrappedValue ? .fill : .none)
                     .contentTransition(.symbolEffect(.replace))
-                    .symbolEffect(.variableColor, value: viewModel.lightOn)
+                    .symbolEffect(.variableColor, value: lightIsOn.wrappedValue)
             }
             .toggleStyle(.button)
             .padding(.vertical)
             .rotationEffect(.degrees(90))
             
-            Slider(value: $viewModel.lightValue, in: (10...50))
+            Slider(value: $viewModel.lightValue, in: (viewModel.minLightValue...viewModel.maxLightValue))
         }
-        .padding(2)
+        .padding()
         .frame(width: 320)
         .glassBackgroundEffect()
         .rotationEffect(.degrees(270))

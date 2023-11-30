@@ -6,11 +6,13 @@ import RealityKitContent
 @Observable
 final class PortalViewModel {
     
+    let minLightValue: Float = 10
+    let maxLightValue: Float = 30
+    
     private var topLightResource: EnvironmentResource?
     
     var portalContent: Entity?
-    var lightOn = false
-    var lightValue: Float = 20
+    var lightValue: Float = 15
     
     init() {
         loadResources()
@@ -49,12 +51,15 @@ final class PortalViewModel {
     }
     
     func getLight() -> ImageBasedLightComponent? {
-        
         guard let topLightResource else {
             return nil
         }
         
-        return ImageBasedLightComponent(source: .single(topLightResource), intensityExponent: lightOn ? 30 : 10)
+        return ImageBasedLightComponent(source: .single(topLightResource), intensityExponent: lightValue)
+    }
+    
+    func turnOnLight() {
+        
     }
 }
 
