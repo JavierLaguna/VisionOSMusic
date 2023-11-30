@@ -62,6 +62,7 @@ struct CubeView: View {
                 materials: materials)
             )
             
+            await entity.components.set(HoverEffectComponent())
             await entity.components.set(InputTargetComponent())
             await entity.setModelMeshCollisionComponent()
         }
