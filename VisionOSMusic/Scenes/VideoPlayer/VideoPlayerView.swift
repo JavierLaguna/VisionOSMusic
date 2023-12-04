@@ -108,8 +108,15 @@ struct VideoPlayerView: View {
         }
     }
     
+    private func attachPlayerControls(attachmentEntity: ViewAttachmentEntity) {
+        guard let videoPlayerEntity else { return }
+        
+        attachmentEntity.setPosition([0, -0.56, -1.8], relativeTo: videoPlayerEntity)
+        videoPlayerEntity.addChild(attachmentEntity)
+    }
+    
     var body: some View {
-        RealityView { content, _ in
+        RealityView { content, attachments in
             let backgroundEntity = ImmersiveViewBackgroundEntity(imageResource: viewModel.immersiveBg.resource)
             content.add(backgroundEntity)
             self.backgroundEntity = backgroundEntity
@@ -118,20 +125,19 @@ struct VideoPlayerView: View {
             content.add(videoPlayerEntity)
             self.videoPlayerEntity = videoPlayerEntity
             
+            if let attachmentEntity = attachments.entity(for: Self.playerControlsAttachmentId) {
+                attachPlayerControls(attachmentEntity: attachmentEntity)
+            }
+            
         } update: { content, attachments in
             if let backgroundEntity {
                 backgroundEntity.components.set(OpacityComponent(opacity: immersionStyleSelected.wrappedValue == .mixed ? 0.0 : 1.0))
                 backgroundEntity.update(imageResource: viewModel.immersiveBg.resource)
             }
             
-            guard let videoPlayerEntity,
-                  let attachmentEntity = attachments.entity(for: Self.playerControlsAttachmentId) else {
-                return
+            if let attachmentEntity = attachments.entity(for: Self.playerControlsAttachmentId) {
+                attachPlayerControls(attachmentEntity: attachmentEntity)
             }
-            
-            videoPlayerEntity.addChild(attachmentEntity)
-            // TODO: JLI get position
-            attachmentEntity.setPosition([0, -0.56, -1.8], relativeTo: videoPlayerEntity)
             
         } attachments: {
             Attachment(id: Self.playerControlsAttachmentId) {
