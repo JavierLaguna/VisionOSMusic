@@ -54,6 +54,7 @@ struct PortalView: View {
                 Picker("", selection: $viewModel.lightType) {
                     ForEach(PortalViewModel.LightType.allCases) { item in
                         Text(item.resource)
+                            .tag(item.rawValue)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -87,7 +88,6 @@ struct PortalView: View {
         } update: { content, attachments in
             if let portalContent = viewModel.portalContent,
                let light = viewModel.lightComponent {
-                
                 portalContent.components[ImageBasedLightComponent.self] = light
             }
             

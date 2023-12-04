@@ -6,13 +6,13 @@ import RealityKitContent
 @Observable
 final class PortalViewModel {
     
-    let minLightValue: Float = 10
-    let initLightValue: Float = 13
+    let minLightValue: Float = 0
+    let initLightValue: Float = 8
     let maxLightValue: Float = 16
     
     var portalContent: Entity?
     var lightComponent: ImageBasedLightComponent?
-    var lightValue: Float = 13 {
+    var lightValue: Float = 8 {
         didSet {
             lightComponent?.intensityExponent = lightValue
         }
@@ -82,7 +82,7 @@ private extension PortalViewModel {
 // MARK: LightType
 extension PortalViewModel {
  
-    enum LightType: Identifiable, CaseIterable {
+    enum LightType: String, Identifiable, CaseIterable {
         case top
         case sun
         case ibl
