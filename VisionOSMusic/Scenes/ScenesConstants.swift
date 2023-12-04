@@ -40,5 +40,6 @@ struct Scene3D {
     struct Component {
         static let sunlight = "Sunlight"
         static let topLight = "Toplight"
+        static let ibl = "IBL"
     }
 }

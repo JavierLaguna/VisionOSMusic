@@ -41,7 +41,6 @@
 		4977BCB72A9CE2CA00497A2F /* SticksModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977BCB62A9CE2CA00497A2F /* SticksModel3D.swift */; };
 		4977BCBA2A9DDF0200497A2F /* PostersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977BCB92A9DDF0200497A2F /* PostersView.swift */; };
 		497A63242A93F890005A0280 /* DrumPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A63232A93F890005A0280 /* DrumPieceView.swift */; };
-		497E56182B068D0D0081B01F /* Toplight.skybox in Resources */ = {isa = PBXBuildFile; fileRef = 497E56172B068D0D0081B01F /* Toplight.skybox */; };
 		4989D39F2A6045F50040A41F /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 4989D39E2A6045F50040A41F /* RealityKitContent */; };
 		4989D3A12A6045F50040A41F /* VisionOSMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989D3A02A6045F50040A41F /* VisionOSMusicApp.swift */; };
 		4989D3A32A6045F50040A41F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989D3A22A6045F50040A41F /* MainView.swift */; };
@@ -112,7 +111,6 @@
 		4977BCB62A9CE2CA00497A2F /* SticksModel3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SticksModel3D.swift; sourceTree = "<group>"; };
 		4977BCB92A9DDF0200497A2F /* PostersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersView.swift; sourceTree = "<group>"; };
 		497A63232A93F890005A0280 /* DrumPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumPieceView.swift; sourceTree = "<group>"; };
-		497E56172B068D0D0081B01F /* Toplight.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = Toplight.skybox; sourceTree = "<group>"; };
 		4989D3992A6045F50040A41F /* VisionOSMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionOSMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4989D39D2A6045F50040A41F /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		4989D3A02A6045F50040A41F /* VisionOSMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOSMusicApp.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 		4945AC562A8A180B00A0FB0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				497E56172B068D0D0081B01F /* Toplight.skybox */,
 				49F1935B2B03F5E1001616AF /* Sunlight.skybox */,
 				49D0596E2AF0E99300A01E17 /* Videos */,
 				4989D3A62A6045F60040A41F /* Assets.xcassets */,
@@ -548,7 +545,6 @@
 				4989D3AA2A6045F60040A41F /* Preview Assets.xcassets in Resources */,
 				49F3581E2AF963A20055D406 /* battery.mp4 in Resources */,
 				4989D3A72A6045F60040A41F /* Assets.xcassets in Resources */,
-				497E56182B068D0D0081B01F /* Toplight.skybox in Resources */,
 				49F1935C2B03F5E1001616AF /* Sunlight.skybox in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

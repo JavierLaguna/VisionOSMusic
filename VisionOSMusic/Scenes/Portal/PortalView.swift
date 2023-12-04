@@ -50,6 +50,13 @@ struct PortalView: View {
                 .frame(width: 24, height: 24)
                 .padding()
                 .rotationEffect(.degrees(90))
+                
+                Picker("", selection: $viewModel.lightType) {
+                    ForEach(PortalViewModel.LightType.allCases) { item in
+                        Text(item.resource)
+                    }
+                }
+                .pickerStyle(.segmented)
             }
         }
         .padding()

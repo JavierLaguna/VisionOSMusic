@@ -22,9 +22,14 @@ final class PortalViewModel {
             lightComponent?.inheritsRotation = lightInheritsRotation
         }
     }
+    var lightType: LightType = .top {
+        didSet {
+            loadLightComponent()
+        }
+    }
     
     init() {
-        loadResources()
+        loadLightComponent()
     }
     
     func makePortal(content: Entity) -> Entity {
@@ -63,13 +68,33 @@ final class PortalViewModel {
 // MARK: Private methods
 private extension PortalViewModel {
     
-    func loadResources() {
-        guard let topLightResource = try? EnvironmentResource.load(named: Scene3D.Component.topLight) else {
+    func loadLightComponent() {
+        guard let topLightResource = try? EnvironmentResource.load(named: lightType.resource) else {
             return
         }
         
         var lightComponent = ImageBasedLightComponent(source: .single(topLightResource), intensityExponent: lightValue)
         lightComponent.inheritsRotation = lightInheritsRotation
         self.lightComponent = lightComponent
+    }
+}
+
+// MARK: LightType
+extension PortalViewModel {
+ 
+    enum LightType: Identifiable, CaseIterable {
+        case top
+        case sun
+        case ibl
+        
+        var id: Self { self }
+        
+        var resource: String {
+            switch self {
+            case .top: Scene3D.Component.topLight
+            case .sun: Scene3D.Component.sunlight
+            case .ibl: Scene3D.Component.ibl
+            }
+        }
     }
 }
