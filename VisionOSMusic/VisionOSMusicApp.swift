@@ -92,6 +92,10 @@ struct VisionOSMusicApp: App {
         ImmersiveSpace(id: WindowName.cube) {
             CubeView()
         }
+        
+        ImmersiveSpace(id: WindowName.portalLandscape) {
+            PortalLandscapeView()
+        }
     }
 }
 

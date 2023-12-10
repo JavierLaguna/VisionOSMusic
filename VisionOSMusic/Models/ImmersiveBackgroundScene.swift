@@ -8,6 +8,7 @@ enum ImmersiveBackgroundScene: String, CaseIterable, Equatable, Identifiable {
     case hillside
     case lake
     case ocean
+    case park
     
     var id: Self { self }
     

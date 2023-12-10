@@ -19,8 +19,7 @@ struct HomeView: View {
     @State private var infoIsOpen = false
     @State private var immersiveSpaceState: ImmersiveSpaceState = .closed
     
-    private func openSmallPlayer() {
-        // TODO: JLI
+    private func openSmallPlayer() { // TODO: JLI
         openWindow(id: WindowName.smallPlayer)
         
         TimerUtils.executeOnMainThreadAfter() {
@@ -99,7 +98,9 @@ struct HomeView: View {
             }
             
             HStack(spacing: spacing * 3) {
-                iconButton(icon: "play.rectangle.on.rectangle.circle", action: openSmallPlayer)
+                iconButton(icon: "play.rectangle.on.rectangle.circle", action: {
+                    immersiveSpaceState = immersiveSpaceState == .portalLandscape ? .closed : .portalLandscape
+                })
                 
                 iconButton(icon: "info.circle.fill", action: onPressInfo)
             }
@@ -221,6 +222,8 @@ struct HomeView: View {
                     await openImmersiveSpace(id: WindowName.cube)
                 case .posterSpace:
                     await openImmersiveSpace(id: WindowName.portal)
+                case .portalLandscape:
+                    await openImmersiveSpace(id: WindowName.portalLandscape)
                 default:
                     break
                 }
@@ -234,6 +237,7 @@ private extension HomeView {
     enum ImmersiveSpaceState {
         case cubeSpace
         case posterSpace
+        case portalLandscape
         case closed
     }
 }

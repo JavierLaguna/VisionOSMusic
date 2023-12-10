@@ -22,6 +22,8 @@
 		4930A70A2A94A60700FE382F /* DrumDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A7092A94A60700FE382F /* DrumDemoViewModel.swift */; };
 		4930A70C2A94A6BF00FE382F /* Entity+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A70B2A94A6BF00FE382F /* Entity+utils.swift */; };
 		4930A70E2A94A6DD00FE382F /* AttachmentsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A70D2A94A6DD00FE382F /* AttachmentsProvider.swift */; };
+		493E8C872B26144B00AD90EC /* PortalLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E8C862B26144B00AD90EC /* PortalLandscapeView.swift */; };
+		493E8C892B26157200AD90EC /* PortalLandscapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E8C882B26157200AD90EC /* PortalLandscapeViewModel.swift */; };
 		494318BA2A727E1400F2C363 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494318B92A727E1400F2C363 /* HomeView.swift */; };
 		4945AC552A8A163B00A0FB0D /* ScenesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4945AC542A8A163B00A0FB0D /* ScenesConstants.swift */; };
 		4945AC592A8A185500A0FB0D /* SmallPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4945AC582A8A185500A0FB0D /* SmallPlayerView.swift */; };
@@ -94,6 +96,8 @@
 		4930A7092A94A60700FE382F /* DrumDemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumDemoViewModel.swift; sourceTree = "<group>"; };
 		4930A70B2A94A6BF00FE382F /* Entity+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+utils.swift"; sourceTree = "<group>"; };
 		4930A70D2A94A6DD00FE382F /* AttachmentsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentsProvider.swift; sourceTree = "<group>"; };
+		493E8C862B26144B00AD90EC /* PortalLandscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalLandscapeView.swift; sourceTree = "<group>"; };
+		493E8C882B26157200AD90EC /* PortalLandscapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalLandscapeViewModel.swift; sourceTree = "<group>"; };
 		494318B92A727E1400F2C363 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4945AC542A8A163B00A0FB0D /* ScenesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenesConstants.swift; sourceTree = "<group>"; };
 		4945AC582A8A185500A0FB0D /* SmallPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPlayerView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,15 @@
 				497A63232A93F890005A0280 /* DrumPieceView.swift */,
 			);
 			path = DrumDemo;
+			sourceTree = "<group>";
+		};
+		493E8C852B26143300AD90EC /* PortalLandscape */ = {
+			isa = PBXGroup;
+			children = (
+				493E8C862B26144B00AD90EC /* PortalLandscapeView.swift */,
+				493E8C882B26157200AD90EC /* PortalLandscapeViewModel.swift */,
+			);
+			path = PortalLandscape;
 			sourceTree = "<group>";
 		};
 		494318B72A727DC100F2C363 /* Home */ = {
@@ -412,6 +425,7 @@
 				49BC06842A6064C300105373 /* Main */,
 				49BC067F2A6063D900105373 /* Playlists */,
 				49678CC02B0255910049A421 /* Portal */,
+				493E8C852B26143300AD90EC /* PortalLandscape */,
 				4977BCB82A9DDEED00497A2F /* Posters */,
 				4945AC542A8A163B00A0FB0D /* ScenesConstants.swift */,
 				498EF83A2A9F626700790749 /* Settings */,
@@ -566,6 +580,7 @@
 			files = (
 				490C05852ACD496B0012990C /* MainCoordinator.swift in Sources */,
 				4989D3A32A6045F50040A41F /* MainView.swift in Sources */,
+				493E8C892B26157200AD90EC /* PortalLandscapeViewModel.swift in Sources */,
 				49940D992A72782500340359 /* String+formatter.swift in Sources */,
 				4977BCB52A9CABB700497A2F /* PieceType+Info.swift in Sources */,
 				49A6595C2ACE9F540075EE1C /* InfoView.swift in Sources */,
@@ -600,6 +615,7 @@
 				49BC06872A61329E00105373 /* PlaylistContentView.swift in Sources */,
 				4963D7AE2A7B9A8500787123 /* PlaylistsMainContentView.swift in Sources */,
 				49B43BF52A701C4B007E9986 /* MainViewModel.swift in Sources */,
+				493E8C872B26144B00AD90EC /* PortalLandscapeView.swift in Sources */,
 				497A63242A93F890005A0280 /* DrumPieceView.swift in Sources */,
 				49E1FE532A655AB4000077FE /* DragRotationModifier.swift in Sources */,
 				4977BCBA2A9DDF0200497A2F /* PostersView.swift in Sources */,
