@@ -20,6 +20,7 @@ struct HomeView: View {
     @State private var immersiveSpaceState: ImmersiveSpaceState = .closed
     
     private func openSmallPlayer() {
+        // TODO: JLI
         openWindow(id: WindowName.smallPlayer)
         
         TimerUtils.executeOnMainThreadAfter() {

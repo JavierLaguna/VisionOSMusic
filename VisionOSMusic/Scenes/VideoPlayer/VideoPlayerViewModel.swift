@@ -46,6 +46,10 @@ final class VideoPlayerViewModel {
             return
         }
         
+//        let videoAsset = AVURLAsset(url: URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/historic_planet_content_2023-10-26-3d-video/main.m3u8")!)
+
+//        let videoAsset = AVURLAsset(url: URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8")!)
+        
         let videoAsset = AVURLAsset(url: assetUrl)
         let playerItem = AVPlayerItem(asset: videoAsset)
         
