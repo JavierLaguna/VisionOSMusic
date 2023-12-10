@@ -91,7 +91,7 @@ struct MainInstrumentsView: View {
             Color.clear
                 .overlay {
                     if selection == .sticks {
-                        SticksModel3D()
+                        SticksModel3D() // TODO: JLI WIP
                         
                     } else {
                         instrumentModel3D
