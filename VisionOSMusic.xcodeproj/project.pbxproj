@@ -98,6 +98,7 @@
 		4930A70D2A94A6DD00FE382F /* AttachmentsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentsProvider.swift; sourceTree = "<group>"; };
 		493E8C862B26144B00AD90EC /* PortalLandscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalLandscapeView.swift; sourceTree = "<group>"; };
 		493E8C882B26157200AD90EC /* PortalLandscapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalLandscapeViewModel.swift; sourceTree = "<group>"; };
+		493E8C8A2B261BB000AD90EC /* iPhone15Video3DTest.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iPhone15Video3DTest.mp4; sourceTree = "<group>"; };
 		494318B92A727E1400F2C363 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4945AC542A8A163B00A0FB0D /* ScenesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenesConstants.swift; sourceTree = "<group>"; };
 		4945AC582A8A185500A0FB0D /* SmallPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPlayerView.swift; sourceTree = "<group>"; };
@@ -479,6 +480,7 @@
 		49D0596E2AF0E99300A01E17 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				493E8C8A2B261BB000AD90EC /* iPhone15Video3DTest.mp4 */,
 				49F3581D2AF963A20055D406 /* battery.mp4 */,
 			);
 			path = Videos;
