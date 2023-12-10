@@ -7,6 +7,10 @@ struct WindowName {
     static let drumDemo = "DrumDemoWindow"
     static let posters = "PostersWindow"
     static let snareDrum = "SnareDrumWindow"
+    static let videoPlayer = "VideoPlayerWindow"
+    static let portal = "PortalWindow"
+    static let cube = "CubeWindow"
+    static let portalLandscape = "PortalLandscape"
 }
 
 struct Scene3D {
@@ -17,6 +21,7 @@ struct Scene3D {
     static let violin = "ViolinScene"
     static let sticks = "SticksScene"
     static let snareDrum = "SnareDrumScene"
+    static let fender = "FenderStratocasterScene"
     
     struct DrumDemo {
         
@@ -31,5 +36,11 @@ struct Scene3D {
             static let snare = "SnareEmitter"
             static let cymbal = "RideEmitter"
         }
+    }
+    
+    struct Component {
+        static let sunlight = "Sunlight"
+        static let topLight = "Toplight"
+        static let ibl = "IBL"
     }
 }

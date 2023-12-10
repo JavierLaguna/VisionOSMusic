@@ -17,14 +17,9 @@ struct HomeView: View {
     private let spacing: CGFloat = 8.0
     
     @State private var infoIsOpen = false
+    @State private var immersiveSpaceState: ImmersiveSpaceState = .closed
     
-    private func openPostersScene() {
-        Task {
-            await openImmersiveSpace(id: WindowName.posters)
-        }
-    }
-    
-    private func openSmallPlayer() {
+    private func openSmallPlayer() { // TODO: JLI
         openWindow(id: WindowName.smallPlayer)
         
         TimerUtils.executeOnMainThreadAfter() {
@@ -81,12 +76,16 @@ struct HomeView: View {
             Image(viewModel.user.avatar)
                 .resizable()
                 .scaledToFit()
+                .clipShape(Circle())
                 .shadow(color: .accent, radius: 10)
             
             Text(viewModel.user.name)
                 .font(.title2)
         }
         .embeddedOnSectionContainer(spacing: spacing)
+        .onTapGesture {
+            immersiveSpaceState = immersiveSpaceState == .cubeSpace ? .closed : .cubeSpace
+        }
     }
     
     @ViewBuilder
@@ -99,7 +98,9 @@ struct HomeView: View {
             }
             
             HStack(spacing: spacing * 3) {
-                iconButton(icon: "play.rectangle.on.rectangle.circle", action: openSmallPlayer)
+                iconButton(icon: "play.rectangle.on.rectangle.circle", action: {
+                    immersiveSpaceState = immersiveSpaceState == .portalLandscape ? .closed : .portalLandscape
+                })
                 
                 iconButton(icon: "info.circle.fill", action: onPressInfo)
             }
@@ -114,13 +115,15 @@ struct HomeView: View {
             .scaledToFit()
             .shadow(radius: 10)
             .overlay(alignment: .bottom) {
-                Text("Immersion")
+                Text(immersiveSpaceState == .posterSpace ? "Close Immersion" : "Immersion")
                     .font(.title3)
                     .offset(z: 8)
                     .shadow(color: .primary, radius: 22, y: 4)
             }
             .embeddedOnSectionContainer(spacing: spacing)
-            .onTapGesture(perform: openPostersScene)
+            .onTapGesture {
+                immersiveSpaceState = immersiveSpaceState == .posterSpace ? .closed : .posterSpace
+            }
     }
     
     @ViewBuilder
@@ -208,6 +211,34 @@ struct HomeView: View {
         .sheet(isPresented: $infoIsOpen, content: {
             InfoView(onPressClose: closeInfoView)
         })
+        .onChange(of: immersiveSpaceState) { oldValue, newValue in
+            Task {
+                if oldValue != .closed {
+                    await dismissImmersiveSpace()
+                }
+                
+                switch newValue {
+                case .cubeSpace:
+                    await openImmersiveSpace(id: WindowName.cube)
+                case .posterSpace:
+                    await openImmersiveSpace(id: WindowName.portal)
+                case .portalLandscape:
+                    await openImmersiveSpace(id: WindowName.portalLandscape)
+                default:
+                    break
+                }
+            }
+        }
+    }
+}
+
+private extension HomeView {
+    
+    enum ImmersiveSpaceState {
+        case cubeSpace
+        case posterSpace
+        case portalLandscape
+        case closed
     }
 }
 

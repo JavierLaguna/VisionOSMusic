@@ -1,18 +1,16 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
 
 struct PostersView: View {
     
     private let lists = ["playlist_techno", "playlist_rock", "playlist_pop"]
     
     @State var planeEntity: Entity = {
-        let wallAnchor = AnchorEntity(.plane(.horizontal, classification: .seat, minimumBounds: SIMD2(0.1, 0.1)))
-        let planeMesh = MeshResource.generatePlane(width: 0.5, depth: 2.625, cornerRadius: 0.1)
+        let wallAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(0.6, 0.6)))
+        let planeMesh = MeshResource.generatePlane(width: 3.75, depth: 2.625, cornerRadius: 0.1)
         
         let material = PostersView.loadImageMaterial(imageUrl: "playlist_rap")
-        let material2 = SimpleMaterial(color: .green, isMetallic: false)
         
         let planeEntity = ModelEntity(mesh: planeMesh, materials: [material])
         planeEntity.name = "canvas"
@@ -51,7 +49,7 @@ struct PostersView: View {
     
     private func getWall(list: String) -> Entity {
         let wallAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(0.8, 0.8)))
-//        let planeMesh = MeshResource.generatePlane(width: 2.75, depth: 2.625, cornerRadius: 0.1)
+        //        let planeMesh = MeshResource.generatePlane(width: 2.75, depth: 2.625, cornerRadius: 0.1)
         let planeMesh = MeshResource.generatePlane(width: 3.75, depth: 0.5, cornerRadius: 0.1)
         
         let material = PostersView.loadImageMaterial(imageUrl: list)
@@ -64,35 +62,13 @@ struct PostersView: View {
     }
     
     var body: some View {
-        RealityView { content, _ in
-            
+        RealityView { content in
             content.add(planeEntity)
             
-            generate().forEach {
-                content.add($0)
-            }
-            
-        } update: { content, attachments in
-            
-//            generate().forEach {
-//                content.add($0)
-//            }
-            
-        } attachments: {
-            Attachment(id: "Attachment") {
-                Text("Poster")
-            }
+            //            generate().forEach {
+            //                content.add($0)
+            //            }
         }
-        .gesture(TapGesture().targetedToAnyEntity().onEnded({ entity in
-            var transform = entity.entity.transform
-            transform.translation = SIMD3(0.1, 0, -0.1)
-            entity.entity.move(
-                to: transform,
-                relativeTo: nil,
-                duration: 3,
-                timingFunction: .easeInOut
-            )
-        }))
     }
 }
 

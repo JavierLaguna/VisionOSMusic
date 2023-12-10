@@ -19,13 +19,19 @@ final class MainViewModel {
         )
     ]
     
+    // MARK: ImmersionStyles
+    var immersionStyle: ImmersionStyle = .mixed
+    var immersionVideoclip: SongVideoclip? = nil
+    
     var currentPlaylist: Playlist? = nil
+    var currentSongSecond: Int? = nil
+    
     var currentSong: Song? = nil {
         didSet {
             onChangeCurrentSong()
         }
     }
-    var currentSongSecond: Int? = nil
+    
     var status: PlayerStatus = .stopped {
         didSet {
             onChangeStatus()
