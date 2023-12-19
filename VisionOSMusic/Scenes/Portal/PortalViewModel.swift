@@ -49,7 +49,10 @@ final class PortalViewModel {
         let content = Entity()
         content.components[WorldComponent.self] = .init()
         
-        let rootEntity = try! ModelEntity.load(named: Scene3D.fender, in: realityKitContentBundle)
+        guard let rootEntity = try? ModelEntity.load(named: Scene3D.fender, in: realityKitContentBundle) else {
+            return content
+        }
+        
         rootEntity.position = SIMD3<Float>(x: 0, y: -0.5, z: -1)
         content.addChild(rootEntity)
         

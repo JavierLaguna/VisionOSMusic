@@ -8,7 +8,9 @@ public struct DrumKitPieceComponent: Component, Codable {
 
     public var type: PieceType = .kick
 
-    public init() {}
+    public init() {
+        // Intentional empty
+    }
 }
 
 // MARK: PieceType

@@ -29,11 +29,11 @@ final class PortalLandscapeViewModel {
     func makePortalContent() -> Entity {
         let content = Entity()
         content.components[WorldComponent.self] = .init()
-        let backgroundEntity = ImmersiveViewBackgroundEntity(imageResource: immersiveBg.resource)
+        backgroundEntity = ImmersiveViewBackgroundEntity(imageResource: immersiveBg.resource)
         
-        self.backgroundEntity = backgroundEntity
-        
-        content.addChild(backgroundEntity)
+        if let backgroundEntity {
+            content.addChild(backgroundEntity)
+        }
                 
         return content
     }
