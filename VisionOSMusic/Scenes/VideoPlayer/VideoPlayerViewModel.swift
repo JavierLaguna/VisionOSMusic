@@ -28,10 +28,10 @@ final class VideoPlayerViewModel {
     }
     
     init() {
-        let player = AVPlayer()
-        self.player = player
+        let avPlayer = AVPlayer()
+        player = avPlayer
         
-        videoPlayerEntity = Self.headRelativeVideo(player: player)
+        videoPlayerEntity = Self.headRelativeVideo(player: avPlayer)
     }
     
     func setInitial(immersiveBg: ImmersiveBackgroundScene) {

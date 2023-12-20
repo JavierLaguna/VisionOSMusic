@@ -7,5 +7,6 @@ public struct BillboardComponent: Component, Codable {
     public static var componentName: String { "RealityKitContent.BillboardComponent" }
 
     public init() {
+        // Intentional empty
     }
 }
