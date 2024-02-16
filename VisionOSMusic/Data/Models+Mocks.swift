@@ -119,7 +119,8 @@ extension Playlist {
                 albumCover: "https://cdns-images.dzcdn.net/images/cover/000a9228cecfcc7c2093d9cd7bb66447/500x500.jpg",
                 author: "Ed Sheeran",
                 duration: "3:53",
-                lyrics: Song.songLyricsMock
+                lyrics: Song.songLyricsMock,
+                songVideoclip: SongVideoclip.atmosVideoclip
             ),
             Song(
                 id: UUID().uuidString,
@@ -422,7 +423,8 @@ extension Playlist {
                 albumCover: "https://upload.wikimedia.org/wikipedia/en/0/0b/Astroworld_by_Travis_Scott.jpg",
                 author: "Travis Scott",
                 duration: "5:12",
-                lyrics: Song.songLyricsMock
+                lyrics: Song.songLyricsMock,
+                songVideoclip: SongVideoclip.jurassicVideoclip
             ),
             Song(
                 id: UUID().uuidString,
@@ -760,8 +762,14 @@ extension User {
 
 extension SongVideoclip {
     
-    static let batteryVideoclip = SongVideoclip(
+    static let batteryVideoclip = SongVideoclip.local(
         name: "battery",
         format: "mp4"
+    )
+    
+    static let atmosVideoclip = SongVideoclip.remote(url: "https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8"
+    )
+    
+    static let jurassicVideoclip = SongVideoclip.remote(url: "https://devstreaming-cdn.apple.com/videos/streaming/examples/historic_planet_content_2023-10-26-3d-video/main.m3u8"
     )
 }

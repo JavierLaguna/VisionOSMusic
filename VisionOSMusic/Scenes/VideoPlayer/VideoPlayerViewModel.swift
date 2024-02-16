@@ -7,7 +7,7 @@ import AVKit
 final class VideoPlayerViewModel {
     
     let immersionStyles: [ImmersionStylesSelectable] = [.mixed, .progressive, .full]
-        
+    
     private(set) var videoPlayerEntity: Entity
     private(set) var player: AVPlayer
     private(set) var immersiveBg: ImmersiveBackgroundScene = BusinessConstants.DefaultValues.favoriteImmersiveBg
@@ -39,16 +39,9 @@ final class VideoPlayerViewModel {
     }
     
     func load(videoclip: SongVideoclip) {
-        guard let assetUrl = Bundle.main.url(
-            forResource: videoclip.name,
-            withExtension: videoclip.format
-        ) else {
+        guard let assetUrl = getVideoAssetUrl(from: videoclip) else {
             return
         }
-        
-//        let videoAsset = AVURLAsset(url: URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/historic_planet_content_2023-10-26-3d-video/main.m3u8")!)
-
-//        let videoAsset = AVURLAsset(url: URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8")!)
         
         let videoAsset = AVURLAsset(url: assetUrl)
         let playerItem = AVPlayerItem(asset: videoAsset)
@@ -94,5 +87,24 @@ private extension VideoPlayerViewModel {
         // entity.scale *= 0.4
         
         return entity
+    }
+    
+    func getVideoAssetUrl(from videoclip: SongVideoclip) -> URL? {
+        switch videoclip {
+        case let .local(name, format):
+            if let assetUrl = Bundle.main.url(
+                forResource: name,
+                withExtension: format
+            ) {
+                return assetUrl
+            }
+            
+        case let .remote(url):
+            if let assetUrl = URL(string: url) {
+                return assetUrl
+            }
+        }
+        
+        return nil
     }
 }

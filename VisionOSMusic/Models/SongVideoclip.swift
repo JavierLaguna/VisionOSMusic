@@ -1,5 +1,5 @@
 
-struct SongVideoclip: Equatable, Hashable {
-    let name: String
-    let format: String
+enum SongVideoclip: Equatable, Hashable {
+    case local(name: String, format: String)
+    case remote(url: String)
 }
