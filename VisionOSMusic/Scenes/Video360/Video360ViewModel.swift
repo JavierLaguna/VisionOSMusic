@@ -42,7 +42,6 @@ final class Video360ViewModel {
         updateVideoDuration()
         isPlayingVideo = true
         
-        
         // TODO: JLI
         // Update progress
 //        Task {
