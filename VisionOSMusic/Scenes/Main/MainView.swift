@@ -31,12 +31,20 @@ struct MainView: View {
             .tag(2)
             
             NavigationStack {
+                ImmersiveView()
+            }
+            .tabItem {
+                Label("Immersive", systemImage: "visionpro.circle")
+            }
+            .tag(3)
+            
+            NavigationStack {
                 SettingsView()
             }
             .tabItem {
                 Label("Settings", systemImage: "gear")
             }
-            .tag(3)
+            .tag(4)
         }
         .ornament(
             attachmentAnchor: .scene(.bottom),

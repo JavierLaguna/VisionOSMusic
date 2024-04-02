@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4902113B2BBAEB04004C1DA0 /* beach_headland.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4902113A2BBAEB04004C1DA0 /* beach_headland.mp4 */; };
+		4902113D2BBAEF6B004C1DA0 /* Video360ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902113C2BBAEF6B004C1DA0 /* Video360ViewModel.swift */; };
+		490211402BBAFC8D004C1DA0 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902113F2BBAFC8D004C1DA0 /* ImmersiveView.swift */; };
+		490211422BBB0BEF004C1DA0 /* Video360ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490211412BBB0BEF004C1DA0 /* Video360ControlsView.swift */; };
 		490BF6062A71596D008CB8F3 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6052A71596D008CB8F3 /* PlayerStatus.swift */; };
 		490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6072A71628F008CB8F3 /* TimerUtils.swift */; };
 		490C057B2ACAE5230012990C /* PlainNavLinkModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C057A2ACAE5230012990C /* PlainNavLinkModifier.swift */; };
@@ -16,6 +20,7 @@
 		490C05832ACC73200012990C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05822ACC731F0012990C /* User.swift */; };
 		490C05852ACD496B0012990C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C05842ACD496B0012990C /* MainCoordinator.swift */; };
 		491754782B1527AC005142E9 /* PortalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491754772B1527AC005142E9 /* PortalViewModel.swift */; };
+		4929EE962BBAC0D10080AC6F /* Video360View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4929EE952BBAC0D10080AC6F /* Video360View.swift */; };
 		492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAB2A81175A00008C2D /* Instrument.swift */; };
 		492CDDAE2A81435200008C2D /* View+visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CDDAD2A81435200008C2D /* View+visibility.swift */; };
 		4930A7082A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */; };
@@ -81,6 +86,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4902113A2BBAEB04004C1DA0 /* beach_headland.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = beach_headland.mp4; sourceTree = "<group>"; };
+		4902113C2BBAEF6B004C1DA0 /* Video360ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video360ViewModel.swift; sourceTree = "<group>"; };
+		4902113F2BBAFC8D004C1DA0 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		490211412BBB0BEF004C1DA0 /* Video360ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video360ControlsView.swift; sourceTree = "<group>"; };
 		490BF6052A71596D008CB8F3 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		490BF6072A71628F008CB8F3 /* TimerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtils.swift; sourceTree = "<group>"; };
 		490C057A2ACAE5230012990C /* PlainNavLinkModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainNavLinkModifier.swift; sourceTree = "<group>"; };
@@ -90,6 +99,7 @@
 		490C05822ACC731F0012990C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		490C05842ACD496B0012990C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		491754772B1527AC005142E9 /* PortalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewModel.swift; sourceTree = "<group>"; };
+		4929EE952BBAC0D10080AC6F /* Video360View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video360View.swift; sourceTree = "<group>"; };
 		492CDDAB2A81175A00008C2D /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		492CDDAD2A81435200008C2D /* View+visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+visibility.swift"; sourceTree = "<group>"; };
 		4930A7072A94A5CD00FE382F /* DrumKitPieceRuntimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumKitPieceRuntimeComponent.swift; sourceTree = "<group>"; };
@@ -168,6 +178,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4902113E2BBAFC7A004C1DA0 /* Immersive */ = {
+			isa = PBXGroup;
+			children = (
+				4902113F2BBAFC8D004C1DA0 /* ImmersiveView.swift */,
+			);
+			path = Immersive;
+			sourceTree = "<group>";
+		};
+		4929EE942BBAC0B40080AC6F /* Video360 */ = {
+			isa = PBXGroup;
+			children = (
+				4929EE952BBAC0D10080AC6F /* Video360View.swift */,
+				4902113C2BBAEF6B004C1DA0 /* Video360ViewModel.swift */,
+				490211412BBB0BEF004C1DA0 /* Video360ControlsView.swift */,
+			);
+			path = Video360;
+			sourceTree = "<group>";
+		};
 		4930A7062A94A57D00FE382F /* DrumDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +449,7 @@
 			children = (
 				49D20CFF2B11F20A00CE32B8 /* Cube */,
 				494318B72A727DC100F2C363 /* Home */,
+				4902113E2BBAFC7A004C1DA0 /* Immersive */,
 				49A6595A2ACE9F3D0075EE1C /* Info */,
 				496C78C02A80C6FA00161EF6 /* Instruments */,
 				49BC06842A6064C300105373 /* Main */,
@@ -432,6 +461,7 @@
 				498EF83A2A9F626700790749 /* Settings */,
 				4945AC572A8A182F00A0FB0D /* SmallPlayer */,
 				496C78BB2A7D20FC00161EF6 /* Splash */,
+				4929EE942BBAC0B40080AC6F /* Video360 */,
 				49D0596B2AF0E72B00A01E17 /* VideoPlayer */,
 			);
 			path = Scenes;
@@ -480,6 +510,7 @@
 		49D0596E2AF0E99300A01E17 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				4902113A2BBAEB04004C1DA0 /* beach_headland.mp4 */,
 				493E8C8A2B261BB000AD90EC /* iPhone15Video3DTest.mp4 */,
 				49F3581D2AF963A20055D406 /* battery.mp4 */,
 			);
@@ -564,6 +595,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4902113B2BBAEB04004C1DA0 /* beach_headland.mp4 in Resources */,
 				4989D3AA2A6045F60040A41F /* Preview Assets.xcassets in Resources */,
 				49F3581E2AF963A20055D406 /* battery.mp4 in Resources */,
 				4989D3A72A6045F60040A41F /* Assets.xcassets in Resources */,
@@ -590,6 +622,7 @@
 				49D20CFE2B11E8C300CE32B8 /* ParticleTransitionSystem.swift in Sources */,
 				498EF83F2A9F654B00790749 /* BusinessConstants.swift in Sources */,
 				49B43BF92A702749007E9986 /* Array+subscript.swift in Sources */,
+				4929EE962BBAC0D10080AC6F /* Video360View.swift in Sources */,
 				490C057F2ACB3A020012990C /* Collection+choose.swift in Sources */,
 				495B271A2A9795FA008434D7 /* BillboardSystem.swift in Sources */,
 				49B43BF32A701B7F007E9986 /* PlayerControls.swift in Sources */,
@@ -615,6 +648,7 @@
 				49F50D832AC4B2D1001E5346 /* PlaylistsCoordinator.swift in Sources */,
 				4930A70E2A94A6DD00FE382F /* AttachmentsProvider.swift in Sources */,
 				49BC06872A61329E00105373 /* PlaylistContentView.swift in Sources */,
+				490211422BBB0BEF004C1DA0 /* Video360ControlsView.swift in Sources */,
 				4963D7AE2A7B9A8500787123 /* PlaylistsMainContentView.swift in Sources */,
 				49B43BF52A701C4B007E9986 /* MainViewModel.swift in Sources */,
 				493E8C872B26144B00AD90EC /* PortalLandscapeView.swift in Sources */,
@@ -631,6 +665,7 @@
 				494318BA2A727E1400F2C363 /* HomeView.swift in Sources */,
 				496C78C22A80C9D100161EF6 /* MainInstrumentsView.swift in Sources */,
 				49EF98942A8E213E00F14F9F /* YoutubePlayerView.swift in Sources */,
+				4902113D2BBAEF6B004C1DA0 /* Video360ViewModel.swift in Sources */,
 				496C78BD2A7D210C00161EF6 /* SplashView.swift in Sources */,
 				4977BCB72A9CE2CA00497A2F /* SticksModel3D.swift in Sources */,
 				490C05812ACB3B290012990C /* RecommendationCategory.swift in Sources */,
@@ -643,6 +678,7 @@
 				492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */,
 				4945AC5E2A8A2DFB00A0FB0D /* DrumDemo.swift in Sources */,
 				490C057B2ACAE5230012990C /* PlainNavLinkModifier.swift in Sources */,
+				490211402BBAFC8D004C1DA0 /* ImmersiveView.swift in Sources */,
 				490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
