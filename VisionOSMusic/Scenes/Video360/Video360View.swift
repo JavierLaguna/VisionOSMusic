@@ -5,6 +5,9 @@ import AVFoundation
 
 struct Video360View: View {
     
+    static private let defaultVideoName = "beach_headland"
+    static private let defaultVideoExtension = "mp4"
+    
     @Environment(\.openWindow) private var openWindow
     
     @Environment(Video360ViewModel.self) private var viewModel
@@ -31,7 +34,11 @@ struct Video360View: View {
         .upperLimbVisibility(.hidden)
         .onAppear {
             openWindow(id: WindowName.video360Controls)
-            viewModel.load(name: "beach_headland")
+            
+            viewModel.load(
+                name: Self.defaultVideoName,
+                extenstion: Self.defaultVideoExtension
+            )
         }
     }
 }

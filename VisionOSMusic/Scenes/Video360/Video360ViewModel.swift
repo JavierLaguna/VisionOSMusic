@@ -31,8 +31,8 @@ final class Video360ViewModel {
         player = avPlayer
     }
     
-    func load(name: String) {
-        guard let assetUrl = getAssetUrl(name: name) else {
+    func load(name: String, extenstion: String) {
+        guard let assetUrl = getAssetUrl(name: name, extenstion: extenstion) else {
             return
         }
         
@@ -65,10 +65,10 @@ final class Video360ViewModel {
 // MARK: Private methods
 private extension Video360ViewModel {
     
-    func getAssetUrl(name: String) -> URL? {
+    func getAssetUrl(name: String, extenstion: String) -> URL? {
         guard let assetUrl = Bundle.main.url(
             forResource: name,
-            withExtension: "mp4"
+            withExtension: extenstion
         ) else {
             return nil
         }
@@ -82,6 +82,7 @@ private extension Video360ViewModel {
         Task {
             let duration = try await asset.load(.duration)
             guard asset.status(of: .duration) == .loaded(duration) else { return }
+            
             await MainActor.run {
                 self.videoDuration = CMTimeGetSeconds(duration)
             }

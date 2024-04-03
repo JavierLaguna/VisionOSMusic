@@ -31,10 +31,10 @@ struct MainView: View {
             .tag(2)
             
             NavigationStack {
-                ImmersiveView()
+                ExperiencesView()
             }
             .tabItem {
-                Label("Immersive", systemImage: "visionpro.circle")
+                Label("Experiences", systemImage: "visionpro.circle")
             }
             .tag(3)
             

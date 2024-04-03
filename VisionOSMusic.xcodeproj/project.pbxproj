@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4902113B2BBAEB04004C1DA0 /* beach_headland.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4902113A2BBAEB04004C1DA0 /* beach_headland.mp4 */; };
 		4902113D2BBAEF6B004C1DA0 /* Video360ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902113C2BBAEF6B004C1DA0 /* Video360ViewModel.swift */; };
-		490211402BBAFC8D004C1DA0 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902113F2BBAFC8D004C1DA0 /* ImmersiveView.swift */; };
+		490211402BBAFC8D004C1DA0 /* ExperiencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902113F2BBAFC8D004C1DA0 /* ExperiencesView.swift */; };
 		490211422BBB0BEF004C1DA0 /* Video360ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490211412BBB0BEF004C1DA0 /* Video360ControlsView.swift */; };
 		490BF6062A71596D008CB8F3 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6052A71596D008CB8F3 /* PlayerStatus.swift */; };
 		490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BF6072A71628F008CB8F3 /* TimerUtils.swift */; };
@@ -88,7 +88,7 @@
 /* Begin PBXFileReference section */
 		4902113A2BBAEB04004C1DA0 /* beach_headland.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = beach_headland.mp4; sourceTree = "<group>"; };
 		4902113C2BBAEF6B004C1DA0 /* Video360ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video360ViewModel.swift; sourceTree = "<group>"; };
-		4902113F2BBAFC8D004C1DA0 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		4902113F2BBAFC8D004C1DA0 /* ExperiencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesView.swift; sourceTree = "<group>"; };
 		490211412BBB0BEF004C1DA0 /* Video360ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video360ControlsView.swift; sourceTree = "<group>"; };
 		490BF6052A71596D008CB8F3 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		490BF6072A71628F008CB8F3 /* TimerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtils.swift; sourceTree = "<group>"; };
@@ -178,12 +178,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4902113E2BBAFC7A004C1DA0 /* Immersive */ = {
+		4902113E2BBAFC7A004C1DA0 /* Experiences */ = {
 			isa = PBXGroup;
 			children = (
-				4902113F2BBAFC8D004C1DA0 /* ImmersiveView.swift */,
+				4902113F2BBAFC8D004C1DA0 /* ExperiencesView.swift */,
 			);
-			path = Immersive;
+			path = Experiences;
 			sourceTree = "<group>";
 		};
 		4929EE942BBAC0B40080AC6F /* Video360 */ = {
@@ -448,8 +448,8 @@
 			isa = PBXGroup;
 			children = (
 				49D20CFF2B11F20A00CE32B8 /* Cube */,
+				4902113E2BBAFC7A004C1DA0 /* Experiences */,
 				494318B72A727DC100F2C363 /* Home */,
-				4902113E2BBAFC7A004C1DA0 /* Immersive */,
 				49A6595A2ACE9F3D0075EE1C /* Info */,
 				496C78C02A80C6FA00161EF6 /* Instruments */,
 				49BC06842A6064C300105373 /* Main */,
@@ -678,7 +678,7 @@
 				492CDDAC2A81175A00008C2D /* Instrument.swift in Sources */,
 				4945AC5E2A8A2DFB00A0FB0D /* DrumDemo.swift in Sources */,
 				490C057B2ACAE5230012990C /* PlainNavLinkModifier.swift in Sources */,
-				490211402BBAFC8D004C1DA0 /* ImmersiveView.swift in Sources */,
+				490211402BBAFC8D004C1DA0 /* ExperiencesView.swift in Sources */,
 				490BF6082A71628F008CB8F3 /* TimerUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
