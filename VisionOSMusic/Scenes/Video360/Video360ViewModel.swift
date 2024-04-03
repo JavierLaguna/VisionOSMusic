@@ -13,6 +13,8 @@ final class Video360ViewModel {
         didSet {
             if isPlayingVideo {
                 player.play()
+                updateProgress()
+                
             } else {
                 player.pause()
             }
@@ -41,18 +43,16 @@ final class Video360ViewModel {
         
         updateVideoDuration()
         isPlayingVideo = true
+    }
+    
+    func load(url: URL) {
+        let videoAsset = AVURLAsset(url: url)
+        let playerItem = AVPlayerItem(asset: videoAsset)
         
-        // TODO: JLI
-        // Update progress
-//        Task {
-//            let clock = ContinuousClock()
-//            let timerSequence = AsyncTimerSequence.repeating(every: .seconds(0.1), clock: clock)
-//            let sequence = chain([clock.now].async, timerSequence)
-//
-//            for await _ in sequence where currentItemURL != nil {
-//                progress = player.currentTime().seconds
-//            }
-//        }
+        player.replaceCurrentItem(with: playerItem)
+        
+        updateVideoDuration()
+        isPlayingVideo = true
     }
     
     func seek(to newProgress: Double) {
@@ -85,6 +85,18 @@ private extension Video360ViewModel {
             await MainActor.run {
                 self.videoDuration = CMTimeGetSeconds(duration)
             }
+        }
+    }
+    
+    func updateProgress() {
+        guard isPlayingVideo else { return }
+        
+        progress = player.currentTime().seconds
+        
+        Task {
+            await TimerUtils.waitTime(time: .seconds(1))
+            
+            updateProgress()
         }
     }
 }
