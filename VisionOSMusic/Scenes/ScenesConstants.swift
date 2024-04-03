@@ -11,6 +11,8 @@ struct WindowName {
     static let portal = "PortalWindow"
     static let cube = "CubeWindow"
     static let portalLandscape = "PortalLandscape"
+    static let video360Controls = "Video360Controls"
+    static let video360 = "Video360"
 }
 
 struct Scene3D {
