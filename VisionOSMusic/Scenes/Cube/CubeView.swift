@@ -16,6 +16,7 @@ struct CubeView: View {
     
     @State private var root: Entity?
     @State private var cube: ModelEntity?
+    @State private var updateCubeFace = false
     
     private func makeFloor() -> Entity {
         let entity = Entity()
@@ -74,6 +75,7 @@ struct CubeView: View {
         guard let cube else { return }
         
         await cube.setPhysicsComponent(mode: .dynamic, inertia: 20, mass: 10)
+        await cube.components.set(PhysicsMotionComponent())
     }
     
     private func onTapCube() {
@@ -111,6 +113,8 @@ struct CubeView: View {
     }
     
     private func onEndCubeDrag() {
+        updateCubeFace = true
+        
         Task {
             await addPhysicsToCube()
         }
@@ -132,6 +136,55 @@ struct CubeView: View {
             root.addChild(cube)
             
             content.add(root)
+            
+            let _ = content.subscribe(to: SceneEvents.Update.self) { event in
+                // TODO: JLI listen only when cube stopped
+                
+                guard 
+//                    updateCubeFace,
+                      let cubeMotion = cube.components[PhysicsMotionComponent.self] else {
+                    return
+                }
+                
+                if simd_length(cubeMotion.linearVelocity) < 0.1 && simd_length(cubeMotion.angularVelocity) < 0.1 {
+                    let xDirection = cube.convert(direction: SIMD3(x: 1, y: 0, z: 0), to: nil)
+                    let yDirection = cube.convert(direction: SIMD3(x: 0, y: 1, z: 0), to: nil)
+                    let zDirection = cube.convert(direction: SIMD3(x: 0, y: 0, z: 1), to: nil)
+                    
+                    let greatestDirection = [
+                        0: xDirection.y,
+                        1: yDirection.y,
+                        2: zDirection.y
+                    ].sorted(by: { abs($0.1) > abs($1.1) }).first! // TODO: JLO
+                    print("xDirection", xDirection)
+                    print("yDirection", yDirection)
+                    print("zDirection", zDirection)
+                    print("greatestDirection", greatestDirection)
+                    
+//                    let facesChunked = cubeFaces.chunked(into: 2)
+                    
+//                    private let cubeFaces = [
+//                        "playlist_rock",
+//                        "playlist_rap",
+//                        "playlist_techno",
+//                        "playlist_funk",
+//                        "playlist_blues",
+//                        "playlist_pop"
+//                    ]
+                    
+                    let facesChunked = [
+                        ["playlist_rap", "playlist_funk"],
+                        ["playlist_pop", "playlist_blues"],
+                        ["playlist_rock", "playlist_techno"],
+                        
+                    ]
+                    
+                    let topFace = facesChunked[greatestDirection.key][greatestDirection.value > 0 ? 0 : 1]
+                    print("TOP FACE", topFace)
+                    
+                    updateCubeFace = false
+                }
+            }
         }
         .gesture(
             SpatialTapGesture()
@@ -158,6 +211,14 @@ struct CubeView: View {
                     }
                 }
         )
+    }
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
     }
 }
 
