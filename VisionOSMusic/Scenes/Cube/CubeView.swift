@@ -4,8 +4,13 @@ import RealityKit
 
 struct CubeView: View {
     
+    private struct CubeFace {
+        let playlistName: String
+        let material: SimpleMaterial
+    }
+    
     private let cubeName = "CubeEntity"
-    private let cubeFaces = [
+    private let playlists = [
         "playlist_rock",
         "playlist_rap",
         "playlist_techno",
@@ -16,6 +21,7 @@ struct CubeView: View {
     
     @State private var root: Entity?
     @State private var cube: ModelEntity?
+    @State private var playlistCubeOrder: [String] = []
     @State private var updateCubeFace = false
     
     private func makeFloor() -> Entity {
@@ -28,18 +34,17 @@ struct CubeView: View {
     }
     
     private func makeCube() async -> ModelEntity {
-        
-        let materials: [SimpleMaterial]? = try? await withThrowingTaskGroup(of: SimpleMaterial?.self) { group in
-            return try await withThrowingTaskGroup(of: SimpleMaterial?.self) { group in
+        let cubeFaces: [CubeFace]? = try? await withThrowingTaskGroup(of: CubeFace?.self) { group in
+            return try await withThrowingTaskGroup(of: CubeFace?.self) { group in
                 
-                for assetName in cubeFaces {
+                for playlistName in playlists {
                     group.addTask {
                         do {
-                            let texture = try await TextureResource(named: assetName)
+                            let texture = try await TextureResource(named: playlistName)
                             var material = SimpleMaterial()
                             material.color = .init(texture: .init(texture))
-                            
-                            return material
+                                                        
+                            return CubeFace(playlistName: playlistName, material: material)
                             
                         } catch {
                             return nil
@@ -47,21 +52,24 @@ struct CubeView: View {
                     }
                 }
                 
-                return try await group.reduce(into: [SimpleMaterial]()) { materials, material in
-                    if let material = material {
+                return try await group
+                    .compactMap { $0 }
+                    .reduce(into: [CubeFace]()) { materials, material in
                         materials.append(material)
                     }
-                }
             }
         }
         
         let entity = await ModelEntity()
         
-        if let materials {
+        if let cubeFaces {
+            playlistCubeOrder = cubeFaces.map { $0.playlistName }
+            let materials = cubeFaces.map { $0.material }
+            
             await entity.components.set(ModelComponent(
                 mesh: .generateBox(width: 0.5, height: 0.5, depth: 0.5, splitFaces: true),
-                materials: materials)
-            )
+                materials: materials
+            ))
             
             await entity.components.set(HoverEffectComponent())
             await entity.components.set(InputTargetComponent())
@@ -173,15 +181,18 @@ struct CubeView: View {
 //                    ]
                     
                     let facesChunked = [
-                        ["playlist_rap", "playlist_funk"],
-                        ["playlist_pop", "playlist_blues"],
-                        ["playlist_rock", "playlist_techno"],
-                        
+                        [playlistCubeOrder[2], playlistCubeOrder[3]],
+                        [playlistCubeOrder[1], playlistCubeOrder[4]],
+                        [playlistCubeOrder[5], playlistCubeOrder[0]],
                     ]
+                    
+                    // 1,6
+                    // 4,3
+                    // 2,5
                     
                     let topFace = facesChunked[greatestDirection.key][greatestDirection.value > 0 ? 0 : 1]
                     print("TOP FACE", topFace)
-                    
+                    let aa = playlistCubeOrder
                     updateCubeFace = false
                 }
             }
