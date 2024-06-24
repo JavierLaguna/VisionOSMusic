@@ -35,10 +35,11 @@ final class PortalViewModel {
     func makePortal(content: Entity) -> Entity {
         let portal = Entity()
         portal.components[ModelComponent.self] = .init(
-            mesh: .generatePlane(width: 1, height: 1, cornerRadius: 0.5),
+            mesh: .generatePlane(width: 2, depth: 2, cornerRadius: 1),
             materials: [PortalMaterial()]
         )
         
+        content.orientation = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
         let portalComponent = PortalComponent(target: content)
         portal.components[PortalComponent.self] = portalComponent
     
@@ -61,6 +62,17 @@ final class PortalViewModel {
         if let lightComponent {
             content.components[ImageBasedLightComponent.self] = lightComponent
         }
+        
+        let resource = try! TextureResource.load(named: "lake_bg_scene")
+        var material = UnlitMaterial()
+        material.color = .init(texture: .init(resource))
+        let background = Entity()
+        background.components.set(ModelComponent(
+            mesh: .generateSphere(radius: 1000),
+            materials: [material])
+        )
+        background.scale.x *= -1
+        content.addChild(background)
         
         portalContent = content
         

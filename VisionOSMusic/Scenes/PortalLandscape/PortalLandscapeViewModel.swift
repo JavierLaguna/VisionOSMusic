@@ -15,8 +15,9 @@ final class PortalLandscapeViewModel {
     
     func makePortal(content: Entity) -> Entity {
         let portal = Entity()
+        portal.orientation = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
         portal.components[ModelComponent.self] = .init(
-            mesh: .generatePlane(width: 1.5, height: 1.5, cornerRadius: 0),
+            mesh: .generatePlane(width: 4, height: 2, cornerRadius: 0),
             materials: [PortalMaterial()]
         )
         
@@ -29,6 +30,7 @@ final class PortalLandscapeViewModel {
     func makePortalContent() -> Entity {
         let content = Entity()
         content.components[WorldComponent.self] = .init()
+        content.orientation = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
         backgroundEntity = ImmersiveViewBackgroundEntity(imageResource: immersiveBg.resource)
         
         if let backgroundEntity {
