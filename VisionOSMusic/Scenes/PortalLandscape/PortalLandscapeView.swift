@@ -27,7 +27,7 @@ struct PortalLandscapeView: View {
             let portalContent = viewModel.makePortalContent()
             let portal = viewModel.makePortal(content: portalContent)
             
-            let wallAnchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2(1.5, 1.5)))
+            let wallAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(3, 3)))
             
             wallAnchor.addChild(portalContent)
             wallAnchor.addChild(portal)

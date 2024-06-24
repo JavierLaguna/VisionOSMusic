@@ -71,15 +71,8 @@ struct PortalView: View {
             let portalContent = viewModel.makePortalContent()
             let portal = viewModel.makePortal(content: portalContent)
             
-            let wallAnchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2(1, 1)))
+            let wallAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(1, 1)), trackingMode: .continuous)
             
-            let planeMesh = MeshResource.generatePlane(width: 3.75, depth: 2.625, cornerRadius: 0.1)
-            
-            let material = PostersView.loadImageMaterial(imageUrl: "playlist_rap")
-            
-            let planeEntity = ModelEntity(mesh: planeMesh, materials: [material])
-            
-            wallAnchor.addChild(planeEntity)
             wallAnchor.addChild(portalContent)
             wallAnchor.addChild(portal)
             
