@@ -35,13 +35,19 @@ final class PortalViewModel {
     func makePortal(content: Entity) -> Entity {
         let portal = Entity()
         portal.components[ModelComponent.self] = .init(
-            mesh: .generatePlane(width: 2, depth: 2, cornerRadius: 1),
+            mesh: .generatePlane(width: 4, depth: 4, cornerRadius: 1),
             materials: [PortalMaterial()]
         )
         
-        content.orientation = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
-        let portalComponent = PortalComponent(target: content)
-        portal.components[PortalComponent.self] = portalComponent
+//        content.orientation = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
+        if #available(visionOS 2.0, *) {
+            let portalComponent = PortalComponent(target: content, clippingMode: .disabled, crossingMode: .disabled)
+//            let portalComponent = PortalComponent(target: content)
+            portal.components[PortalComponent.self] = portalComponent
+        } else {
+            // Fallback on earlier versions
+        }
+        
     
         return portal
     }
@@ -50,17 +56,19 @@ final class PortalViewModel {
         let content = Entity()
         content.components[WorldComponent.self] = .init()
         
-        guard let rootEntity = try? ModelEntity.load(named: Scene3D.fender, in: realityKitContentBundle) else {
+        guard let rootEntity = try? ModelEntity.load(named: Scene3D.fender, in: realityKitContentBundle) else
+//        guard let rootEntity = try? ModelEntity.load(named: "RocketScene", in: realityKitContentBundle) else
+        {
             return content
         }
         
-        rootEntity.position = SIMD3<Float>(x: 0, y: -0.5, z: -1)
+        rootEntity.position = SIMD3<Float>(x: 0, y: 0, z: -1)
         content.addChild(rootEntity)
         
-        content.components[ImageBasedLightReceiverComponent.self] = .init(imageBasedLight: content)
+//        content.components[ImageBasedLightReceiverComponent.self] = .init(imageBasedLight: content)
         
         if let lightComponent {
-            content.components[ImageBasedLightComponent.self] = lightComponent
+//            content.components[ImsageBasedLightComponent.self] = lightComponent
         }
         
         let resource = try! TextureResource.load(named: "lake_bg_scene")
@@ -72,7 +80,7 @@ final class PortalViewModel {
             materials: [material])
         )
         background.scale.x *= -1
-        content.addChild(background)
+//        content.addChild(background)
         
         portalContent = content
         
