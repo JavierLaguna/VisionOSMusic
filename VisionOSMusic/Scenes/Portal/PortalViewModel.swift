@@ -38,16 +38,11 @@ final class PortalViewModel {
             mesh: .generatePlane(width: 4, depth: 4, cornerRadius: 1),
             materials: [PortalMaterial()]
         )
-        
+    
 //        content.orientation = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
-        if #available(visionOS 2.0, *) {
-            let portalComponent = PortalComponent(target: content, clippingMode: .disabled, crossingMode: .disabled)
-//            let portalComponent = PortalComponent(target: content)
-            portal.components[PortalComponent.self] = portalComponent
-        } else {
-            // Fallback on earlier versions
-        }
-        
+//        let portalComponent = PortalComponent(target: content)
+        let portalComponent = PortalComponent(target: content, clippingMode: .disabled, crossingMode: .disabled)
+        portal.components[PortalComponent.self] = portalComponent
     
         return portal
     }
