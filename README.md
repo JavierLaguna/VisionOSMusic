@@ -1,5 +1,7 @@
 #  🥽 VisionOS Music
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=JavierLaguna_VisionOSMusic)](https://sonarcloud.io/summary/new_code?id=JavierLaguna_VisionOSMusic)
+
 ## 📝 Description
 
 My first xrOS App!
